@@ -5,11 +5,13 @@ using UnityEngine;
 public class MapHandler : MonoBehaviour
 {
     public GameObject Map;
+    
     private float cooldown = 0f;
     public bool MapActive = false;
     void Start()
     {
         Map.SetActive(false);
+        Cursor.lockState = CursorLockMode.Locked;
     }
 
     // Update is called once per frame
@@ -27,9 +29,13 @@ public class MapHandler : MonoBehaviour
                     if (MapActive) {
                     MapActive = false;
                     Map.SetActive(false);
+                    Cursor.lockState = CursorLockMode.Locked;
+
                 } else {
                     MapActive = true;
                     Map.SetActive(true);
+                    Cursor.lockState = CursorLockMode.None;
+
                 }
                 }
         }
