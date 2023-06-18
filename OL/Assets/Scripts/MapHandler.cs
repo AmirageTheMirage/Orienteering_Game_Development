@@ -1,7 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-
+using UnityEngine.SceneManagement;
 public class MapHandler : MonoBehaviour
 {
     public GameObject Map;
@@ -17,7 +17,13 @@ public class MapHandler : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
+
+
+        if (Input.GetKeyDown(KeyCode.Escape))
+        {
+            SceneManager.LoadScene(0);
+        }
+
         if (cooldown >= 0)
         {
             cooldown = cooldown - 1 * Time.deltaTime;

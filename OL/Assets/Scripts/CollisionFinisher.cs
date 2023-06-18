@@ -68,7 +68,7 @@ public class CollisionFinisher : MonoBehaviour
                     AfterFP = AfterFP + 1f * Time.deltaTime;
                 } else
                 {
-                    SceneManager.LoadScene(0);
+                    SceneManager.LoadScene(1);
                 }
             }
         }

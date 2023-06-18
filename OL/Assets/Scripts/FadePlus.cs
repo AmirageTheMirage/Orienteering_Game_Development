@@ -13,7 +13,7 @@ public class FadePlus : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        Loading.SetActive(true);
+        Loading.SetActive(false);
         Color col = Fader.GetComponent<Image>().color;
         col.a = 1f;
         Fader.GetComponent<Image>().color = col;
@@ -22,7 +22,7 @@ public class FadePlus : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (AfterFP < 2) {
+        if (AfterFP < 1) {
 
             AfterFP = AfterFP + 1f * Time.deltaTime;
 

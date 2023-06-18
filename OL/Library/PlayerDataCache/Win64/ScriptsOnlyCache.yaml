@@ -2,12 +2,17 @@ ScriptsOnlyBuild:
   usedScripts:
     Assembly-CSharp.dll:
     - CollisionFinisher
+    - Compass
+    - DifficultySlider
     - FadePlus
     - FirstPersonAudio
     - FirstPersonLook
     - FirstPersonMovement
     - GroundCheck
     - MapHandler
+    - Menu_Circler
+    - Menu_MainMenuScript
+    - OutOfBounds
     - PostAssign
     - ShowPostsOnMap
     Unity.InputSystem.dll:
@@ -30,9 +35,12 @@ ScriptsOnlyBuild:
     UnityEngine.UI.dll:
     - UnityEngine.EventSystems.EventSystem
     - UnityEngine.EventSystems.StandaloneInputModule
+    - UnityEngine.UI.Button
     - UnityEngine.UI.CanvasScaler
     - UnityEngine.UI.GraphicRaycaster
     - UnityEngine.UI.Image
+    - UnityEngine.UI.RawImage
+    - UnityEngine.UI.Slider
   serializedClasses:
     Unity.InputSystem:
     - UnityEngine.InputSystem.InputSettings/iOSSettings
@@ -53,17 +61,37 @@ ScriptsOnlyBuild:
     - TMPro.TMP_Style
     - TMPro.VertexGradient
     UnityEngine.CoreModule:
+    - UnityEngine.Events.ArgumentCache
     - UnityEngine.Events.PersistentCallGroup
+    - UnityEngine.Events.PersistentListenerMode
     UnityEngine.TextCoreFontEngineModule:
     - UnityEngine.TextCore.FaceInfo
     - UnityEngine.TextCore.Glyph
     - UnityEngine.TextCore.GlyphMetrics
     - UnityEngine.TextCore.GlyphRect
     UnityEngine.UI:
+    - UnityEngine.UI.AnimationTriggers
+    - UnityEngine.UI.Button/ButtonClickedEvent
+    - UnityEngine.UI.ColorBlock
     - UnityEngine.UI.MaskableGraphic/CullStateChangedEvent
-  methodsToPreserve: []
+    - UnityEngine.UI.Navigation
+    - UnityEngine.UI.Slider/SliderEvent
+    - UnityEngine.UI.SpriteState
+  methodsToPreserve:
+  - assembly: Assembly-CSharp
+    fullTypeName: Menu_MainMenuScript
+    methodName: QuitGame
+  - assembly: Assembly-CSharp
+    fullTypeName: Menu_MainMenuScript
+    methodName: StartGame
+  - assembly: Assembly-CSharp
+    fullTypeName: Menu_MainMenuScript
+    methodName: BackToMainMenu
+  - assembly: Assembly-CSharp
+    fullTypeName: Menu_MainMenuScript
+    methodName: SettingsGame
   sceneClasses:
-    Assets/Scenes/SampleScene.unity:
+    Assets/Scenes/MainMenu.unity:
     - Class: 1
       Script: {instanceID: 0}
     - Class: 4
@@ -84,6 +112,97 @@ ScriptsOnlyBuild:
       Script: {instanceID: 0}
     - Class: 49
       Script: {instanceID: 0}
+    - Class: 64
+      Script: {instanceID: 0}
+    - Class: 81
+      Script: {instanceID: 0}
+    - Class: 89
+      Script: {instanceID: 0}
+    - Class: 104
+      Script: {instanceID: 0}
+    - Class: 108
+      Script: {instanceID: 0}
+    - Class: 114
+      Script: {instanceID: 1580}
+    - Class: 114
+      Script: {instanceID: 1872}
+    - Class: 114
+      Script: {instanceID: 1992}
+    - Class: 114
+      Script: {instanceID: 2378}
+    - Class: 114
+      Script: {instanceID: 2684}
+    - Class: 114
+      Script: {instanceID: 2814}
+    - Class: 114
+      Script: {instanceID: 2986}
+    - Class: 114
+      Script: {instanceID: 3046}
+    - Class: 114
+      Script: {instanceID: 3212}
+    - Class: 114
+      Script: {instanceID: 3480}
+    - Class: 114
+      Script: {instanceID: 3614}
+    - Class: 114
+      Script: {instanceID: 4186}
+    - Class: 114
+      Script: {instanceID: 4684}
+    - Class: 114
+      Script: {instanceID: 4988}
+    - Class: 114
+      Script: {instanceID: 5350}
+    - Class: 114
+      Script: {instanceID: 44214}
+    - Class: 115
+      Script: {instanceID: 0}
+    - Class: 128
+      Script: {instanceID: 0}
+    - Class: 136
+      Script: {instanceID: 0}
+    - Class: 154
+      Script: {instanceID: 0}
+    - Class: 156
+      Script: {instanceID: 0}
+    - Class: 157
+      Script: {instanceID: 0}
+    - Class: 196
+      Script: {instanceID: 0}
+    - Class: 213
+      Script: {instanceID: 0}
+    - Class: 218
+      Script: {instanceID: 0}
+    - Class: 222
+      Script: {instanceID: 0}
+    - Class: 223
+      Script: {instanceID: 0}
+    - Class: 224
+      Script: {instanceID: 0}
+    - Class: 258
+      Script: {instanceID: 0}
+    - Class: 850595691
+      Script: {instanceID: 0}
+    - Class: 1953259897
+      Script: {instanceID: 0}
+    Assets/Scenes/OLGameScene.unity:
+    - Class: 1
+      Script: {instanceID: 0}
+    - Class: 4
+      Script: {instanceID: 0}
+    - Class: 20
+      Script: {instanceID: 0}
+    - Class: 21
+      Script: {instanceID: 0}
+    - Class: 23
+      Script: {instanceID: 0}
+    - Class: 28
+      Script: {instanceID: 0}
+    - Class: 33
+      Script: {instanceID: 0}
+    - Class: 43
+      Script: {instanceID: 0}
+    - Class: 48
+      Script: {instanceID: 0}
     - Class: 54
       Script: {instanceID: 0}
     - Class: 64
@@ -103,45 +222,45 @@ ScriptsOnlyBuild:
     - Class: 108
       Script: {instanceID: 0}
     - Class: 114
-      Script: {instanceID: 1638}
+      Script: {instanceID: 1580}
     - Class: 114
-      Script: {instanceID: 1934}
+      Script: {instanceID: 1676}
     - Class: 114
-      Script: {instanceID: 1986}
+      Script: {instanceID: 1728}
     - Class: 114
-      Script: {instanceID: 2066}
+      Script: {instanceID: 1940}
     - Class: 114
-      Script: {instanceID: 2368}
+      Script: {instanceID: 1992}
     - Class: 114
-      Script: {instanceID: 2372}
+      Script: {instanceID: 2072}
     - Class: 114
-      Script: {instanceID: 2574}
+      Script: {instanceID: 2374}
     - Class: 114
-      Script: {instanceID: 2746}
+      Script: {instanceID: 2550}
     - Class: 114
-      Script: {instanceID: 2806}
+      Script: {instanceID: 2580}
     - Class: 114
-      Script: {instanceID: 2978}
+      Script: {instanceID: 2754}
     - Class: 114
-      Script: {instanceID: 3038}
+      Script: {instanceID: 2814}
+    - Class: 114
+      Script: {instanceID: 2986}
     - Class: 114
       Script: {instanceID: 3046}
     - Class: 114
-      Script: {instanceID: 3204}
+      Script: {instanceID: 3054}
     - Class: 114
-      Script: {instanceID: 3472}
+      Script: {instanceID: 3212}
     - Class: 114
-      Script: {instanceID: 3640}
+      Script: {instanceID: 3480}
     - Class: 114
-      Script: {instanceID: 4178}
+      Script: {instanceID: 3648}
     - Class: 114
-      Script: {instanceID: 4326}
+      Script: {instanceID: 4186}
     - Class: 114
-      Script: {instanceID: 4978}
+      Script: {instanceID: 4334}
     - Class: 114
-      Script: {instanceID: 5340}
-    - Class: 114
-      Script: {instanceID: 5972}
+      Script: {instanceID: 5982}
     - Class: 115
       Script: {instanceID: 0}
     - Class: 124
@@ -170,9 +289,19 @@ ScriptsOnlyBuild:
       Script: {instanceID: 0}
     - Class: 224
       Script: {instanceID: 0}
+    - Class: 258
+      Script: {instanceID: 0}
+    - Class: 850595691
+      Script: {instanceID: 0}
     - Class: 1953259897
       Script: {instanceID: 0}
   scriptHashData:
+  - hash:
+      serializedVersion: 2
+      Hash: a6e561615949734e9f12f9b61661f43e
+    assemblyName: UnityEngine.UI.dll
+    namespaceName: UnityEngine.UI
+    className: Image
   - hash:
       serializedVersion: 2
       Hash: 71bb6a6b6c8f052f948db64c7dd3ca4f
@@ -193,12 +322,6 @@ ScriptsOnlyBuild:
     className: BaseInputOverride
   - hash:
       serializedVersion: 2
-      Hash: a6e561615949734e9f12f9b61661f43e
-    assemblyName: UnityEngine.UI.dll
-    namespaceName: UnityEngine.UI
-    className: Image
-  - hash:
-      serializedVersion: 2
       Hash: c24a778d9aa393e11e54bff320ca63de
     assemblyName: Unity.InputSystem.dll
     namespaceName: UnityEngine.InputSystem
@@ -217,10 +340,22 @@ ScriptsOnlyBuild:
     className: CinemachineVolumeSettings
   - hash:
       serializedVersion: 2
+      Hash: c703d382a52b158016e9acfce076da34
+    assemblyName: Assembly-CSharp.dll
+    namespaceName: 
+    className: OutOfBounds
+  - hash:
+      serializedVersion: 2
       Hash: 77aaaaa51f7a8d8ff333a879741e47d2
     assemblyName: Unity.TextMeshPro.dll
     namespaceName: TMPro
     className: TMP_InputField
+  - hash:
+      serializedVersion: 2
+      Hash: e8e7e573457aa6d76780af888f0801df
+    assemblyName: Assembly-CSharp.dll
+    namespaceName: 
+    className: Compass
   - hash:
       serializedVersion: 2
       Hash: 71bb6a6b6c8f052f948db64c7dd3ca4f
@@ -313,7 +448,7 @@ ScriptsOnlyBuild:
     className: CinemachineCameraOffset
   - hash:
       serializedVersion: 2
-      Hash: 4130fb5535c2949744e7302411f426a0
+      Hash: 0804e381c42a88cc70e0a73514d0bd10
     assemblyName: Assembly-CSharp.dll
     namespaceName: 
     className: FirstPersonMovement
@@ -427,6 +562,12 @@ ScriptsOnlyBuild:
     className: CinemachineOrbitalTransposer
   - hash:
       serializedVersion: 2
+      Hash: e8f76626bddb48be3fa2d59874f39076
+    assemblyName: Assembly-CSharp.dll
+    namespaceName: 
+    className: Menu_MainMenuScript
+  - hash:
+      serializedVersion: 2
       Hash: 83e281c9d7432fd5e333eb1923780f2d
     assemblyName: Assembly-CSharp.dll
     namespaceName: 
@@ -511,7 +652,7 @@ ScriptsOnlyBuild:
     className: TextMeshProUGUI
   - hash:
       serializedVersion: 2
-      Hash: 2f87e8240bcc90475d15406da9288d69
+      Hash: 2cdc43891844c7b6d856bdde62d435e6
     assemblyName: Assembly-CSharp.dll
     namespaceName: 
     className: FirstPersonLook
@@ -649,7 +790,7 @@ ScriptsOnlyBuild:
     className: ToggleGroup
   - hash:
       serializedVersion: 2
-      Hash: e93e1fd08d76ff35a3a6d483a032c938
+      Hash: 3eb1cea82bba5c8791f6ecb94b7a34e8
     assemblyName: Assembly-CSharp.dll
     namespaceName: 
     className: PostAssign
@@ -887,6 +1028,12 @@ ScriptsOnlyBuild:
     assemblyName: UnityEngine.UI.dll
     namespaceName: UnityEngine.UI
     className: Mask
+  - hash:
+      serializedVersion: 2
+      Hash: e8d0729c5d73d396562aea01e8da5918
+    assemblyName: Assembly-CSharp.dll
+    namespaceName: 
+    className: Menu_Circler
   - hash:
       serializedVersion: 2
       Hash: f334201bf4b6385c654256ccb69bd6ec
@@ -1151,7 +1298,14 @@ ScriptsOnlyBuild:
     assemblyName: Assembly-CSharp.dll
     namespaceName: 
     className: GroundCheck
+  - hash:
+      serializedVersion: 2
+      Hash: 4d234602418767af626de215809e76b3
+    assemblyName: Assembly-CSharp.dll
+    namespaceName: 
+    className: DifficultySlider
   platform: 19
   scenePathNames:
-  - Assets/Scenes/SampleScene.unity
-  playerPath: D:/OL_Build_3/OL.exe
+  - Assets/Scenes/MainMenu.unity
+  - Assets/Scenes/OLGameScene.unity
+  playerPath: D:/GitHub/Orienteering_Public_Builds/OL_Build_7/OL_Build.exe
