@@ -7,6 +7,7 @@ public class FirstPersonLook : MonoBehaviour
     public float sensitivity = 2;
     public float smoothing = 1.5f;
     public GameObject Map;
+    public PauseMenuScript PauseScript;
 
     Vector2 velocity;
     Vector2 frameVelocity;
@@ -26,7 +27,7 @@ public class FirstPersonLook : MonoBehaviour
 
     void Update()
     {
-        if (Map.activeSelf == false)
+        if (Map.activeSelf == false && PauseScript.EscapeMenu == false)
         {
             // Get smooth velocity.
             Vector2 mouseDelta = new Vector2(Input.GetAxisRaw("Mouse X"), Input.GetAxisRaw("Mouse Y"));

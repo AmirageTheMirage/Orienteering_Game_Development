@@ -17,7 +17,7 @@ public class ShowPostsOnMap : MonoBehaviour
         MapShowing = MapScript.MapActive;
         GameObject child = gameObject.transform.Find("Kreis").gameObject;
 
-        if (MapShowing)
+        if (MapShowing && MapScript.EscapeMen == false)
         {
             child.SetActive(true);
         } else

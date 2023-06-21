@@ -8,6 +8,8 @@ public class MapHandler : MonoBehaviour
     
     private float cooldown = 0f;
     public bool MapActive = false;
+    public PauseMenuScript PauseScript;
+    public bool EscapeMen = false;
     void Start()
     {
         Map.SetActive(false);
@@ -17,25 +19,18 @@ public class MapHandler : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-
-
-        if (Input.GetKeyDown(KeyCode.Escape))
-        {
-            SceneManager.LoadScene(0);
-        }
+        EscapeMen = PauseScript.EscapeMenu;
 
         if (cooldown >= 0)
         {
             cooldown = cooldown - 1 * Time.deltaTime;
         } else
         {
-            if (Input.GetKey("m"))
+            if (Input.GetKey("m") && PauseScript.EscapeMenu == false)
                 {
                 cooldown = 0.5f;
                     if (MapActive) {
-                    MapActive = false;
-                    Map.SetActive(false);
-                    Cursor.lockState = CursorLockMode.Locked;
+                    CloseMap();
 
                 } else {
                     MapActive = true;
@@ -45,5 +40,12 @@ public class MapHandler : MonoBehaviour
                 }
                 }
         }
+    }
+
+    public void CloseMap()
+    {
+        MapActive = false;
+        Map.SetActive(false);
+        Cursor.lockState = CursorLockMode.Locked;
     }
 }

@@ -5,6 +5,7 @@ public class OutOfBounds : MonoBehaviour
 {
     public GameObject OutOfBoundsText;
     public GameObject Player;
+    public PauseMenuScript PauseScript; 
     void Start()
     {
         OutOfBoundsText.SetActive(false);
@@ -13,9 +14,15 @@ public class OutOfBounds : MonoBehaviour
     {
         Vector3 playerPosition = Player.transform.position;
 
-        if (playerPosition.z > 770 || playerPosition.z < 225 || playerPosition.x > 770 || playerPosition.x < 225)
+        if (playerPosition.z > 770 || playerPosition.z < 225 || playerPosition.x > 770 || playerPosition.x < 225 )
         {
-            OutOfBoundsText.SetActive(true);
+            if (PauseScript.EscapeMenu == false)
+            {
+                OutOfBoundsText.SetActive(true);
+            } else
+            {
+                OutOfBoundsText.SetActive(false);
+            }
         }
         else
         {

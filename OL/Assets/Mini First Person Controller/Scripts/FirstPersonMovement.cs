@@ -11,6 +11,7 @@ public class FirstPersonMovement : MonoBehaviour
     public float runSpeed = 9;
     public KeyCode runningKey = KeyCode.LeftShift;
     public GameObject Map;
+    public PauseMenuScript PauseScript;
 
     Rigidbody rigidbody;
     /// <summary> Functions to override movement speed. Will use the last added override. </summary>
@@ -26,7 +27,7 @@ public class FirstPersonMovement : MonoBehaviour
 
     void FixedUpdate()
     {
-        if (Map.activeSelf == false)
+        if (Map.activeSelf == false && PauseScript.EscapeMenu == false)
         {
             // Update IsRunning from input.
             IsRunning = canRun && Input.GetKey(runningKey);
