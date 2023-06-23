@@ -22,14 +22,14 @@ public class DifficultySlider : MonoBehaviour
             Difficulty = PlayerPrefs.GetInt("Difficulty_Setting");
             PlayerPrefs.Save();
             MySlider.value = (float)Difficulty;
-            Debug.Log("You're a veteran aren't you?");
+          //  Debug.Log("You're a veteran aren't you?");
             
         }
         else
         {
             PlayerPrefs.SetInt("Difficulty_Setting", Difficulty);
             PlayerPrefs.Save();
-            Debug.Log("First Time Playing?");
+          //  Debug.Log("First Time Playing?");
             
             
         }

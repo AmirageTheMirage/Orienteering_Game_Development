@@ -11,8 +11,10 @@ public class Menu_MainMenuScript : MonoBehaviour
     public GameObject Settings;
     public GameObject Fader;
     public GameObject PlayMenu;
+    public GameObject ChooseMenu;
     private bool Fade;
     private float FP = 0f;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -22,6 +24,7 @@ public class Menu_MainMenuScript : MonoBehaviour
         Fade = false;
         Fader.SetActive(false);
         PlayMenu.SetActive(false);
+        ChooseMenu.SetActive(false);
     }
 
     // Update is called once per frame
@@ -71,5 +74,20 @@ public class Menu_MainMenuScript : MonoBehaviour
     {
         PlayMenu.SetActive(true);
         MainMenu.SetActive(false);
+    }
+
+    public void ChangeToChooseMenu()
+    {
+        ChooseMenu.SetActive(true);
+        MainMenu.SetActive(false);
+        Settings.SetActive(false);
+    }
+
+    public void BackToSettings()
+    {
+        ChooseMenu.SetActive(false);
+        Settings.SetActive(true);
+        MainMenu.SetActive(false);
+        PlayMenu.SetActive(false);
     }
 }

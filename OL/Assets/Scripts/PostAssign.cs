@@ -25,7 +25,7 @@ public class PostAssign : MonoBehaviour
 
 
         Difficulty = PlayerPrefs.GetInt("Difficulty_Setting");
-        Debug.Log(Difficulty);
+        //Debug.Log(Difficulty);
         //Selection of Posts
         if (Difficulty == 1)
         {
