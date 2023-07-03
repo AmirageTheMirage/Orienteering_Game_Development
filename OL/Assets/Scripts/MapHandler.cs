@@ -10,6 +10,7 @@ public class MapHandler : MonoBehaviour
     public bool MapActive = false;
     public PauseMenuScript PauseScript;
     public bool EscapeMen = false;
+    public GameObject Orienteering_EndUI;
     void Start()
     {
         Map.SetActive(false);
@@ -30,7 +31,10 @@ public class MapHandler : MonoBehaviour
                 {
                 cooldown = 0.5f;
                     if (MapActive) {
-                    CloseMap();
+                    if (Orienteering_EndUI.activeSelf == false)
+                    {
+                        CloseMap();
+                    }
 
                 } else {
                     MapActive = true;

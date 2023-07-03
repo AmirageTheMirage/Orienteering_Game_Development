@@ -13,11 +13,13 @@ public class PauseMenuScript : MonoBehaviour
     public MapHandler Handler;
     public GameObject Compass;
     public GameObject Fader;
+    public Orienteering_MapObjectHandler Orienteering_Handler;
     // Start is called before the first frame update
     void Start()
     {
         EscapeMenu = false;
         TheMainMenu.SetActive(false);
+        Compass.SetActive(true);
     }
 
     // Update is called once per frame
@@ -30,7 +32,10 @@ public class PauseMenuScript : MonoBehaviour
                 EscapeMenu = false;
                 Cursor.lockState = CursorLockMode.Locked;
                 TheMainMenu.SetActive(false);
-                Compass.SetActive(true);
+                if (Orienteering_Handler.ended == false)
+                {
+                    Compass.SetActive(true);
+                }
                 
             }
             else

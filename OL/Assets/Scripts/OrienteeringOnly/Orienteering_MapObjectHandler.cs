@@ -11,51 +11,114 @@ public class Orienteering_MapObjectHandler : MonoBehaviour
     private float ActualPlayerPositionX;
     private float ActualPlayerPositionZ;
     public GameObject MapUI;
+    private bool AlreadySetTarget = false;
+    public bool ended = false;
+    public GameObject ActualMapUI;
+    public GameObject SideUI;
+    public GameObject EndUI;
+    public GameObject Compass;
+    
+
     void Start()
     {
         UI_Player.SetActive(false);
+        UI_Target.SetActive(false);
+        SideUI.SetActive(false);
+        EndUI.SetActive(false);
+        Compass.SetActive(true);
     }
 
-    // Update is called once per frame
     void Update()
     {
         if (MapUI.activeSelf)
         {
+            SideUI.SetActive(true);
+            if (AlreadySetTarget)
+            {
+                UI_Player.SetActive(true);
+
+            }
+            else
+            {
+                UI_Player.SetActive(false);
+            }
+
             if (Input.GetMouseButtonDown(0))
             {
                 Debug.Log("MouseClick");
-                SetPositionOfPlayer(Input.mousePosition.x, Input.mousePosition.y);
+
+                // Check if the mouse pointer is touching the ActualMapUI
+                if (IsMouseTouchingUI(ActualMapUI))
+                {
+                    SetPositionOfPlayer(Input.mousePosition.x, Input.mousePosition.y);
+                }
+                else
+                {
+                    Debug.Log("Not Touching");
+                }
             }
+        }
+        else
+        {
+            UI_Player.SetActive(false);
+            SideUI.SetActive(false);
         }
     }
 
     public void SetPositionOfTarget()
     {
-        //Karte Range: -160 zu 160 = 320 Range
-        // Welt Range: von -300 zu 300 = 600 Range, Mitte bei 500|500
         ActualPlayerPositionX = (ActualPlayerPosition.transform.position.x - 500f) * 320f / 600f;
         ActualPlayerPositionZ = (ActualPlayerPosition.transform.position.z - 500f) * 320f / 600f;
-       
-        Debug.Log(ActualPlayerPositionX.ToString());
-        Debug.Log(ActualPlayerPositionZ.ToString());
-        UI_Target.GetComponent<RectTransform>().anchoredPosition = new Vector2(ActualPlayerPositionX, ActualPlayerPositionZ);
 
+       // Debug.Log(ActualPlayerPositionX.ToString());
+       // Debug.Log(ActualPlayerPositionZ.ToString());
+        UI_Target.GetComponent<RectTransform>().anchoredPosition = new Vector2(ActualPlayerPositionX, ActualPlayerPositionZ);
     }
 
     public void SetPositionOfPlayer(float x, float y)
     {
         UI_Player.SetActive(true);
-        Debug.Log(x.ToString());
-        Debug.Log(y.ToString());
+        AlreadySetTarget = true;
 
-        // Get the RectTransform of the Canvas
         RectTransform canvasRectTransform = UI_Player.GetComponentInParent<Canvas>().GetComponent<RectTransform>();
 
-        // Convert the mouse position to a position relative to the Canvas
         Vector2 localMousePosition;
         RectTransformUtility.ScreenPointToLocalPointInRectangle(canvasRectTransform, new Vector2(x, y), null, out localMousePosition);
 
-        // Set the anchored position of the UI_Player object to the mouse position
         UI_Player.GetComponent<RectTransform>().anchoredPosition = localMousePosition;
+    }
+
+    public void EndOfTheMode()
+    {
+        if (AlreadySetTarget)
+        {
+            ended = true;
+            EndUI.SetActive(true);
+            UI_Target.SetActive(true);
+            UI_Player.SetActive(true);
+            SideUI.SetActive(false);
+            Compass.SetActive(false);
+            gameObject.SetActive(false);
+        }
+    }
+
+    
+
+    private bool IsMouseTouchingUI(GameObject uiElement)
+    {
+        RectTransform rectTransform = uiElement.GetComponent<RectTransform>();
+        Vector2 mousePosition = Input.mousePosition;
+
+        // Convert the mouse position to a position relative to the UI element
+        Vector2 localMousePosition;
+        RectTransformUtility.ScreenPointToLocalPointInRectangle(rectTransform, mousePosition, null, out localMousePosition);
+
+        // Check if the local mouse position is within the UI element's bounds
+        if (RectTransformUtility.RectangleContainsScreenPoint(rectTransform, mousePosition))
+        {
+            return true;
+        }
+
+        return false;
     }
 }

@@ -8,9 +8,10 @@ public class Menu_GameModeDropdown : MonoBehaviour
 {
     public int DropDownValue = 0;
     public TMP_Dropdown ModeDropDown;
+    public GameObject DifficultySlider;
     void Start()
     {
-        
+        DifficultySlider.SetActive(true);
         if (PlayerPrefs.HasKey("ModeDropdown_Setting"))
         {
             DropDownValue = PlayerPrefs.GetInt("ModeDropdown_Setting");
@@ -27,6 +28,14 @@ public class Menu_GameModeDropdown : MonoBehaviour
 
         }
         ModeDropDown.onValueChanged.AddListener(OnDropdownValueChanged);
+        if (DropDownValue == 0)
+        {
+            DifficultySlider.SetActive(true);
+        }
+        else
+        {
+            DifficultySlider.SetActive(false);
+        }
     }
 
     private void OnDropdownValueChanged(int value)
@@ -34,5 +43,12 @@ public class Menu_GameModeDropdown : MonoBehaviour
         DropDownValue = value;
         PlayerPrefs.SetInt("ModeDropdown_Setting", DropDownValue);
         PlayerPrefs.Save();
+        if (value == 0)
+        {
+            DifficultySlider.SetActive(true);
+        } else
+        {
+            DifficultySlider.SetActive(false);
+        }
     }
     }

@@ -13,6 +13,14 @@ public class FadePlus : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        StartFade();
+    }
+
+    public void StartFade()
+    {
+        AfterFP = 0f;
+        FP = 1f;
+        Fader.SetActive(true);
         Loading.SetActive(false);
         Color col = Fader.GetComponent<Image>().color;
         col.a = 1f;

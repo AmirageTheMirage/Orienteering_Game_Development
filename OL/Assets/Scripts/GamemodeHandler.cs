@@ -12,7 +12,7 @@ public class GamemodeHandler : MonoBehaviour
         PostSearch.SetActive(false);
         Orienteering.SetActive(false);
         GameMode = PlayerPrefs.GetInt("ModeDropdown_Setting");
-        Debug.Log(GameMode.ToString());
+       // Debug.Log(GameMode.ToString());
         if (GameMode == 0)
         {
             PostSearch.SetActive(true);

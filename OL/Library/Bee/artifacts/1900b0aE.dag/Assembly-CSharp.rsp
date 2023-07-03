@@ -361,6 +361,7 @@
 "Assets/Scripts/MainMenu/Menu_GameModeDropdown.cs"
 "Assets/Scripts/MainMenu/Menu_MainMenuScript.cs"
 "Assets/Scripts/MapHandler.cs"
+"Assets/Scripts/OrienteeringOnly/EndUI.cs"
 "Assets/Scripts/OrienteeringOnly/OrienteeringMode_PostAssign.cs"
 "Assets/Scripts/OrienteeringOnly/Orienteering_MapObjectHandler.cs"
 "Assets/Scripts/OrienteeringOnly/Try.cs"

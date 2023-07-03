@@ -10,6 +10,7 @@ public class OrienteeringMode_PostAssign : MonoBehaviour
     public LayerMask OurGround;
     public GameObject TerrainCollider;
     public Orienteering_MapObjectHandler MapScript;
+    
     // Start is called before the first frame update
     void Start()
     {
