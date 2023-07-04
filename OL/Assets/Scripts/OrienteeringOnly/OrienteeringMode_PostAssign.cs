@@ -23,7 +23,7 @@ public class OrienteeringMode_PostAssign : MonoBehaviour
     private void Ground()
     {
         TerrainCollider.SetActive(true);
-        Target.transform.position = new Vector3(Random.Range(350f, 650f), 100f, Random.Range(350f, 650f));
+        Target.transform.position = new Vector3(Random.Range(260f, 740f), 100f, Random.Range(260f, 740f));
         RaycastHit hit;
         if (Physics.Raycast(Target.transform.position, Vector3.down, out hit, Mathf.Infinity, OurGround))
         {

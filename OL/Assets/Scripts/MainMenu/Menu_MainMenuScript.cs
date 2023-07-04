@@ -14,7 +14,7 @@ public class Menu_MainMenuScript : MonoBehaviour
     public GameObject ChooseMenu;
     private bool Fade;
     private float FP = 0f;
-
+    public int MapSettings = 0;
     // Start is called before the first frame update
     void Start()
     {
@@ -25,6 +25,7 @@ public class Menu_MainMenuScript : MonoBehaviour
         Fader.SetActive(false);
         PlayMenu.SetActive(false);
         ChooseMenu.SetActive(false);
+        GetMapSettings();
     }
 
     // Update is called once per frame
@@ -37,8 +38,15 @@ public class Menu_MainMenuScript : MonoBehaviour
                 col.a = FP;
                 Fader.GetComponent<Image>().color = col;
             }
-            else { 
-                SceneManager.LoadScene(1);
+            else {
+                GetMapSettings();
+                if (MapSettings == 0)
+                {
+                    SceneManager.LoadScene(1); //Forest 1
+                } else
+                {
+                    SceneManager.LoadScene(2); //Forest 2
+                }
             }
         }
     
@@ -89,5 +97,10 @@ public class Menu_MainMenuScript : MonoBehaviour
         Settings.SetActive(true);
         MainMenu.SetActive(false);
         PlayMenu.SetActive(false);
+    }
+
+    public void GetMapSettings()
+    {
+        MapSettings = PlayerPrefs.GetInt("MapDropdown_Setting");
     }
 }

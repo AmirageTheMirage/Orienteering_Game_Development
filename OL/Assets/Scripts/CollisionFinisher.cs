@@ -15,6 +15,7 @@ public class CollisionFinisher : MonoBehaviour
     private bool alreadyfading = false;
     private float AfterFP = 0f;
     public GameObject Loading;
+    private int MapSettings;
     
 
 
@@ -66,11 +67,26 @@ public class CollisionFinisher : MonoBehaviour
                 {
                     Loading.SetActive(true);
                     AfterFP = AfterFP + 1f * Time.deltaTime;
-                } else
-                {
-                    SceneManager.LoadScene(1);
                 }
+                else
+                {
+                    GetMapSettings();
+                    if (MapSettings == 0)
+                    {
+                        SceneManager.LoadScene(1); //Forest 1
+                    }
+                    else
+                    {
+                        SceneManager.LoadScene(2); //Forest 2
+                    }
+                }
+
             }
         }
+    }
+
+    public void GetMapSettings()
+    {
+        MapSettings = PlayerPrefs.GetInt("MapDropdown_Setting");
     }
 }

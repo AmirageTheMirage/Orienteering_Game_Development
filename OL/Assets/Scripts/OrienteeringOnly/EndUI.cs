@@ -30,6 +30,7 @@ public class EndUI : MonoBehaviour
     private float TargetY;
     private float XDiff;
     private float YDiff;
+    private int MapSettings;
     
     void Start()
     {
@@ -66,7 +67,15 @@ public class EndUI : MonoBehaviour
                 }
                 else
                 {
-                    SceneManager.LoadScene(1);
+                    GetMapSettings();
+                    if (MapSettings == 0)
+                    {
+                        SceneManager.LoadScene(1); //Forest 1
+                    }
+                    else
+                    {
+                        SceneManager.LoadScene(2); //Forest 2
+                    }
                 }
             }
         }
@@ -115,5 +124,9 @@ public class EndUI : MonoBehaviour
         Fade = true;
         Fader.SetActive(true);
         FP = 0f;
+    }
+    public void GetMapSettings()
+    {
+        MapSettings = PlayerPrefs.GetInt("MapDropdown_Setting");
     }
 }

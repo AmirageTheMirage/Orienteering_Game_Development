@@ -67,8 +67,8 @@ public class Orienteering_MapObjectHandler : MonoBehaviour
 
     public void SetPositionOfTarget()
     {
-        ActualPlayerPositionX = (ActualPlayerPosition.transform.position.x - 500f) * 320f / 600f;
-        ActualPlayerPositionZ = (ActualPlayerPosition.transform.position.z - 500f) * 320f / 600f;
+        ActualPlayerPositionX = (ActualPlayerPosition.transform.position.x - 500f) * 300f / 600f;
+        ActualPlayerPositionZ = (ActualPlayerPosition.transform.position.z - 500f) * 300f / 600f;
 
        // Debug.Log(ActualPlayerPositionX.ToString());
        // Debug.Log(ActualPlayerPositionZ.ToString());
