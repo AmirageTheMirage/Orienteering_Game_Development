@@ -12,18 +12,28 @@ public class CloudSpawner : MonoBehaviour
     public GameObject Cloud4;
     public GameObject Cloud5;
     private GameObject Cloud;
+    private int TimeOfDay;
     void Start()
     {
-        Reassign();
-
-        for (int i = 0; i < 50; i++)
+        TimeOfDay = PlayerPrefs.GetInt("Time_Setting");
+        Debug.Log(TimeOfDay);
+        if (TimeOfDay >= 20 || TimeOfDay <= 4)
         {
-            StartSpawn();
+            Destroy(gameObject);
+
         }
+        else
+        {
+            Reassign();
 
-        StartCoroutine(CloudSpawn());
+            for (int i = 0; i < 50; i++)
+            {
+                StartSpawn();
+            }
 
+            StartCoroutine(CloudSpawn());
 
+        }
     }
 
     // Update is called once per frame
