@@ -61,6 +61,7 @@ public class PauseMenuScript : MonoBehaviour
         TheMainMenu.SetActive(false);
         Cursor.lockState = CursorLockMode.Locked;
         Map.SetActive(false);
+        Compass.SetActive(true);
 
     }
 
