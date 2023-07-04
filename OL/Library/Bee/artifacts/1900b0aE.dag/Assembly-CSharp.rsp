@@ -375,6 +375,7 @@
 "Assets/Scripts/PostAssign.cs"
 "Assets/Scripts/RotateWindmill.cs"
 "Assets/Scripts/RotatingWindmill.cs"
+"Assets/Scripts/Segelflieger.cs"
 "Assets/Scripts/ShowPostsOnMap.cs"
 "Assets/Scripts/TouchSensor.cs"
 "Assets/Scripts/UnlockCompass.cs"

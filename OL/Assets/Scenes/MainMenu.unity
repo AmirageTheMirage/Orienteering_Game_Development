@@ -10565,7 +10565,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ObjectToRotate: {fileID: 1950826942}
-  Speed: 4
+  Speed: 2
 --- !u!1 &1960479965
 GameObject:
   m_ObjectHideFlags: 0
