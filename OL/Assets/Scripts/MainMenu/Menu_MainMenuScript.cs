@@ -12,6 +12,7 @@ public class Menu_MainMenuScript : MonoBehaviour
     public GameObject Fader;
     public GameObject PlayMenu;
     public GameObject ChooseMenu;
+    public GameObject Achievements;
     private bool Fade;
     private float FP = 0f;
     public int MapSettings = 0;
@@ -25,6 +26,7 @@ public class Menu_MainMenuScript : MonoBehaviour
         Fader.SetActive(false);
         PlayMenu.SetActive(false);
         ChooseMenu.SetActive(false);
+        Achievements.SetActive(false);
         GetMapSettings();
     }
 
@@ -58,6 +60,7 @@ public class Menu_MainMenuScript : MonoBehaviour
         MainMenu.SetActive(false);
         Fader.SetActive(true);
         PlayMenu.SetActive(false);
+        Achievements.SetActive(false);
         FP = 0f;
         //SceneManager.LoadScene(0);
     }
@@ -69,6 +72,7 @@ public class Menu_MainMenuScript : MonoBehaviour
     public void SettingsGame()
     {
         MainMenu.SetActive(false);
+        Achievements.SetActive(false);
         Settings.SetActive(true);
     }
 
@@ -94,6 +98,7 @@ public class Menu_MainMenuScript : MonoBehaviour
     public void BackToSettings()
     {
         ChooseMenu.SetActive(false);
+        Achievements.SetActive(false);
         Settings.SetActive(true);
         MainMenu.SetActive(false);
         PlayMenu.SetActive(false);
@@ -102,5 +107,11 @@ public class Menu_MainMenuScript : MonoBehaviour
     public void GetMapSettings()
     {
         MapSettings = PlayerPrefs.GetInt("MapDropdown_Setting");
+    }
+
+    public void ChangeToAchievements()
+    {
+        Achievements.SetActive(true);
+        Settings.SetActive(false);
     }
 }

@@ -17,6 +17,7 @@ public class EndUI : MonoBehaviour
     public GameObject Fader;
     public GameObject Loading;
     public GameObject LoadingScreenStuff;
+    public AchievementHandler AchievementUnlocker;
    
 
 
@@ -117,6 +118,10 @@ public class EndUI : MonoBehaviour
         } else
         {
             RatingText.text = "Terrible";
+        }
+        if (Distance < 50f)
+        {
+            AchievementUnlocker.UnlockAchievement(1);
         }
     }
     public void RestartTheLevel()
