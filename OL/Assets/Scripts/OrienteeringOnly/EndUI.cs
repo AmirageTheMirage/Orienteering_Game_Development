@@ -32,6 +32,7 @@ public class EndUI : MonoBehaviour
     private float XDiff;
     private float YDiff;
     private int MapSettings;
+    private int FogSettings;
     
     void Start()
     {
@@ -40,6 +41,7 @@ public class EndUI : MonoBehaviour
         Fader.SetActive(false);
         Loading.SetActive(false);
         LoadingScreenStuff.SetActive(true);
+        FogSettings = PlayerPrefs.GetInt("Fog_Setting");
         CalculateDistance();
         // Debug.Log(ScreenX.ToString());
 
@@ -119,9 +121,30 @@ public class EndUI : MonoBehaviour
         {
             RatingText.text = "Terrible";
         }
-        if (Distance < 50f)
+        if (Distance < 10f)
         {
-            AchievementUnlocker.UnlockAchievement(1);
+            if (PlayerPrefs.GetInt("Achievement_1") == 0)
+            {
+                AchievementUnlocker.UnlockAchievement(1);
+            }
+            else
+            {
+                if (FogSettings == 5)
+                {
+                    if (Distance < 1.5f)
+                    {
+                        AchievementUnlocker.UnlockAchievement(7);
+                    } else
+                    {
+                        AchievementUnlocker.UnlockAchievement(6);
+                    }
+
+                }
+            }
+        }
+        if (Distance > 300f)
+        {
+            AchievementUnlocker.UnlockAchievement(5);
         }
     }
     public void RestartTheLevel()

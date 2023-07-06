@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 705507994}
-  m_IndirectSpecularColor: {r: 0.44754672, g: 0.49750543, b: 0.5753282, a: 1}
+  m_IndirectSpecularColor: {r: 0.44824642, g: 0.4982723, b: 0.57558155, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -233,6 +233,7 @@ MonoBehaviour:
   Fader: {fileID: 6387860112025302859}
   Loading: {fileID: 6387860111564573887}
   LoadingScreenStuff: {fileID: 6387860110208924899}
+  AchievementUnlocker: {fileID: 528732165}
 --- !u!1 &30137877
 GameObject:
   m_ObjectHideFlags: 0
@@ -820,6 +821,7 @@ Transform:
   - {fileID: 1343161532}
   - {fileID: 1622439286}
   - {fileID: 705507995}
+  - {fileID: 528732164}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -875,6 +877,7 @@ MonoBehaviour:
   numberofendposten: 0
   MyNameAsInt: 0
   Loading: {fileID: 95847561}
+  AchievScript: {fileID: 528732165}
   Fader: {fileID: 690012029}
   StartFade: 0
 --- !u!65 &79270866
@@ -2489,6 +2492,7 @@ MonoBehaviour:
   numberofendposten: 0
   MyNameAsInt: 0
   Loading: {fileID: 95847561}
+  AchievScript: {fileID: 528732165}
   Fader: {fileID: 690012029}
   StartFade: 0
 --- !u!1 &308819510
@@ -2543,6 +2547,7 @@ MonoBehaviour:
   numberofendposten: 0
   MyNameAsInt: 0
   Loading: {fileID: 95847561}
+  AchievScript: {fileID: 528732165}
   Fader: {fileID: 690012029}
   StartFade: 0
 --- !u!65 &308819513
@@ -3144,6 +3149,7 @@ MonoBehaviour:
   numberofendposten: 0
   MyNameAsInt: 0
   Loading: {fileID: 95847561}
+  AchievScript: {fileID: 528732165}
   Fader: {fileID: 690012029}
   StartFade: 0
 --- !u!65 &391407369
@@ -3688,6 +3694,7 @@ MonoBehaviour:
   numberofendposten: 0
   MyNameAsInt: 0
   Loading: {fileID: 95847561}
+  AchievScript: {fileID: 528732165}
   Fader: {fileID: 690012029}
   StartFade: 0
 --- !u!1001 &451789226
@@ -4164,6 +4171,119 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 523990346}
   m_CullTransparentMesh: 1
+--- !u!1001 &528732163
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 68211334}
+    m_Modifications:
+    - target: {fileID: 6723906333064146177, guid: 455053448cc75b7408b14a0b3c3ea789, type: 3}
+      propertyPath: m_Name
+      value: AchievementCanvas
+      objectReference: {fileID: 0}
+    - target: {fileID: 6723906333064146206, guid: 455053448cc75b7408b14a0b3c3ea789, type: 3}
+      propertyPath: m_Pivot.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6723906333064146206, guid: 455053448cc75b7408b14a0b3c3ea789, type: 3}
+      propertyPath: m_Pivot.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6723906333064146206, guid: 455053448cc75b7408b14a0b3c3ea789, type: 3}
+      propertyPath: m_RootOrder
+      value: 7
+      objectReference: {fileID: 0}
+    - target: {fileID: 6723906333064146206, guid: 455053448cc75b7408b14a0b3c3ea789, type: 3}
+      propertyPath: m_AnchorMax.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6723906333064146206, guid: 455053448cc75b7408b14a0b3c3ea789, type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6723906333064146206, guid: 455053448cc75b7408b14a0b3c3ea789, type: 3}
+      propertyPath: m_AnchorMin.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6723906333064146206, guid: 455053448cc75b7408b14a0b3c3ea789, type: 3}
+      propertyPath: m_AnchorMin.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6723906333064146206, guid: 455053448cc75b7408b14a0b3c3ea789, type: 3}
+      propertyPath: m_SizeDelta.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6723906333064146206, guid: 455053448cc75b7408b14a0b3c3ea789, type: 3}
+      propertyPath: m_SizeDelta.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6723906333064146206, guid: 455053448cc75b7408b14a0b3c3ea789, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6723906333064146206, guid: 455053448cc75b7408b14a0b3c3ea789, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6723906333064146206, guid: 455053448cc75b7408b14a0b3c3ea789, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6723906333064146206, guid: 455053448cc75b7408b14a0b3c3ea789, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6723906333064146206, guid: 455053448cc75b7408b14a0b3c3ea789, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6723906333064146206, guid: 455053448cc75b7408b14a0b3c3ea789, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6723906333064146206, guid: 455053448cc75b7408b14a0b3c3ea789, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6723906333064146206, guid: 455053448cc75b7408b14a0b3c3ea789, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6723906333064146206, guid: 455053448cc75b7408b14a0b3c3ea789, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6723906333064146206, guid: 455053448cc75b7408b14a0b3c3ea789, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6723906333064146206, guid: 455053448cc75b7408b14a0b3c3ea789, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6723906333064146206, guid: 455053448cc75b7408b14a0b3c3ea789, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 455053448cc75b7408b14a0b3c3ea789, type: 3}
+--- !u!224 &528732164 stripped
+RectTransform:
+  m_CorrespondingSourceObject: {fileID: 6723906333064146206, guid: 455053448cc75b7408b14a0b3c3ea789, type: 3}
+  m_PrefabInstance: {fileID: 528732163}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &528732165 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 6723906333064146202, guid: 455053448cc75b7408b14a0b3c3ea789, type: 3}
+  m_PrefabInstance: {fileID: 528732163}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: eaa4cb5edbf523248b89039499b38c05, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &531764836
 GameObject:
   m_ObjectHideFlags: 0
@@ -4216,6 +4336,7 @@ MonoBehaviour:
   numberofendposten: 0
   MyNameAsInt: 0
   Loading: {fileID: 95847561}
+  AchievScript: {fileID: 528732165}
   Fader: {fileID: 690012029}
   StartFade: 0
 --- !u!65 &531764839
@@ -4711,6 +4832,7 @@ MonoBehaviour:
   numberofendposten: 0
   MyNameAsInt: 0
   Loading: {fileID: 95847561}
+  AchievScript: {fileID: 528732165}
   Fader: {fileID: 690012029}
   StartFade: 0
 --- !u!1 &606241112
@@ -7637,6 +7759,7 @@ MonoBehaviour:
   numberofendposten: 0
   MyNameAsInt: 0
   Loading: {fileID: 95847561}
+  AchievScript: {fileID: 528732165}
   Fader: {fileID: 690012029}
   StartFade: 0
 --- !u!1 &1078216508
@@ -7847,6 +7970,7 @@ MonoBehaviour:
   numberofendposten: 0
   MyNameAsInt: 0
   Loading: {fileID: 95847561}
+  AchievScript: {fileID: 528732165}
   Fader: {fileID: 690012029}
   StartFade: 0
 --- !u!1 &1123756618
@@ -8962,6 +9086,7 @@ MonoBehaviour:
   numberofendposten: 0
   MyNameAsInt: 0
   Loading: {fileID: 95847561}
+  AchievScript: {fileID: 528732165}
   Fader: {fileID: 690012029}
   StartFade: 0
 --- !u!65 &1280393602
@@ -9193,6 +9318,7 @@ MonoBehaviour:
   numberofendposten: 0
   MyNameAsInt: 0
   Loading: {fileID: 95847561}
+  AchievScript: {fileID: 528732165}
   Fader: {fileID: 690012029}
   StartFade: 0
 --- !u!1 &1306381273
@@ -11134,6 +11260,7 @@ MonoBehaviour:
   numberofendposten: 0
   MyNameAsInt: 0
   Loading: {fileID: 95847561}
+  AchievScript: {fileID: 528732165}
   Fader: {fileID: 690012029}
   StartFade: 0
 --- !u!1 &1579409006
@@ -11897,6 +12024,7 @@ MonoBehaviour:
   numberofendposten: 0
   MyNameAsInt: 0
   Loading: {fileID: 95847561}
+  AchievScript: {fileID: 528732165}
   Fader: {fileID: 690012029}
   StartFade: 0
 --- !u!65 &1664782570
@@ -12161,6 +12289,7 @@ MonoBehaviour:
   numberofendposten: 0
   MyNameAsInt: 0
   Loading: {fileID: 95847561}
+  AchievScript: {fileID: 528732165}
   Fader: {fileID: 690012029}
   StartFade: 0
 --- !u!65 &1685163198
@@ -12615,6 +12744,7 @@ MonoBehaviour:
   numberofendposten: 0
   MyNameAsInt: 0
   Loading: {fileID: 95847561}
+  AchievScript: {fileID: 528732165}
   Fader: {fileID: 690012029}
   StartFade: 0
 --- !u!1 &1798920990
@@ -12879,6 +13009,7 @@ MonoBehaviour:
   numberofendposten: 0
   MyNameAsInt: 0
   Loading: {fileID: 95847561}
+  AchievScript: {fileID: 528732165}
   Fader: {fileID: 690012029}
   StartFade: 0
 --- !u!1 &1849231477
@@ -14071,6 +14202,7 @@ MonoBehaviour:
   numberofendposten: 0
   MyNameAsInt: 0
   Loading: {fileID: 95847561}
+  AchievScript: {fileID: 528732165}
   Fader: {fileID: 690012029}
   StartFade: 0
 --- !u!1 &2042140693
@@ -19078,6 +19210,7 @@ MonoBehaviour:
   runningKey: 304
   Map: {fileID: 146274633}
   PauseScript: {fileID: 264544876}
+  AchievScript: {fileID: 528732165}
 --- !u!114 &5272657470718313619
 MonoBehaviour:
   m_ObjectHideFlags: 0

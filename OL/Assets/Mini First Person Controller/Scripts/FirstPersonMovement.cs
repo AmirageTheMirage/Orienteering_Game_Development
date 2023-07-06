@@ -12,6 +12,9 @@ public class FirstPersonMovement : MonoBehaviour
     public KeyCode runningKey = KeyCode.LeftShift;
     public GameObject Map;
     public PauseMenuScript PauseScript;
+    private bool AlreadyUnlocked = false;
+    private bool AlreadyUnlocked2 = false;
+    public AchievementHandler AchievScript;
 
     Rigidbody rigidbody;
     /// <summary> Functions to override movement speed. Will use the last added override. </summary>
@@ -44,6 +47,29 @@ public class FirstPersonMovement : MonoBehaviour
 
             // Apply movement.
             rigidbody.velocity = transform.rotation * new Vector3(targetVelocity.x, rigidbody.velocity.y, targetVelocity.y);
+        }
+
+        if (AlreadyUnlocked2 == false && transform.position.y < -50f)
+        {
+            AchievScript.UnlockAchievement(8);
+            AlreadyUnlocked2 = true;
+
+        }
+    }
+
+
+    private void OnTriggerEnter(Collider other)
+    {
+        Debug.Log("Collided");
+        if (other.CompareTag("BeachBall"))
+        {
+            Debug.Log("ItsBeachBall");
+            if (AlreadyUnlocked == false)
+            {
+                Debug.Log("Unlock");
+                AchievScript.UnlockAchievement(2);
+                AlreadyUnlocked = true;
+            }
         }
     }
 }

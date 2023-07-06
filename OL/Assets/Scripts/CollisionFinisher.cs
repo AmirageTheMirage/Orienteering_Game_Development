@@ -16,7 +16,8 @@ public class CollisionFinisher : MonoBehaviour
     private float AfterFP = 0f;
     public GameObject Loading;
     private int MapSettings;
-    
+    private int Difficulty;
+    public AchievementHandler AchievScript;
 
 
 
@@ -26,9 +27,11 @@ public class CollisionFinisher : MonoBehaviour
     
     void Start()
     {
+        Difficulty = PlayerPrefs.GetInt("Difficulty_Setting");
         MyNameAsInt = int.Parse(gameObject.name);
         numberofendposten = IHave.endposten;
         StartFade = false;
+        
     }
    
     void OnCollisionEnter(Collision collision)
@@ -40,6 +43,14 @@ public class CollisionFinisher : MonoBehaviour
 
         if (MyNameAsInt == numberofendposten && alreadyfading == false)
         {
+            
+            if (Difficulty == 1)
+            {
+            AchievScript.UnlockAchievement(3);
+            } else if (Difficulty == 3)
+            {
+                AchievScript.UnlockAchievement(4);
+            }
             alreadyfading = true;
             touching = true;
             Fader.SetActive(true);
