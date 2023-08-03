@@ -101,6 +101,10 @@ public class EndUI : MonoBehaviour
         Distance = XDiff * XDiff + YDiff * YDiff;
         Distance = Mathf.Sqrt(Distance);
         Distance = Distance / Factor; //Bigger Screen = Longer Distance = Has to be canceled out
+        if (Distance > 3.5f)
+        {
+            Distance = Distance - 3f; //TOLERANCE for Map not being pixelperfect
+        }
         Debug.Log(Distance.ToString());
         DistanceText.text = Mathf.Round(Distance).ToString() + "m";
 

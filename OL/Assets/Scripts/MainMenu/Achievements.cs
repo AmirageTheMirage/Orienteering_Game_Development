@@ -175,19 +175,20 @@ public class Achievements : MonoBehaviour
         // Update is called once per frame
         void Update()
     {
-        if (Input.GetKeyDown(KeyCode.Escape))
-        {
-            PlayerPrefs.SetInt("Achievement_1", 0);
-            PlayerPrefs.SetInt("Achievement_2", 0);
-            PlayerPrefs.SetInt("Achievement_3", 0);
-            PlayerPrefs.SetInt("Achievement_4", 0);
-            PlayerPrefs.SetInt("Achievement_5", 0);
-            PlayerPrefs.SetInt("Achievement_6", 0);
-            PlayerPrefs.SetInt("Achievement_7", 0);
-            PlayerPrefs.SetInt("Achievement_8", 0);
-            PlayerPrefs.Save();
-            ReStart();
-        }
+        
+    }
 
+    public void Reset()
+    {
+        PlayerPrefs.SetInt("Achievement_1", 0);
+        PlayerPrefs.SetInt("Achievement_2", 0);
+        PlayerPrefs.SetInt("Achievement_3", 0);
+        PlayerPrefs.SetInt("Achievement_4", 0);
+        PlayerPrefs.SetInt("Achievement_5", 0);
+        PlayerPrefs.SetInt("Achievement_6", 0);
+        PlayerPrefs.SetInt("Achievement_7", 0);
+        PlayerPrefs.SetInt("Achievement_8", 0);
+        PlayerPrefs.Save();
+        ReStart();
     }
 }

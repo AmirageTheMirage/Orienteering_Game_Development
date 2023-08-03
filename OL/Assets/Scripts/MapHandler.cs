@@ -20,7 +20,7 @@ public class MapHandler : MonoBehaviour
     {
         FogWall.SetActive(false);
         TimeOfDay = PlayerPrefs.GetInt("Time_Setting");
-        DirectLight.transform.eulerAngles = new Vector3(360f / 24f * TimeOfDay - 90f, 0f, 0f);
+        DirectLight.transform.eulerAngles = new Vector3(360f / 24f * TimeOfDay - 90f, 90f, 0f); //So it's in east
         //if Its Time = 0, The Angle is -90f
         //One Complete TurnAround = 360
         //360 / 24 * TimeOfDay

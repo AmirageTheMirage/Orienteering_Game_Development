@@ -15,19 +15,18 @@ public class Menu_CompassChooser : MonoBehaviour
 
     void Update()
     {
-        //EDITING ONLY
-        if (Input.GetKeyDown(KeyCode.Escape))
-        {
-            CompassChosen = 1;
-            PlayerPrefs.SetInt("Compass_Setting", CompassChosen);
-            PlayerPrefs.SetInt("Compass_1", 1);
-            PlayerPrefs.SetInt("Compass_2", 0);
-            PlayerPrefs.SetInt("Compass_3", 0);
-            PlayerPrefs.Save();
-            ReStart();
-        }
-    }
 
+    }
+    public void Reset()
+    {
+        CompassChosen = 1;
+        PlayerPrefs.SetInt("Compass_Setting", CompassChosen);
+        PlayerPrefs.SetInt("Compass_1", 1);
+        PlayerPrefs.SetInt("Compass_2", 0);
+        PlayerPrefs.SetInt("Compass_3", 0);
+        PlayerPrefs.Save();
+        ReStart();
+    }
     void Start()
     {
         ReStart();

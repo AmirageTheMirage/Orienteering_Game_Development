@@ -114,4 +114,10 @@ public class Menu_MainMenuScript : MonoBehaviour
         Achievements.SetActive(true);
         Settings.SetActive(false);
     }
+
+    public void DeleteAllPlayerPrefs()
+    {
+        Achievements.SetActive(true);
+        Settings.SetActive(false);
+    }
 }
