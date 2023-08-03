@@ -13,6 +13,7 @@ public class PostAssign : MonoBehaviour
     private float EndX = 0f;
     private float EndY = 0f;
     private float EndZ = 0f;
+    //public bool IsMaze;
     string[] Forest1EasyPosts = new string[] { "151", "152", "154", "157", "160", "164"};
     string[] Forest1MidPosts = new string[] { "151", "152", "154", "157", "160", "164",    "150", "156", "158", "161" };
     string[] Forest1HardPosts = new string[] { "151", "152", "154", "157", "160", "164",     "150", "156", "158", "161",      "153", "155", "159", "162", "163", "165", "166" };
@@ -42,11 +43,16 @@ public class PostAssign : MonoBehaviour
             EasySelection = Forest1EasyPosts;
             MidSelection = Forest1MidPosts;
             HardSelection = Forest1HardPosts;
-        } else
+        } else if (MapSetting == 1)
         {
             EasySelection = Forest2EasyPosts;
             MidSelection = Forest2MidPosts;
             HardSelection = Forest2HardPosts;
+        } else
+        {
+            EasySelection = Forest2HardPosts;
+            MidSelection = Forest2HardPosts;
+            HardSelection = Forest2HardPosts; //Maze = No Difficulty Changing, so all posts
         }
         if (Difficulty == 1)
         {
@@ -95,20 +101,21 @@ public class PostAssign : MonoBehaviour
         GameObject child2 = Posten.transform.Find(endposten.ToString()).gameObject;
         child2.SetActive(true);
         //Charakter.transform.position = new Vector3(5f, 1f, 1f);
-        if (MapSetting == 1)
-        {
-            GameObject child3 = child.transform.Find(startposten.ToString()).gameObject;
-            EndX = child3.transform.position.x;
-            EndY = child3.transform.position.y;
-            EndZ = child3.transform.position.z;
-        }
-        else
+        if (MapSetting == 0)
         {
             EndX = child.transform.position.x;
             EndY = child.transform.position.y;
             EndZ = child.transform.position.z;
         }
-        Charakter.transform.position = new Vector3(EndX + 1f, EndY + 1f, EndZ);
+        else
+        {
+            
+            GameObject child3 = child.transform.Find(startposten.ToString()).gameObject;
+            EndX = child3.transform.position.x;
+            EndY = child3.transform.position.y;
+            EndZ = child3.transform.position.z;
+        }
+        Charakter.transform.position = new Vector3(EndX + 1f, EndY + 1f, EndZ); //AfterHolidayEdit: EndXYZ is actually the start coordinates. No Idea what I smoked back then. Not gonna change it anymore.
 
 
 

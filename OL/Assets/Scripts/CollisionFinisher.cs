@@ -86,9 +86,12 @@ public class CollisionFinisher : MonoBehaviour
                     {
                         SceneManager.LoadScene(1); //Forest 1
                     }
-                    else
+                    else if (MapSettings == 1)
                     {
                         SceneManager.LoadScene(2); //Forest 2
+                    } else
+                    {
+                        SceneManager.LoadScene(3); //Maze 1
                     }
                 }
 

@@ -18,6 +18,7 @@ public class EndUI : MonoBehaviour
     public GameObject Loading;
     public GameObject LoadingScreenStuff;
     public AchievementHandler AchievementUnlocker;
+    public bool IsMaze;
    
 
 
@@ -75,9 +76,12 @@ public class EndUI : MonoBehaviour
                     {
                         SceneManager.LoadScene(1); //Forest 1
                     }
-                    else
+                    else if (MapSettings == 1)
                     {
                         SceneManager.LoadScene(2); //Forest 2
+                    } else
+                    {
+                        SceneManager.LoadScene(3); //Maze 1
                     }
                 }
             }
@@ -101,13 +105,40 @@ public class EndUI : MonoBehaviour
         Distance = XDiff * XDiff + YDiff * YDiff;
         Distance = Mathf.Sqrt(Distance);
         Distance = Distance / Factor; //Bigger Screen = Longer Distance = Has to be canceled out
+        if (IsMaze)
+        {
+            Distance = Distance / 5; //Because Mazes are 100x100 not 500x500
+        }
         if (Distance > 3.5f)
         {
             Distance = Distance - 3f; //TOLERANCE for Map not being pixelperfect
         }
         Debug.Log(Distance.ToString());
         DistanceText.text = Mathf.Round(Distance).ToString() + "m";
+        if (IsMaze)
+        {
+            if (Distance * 5 < 10f)
+            {
+                RatingText.text = "Perfect";
+            }
+            else if (Distance * 5 < 20f)
+            {
+                RatingText.text = "Great";
+            }
+            else if (Distance * 5 < 30f)
+            {
+                RatingText.text = "Okay";
+            }
+            else if (Distance * 5 < 50f)
+            {
+                RatingText.text = "Bad";
+            }
+            else
+            {
+                RatingText.text = "Terrible";
+            }
 
+        }
         if (Distance < 10f)
         {
             RatingText.text = "Perfect";

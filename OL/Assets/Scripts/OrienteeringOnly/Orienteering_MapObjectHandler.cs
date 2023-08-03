@@ -17,6 +17,7 @@ public class Orienteering_MapObjectHandler : MonoBehaviour
     public GameObject SideUI;
     public GameObject EndUI;
     public GameObject Compass;
+    public bool IsMaze;
     
 
     void Start()
@@ -67,12 +68,21 @@ public class Orienteering_MapObjectHandler : MonoBehaviour
 
     public void SetPositionOfTarget()
     {
+
+
+
         ActualPlayerPositionX = (ActualPlayerPosition.transform.position.x - 500f) * 300f / 600f;
         ActualPlayerPositionZ = (ActualPlayerPosition.transform.position.z - 500f) * 300f / 600f;
 
-       // Debug.Log(ActualPlayerPositionX.ToString());
-       // Debug.Log(ActualPlayerPositionZ.ToString());
+        if (IsMaze)
+        {
+            UI_Target.GetComponent<RectTransform>().anchoredPosition = new Vector2(ActualPlayerPositionX * 7f, ActualPlayerPositionZ * 7f); //Bc 5.26 times smaller Map Area (95 Wide for some reason)
+        } else { 
         UI_Target.GetComponent<RectTransform>().anchoredPosition = new Vector2(ActualPlayerPositionX, ActualPlayerPositionZ);
+        }
+        // Debug.Log(ActualPlayerPositionX.ToString());
+        // Debug.Log(ActualPlayerPositionZ.ToString());
+
     }
 
     public void SetPositionOfPlayer(float x, float y)

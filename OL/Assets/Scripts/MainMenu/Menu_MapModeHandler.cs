@@ -10,6 +10,7 @@ public class Menu_MapModeHandler : MonoBehaviour
     public TMP_Dropdown ModeDropDown;
     public GameObject Forest1;
     public GameObject Forest2;
+    public GameObject Maze1;
 
     // Start is called before the first frame update
     void Start()
@@ -48,10 +49,17 @@ public class Menu_MapModeHandler : MonoBehaviour
         {
             Forest1.SetActive(true);
             Forest2.SetActive(false);
-        } else
+            Maze1.SetActive(false);
+        } else if (DropDownValue == 1)
         {
             Forest1.SetActive(false);
             Forest2.SetActive(true);
+            Maze1.SetActive(false);
+        } else
+        {
+            Forest1.SetActive(false);
+            Forest2.SetActive(false);
+            Maze1.SetActive(true);
         }
     }
 }
