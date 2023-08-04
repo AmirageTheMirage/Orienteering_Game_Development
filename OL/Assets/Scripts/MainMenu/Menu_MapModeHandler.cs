@@ -11,10 +11,12 @@ public class Menu_MapModeHandler : MonoBehaviour
     public GameObject Forest1;
     public GameObject Forest2;
     public GameObject Maze1;
+    public GameObject SelectDifficultyHideParent;
 
     // Start is called before the first frame update
     void Start()
     {
+        SelectDifficultyHideParent.SetActive(true);
         if (PlayerPrefs.HasKey("MapDropdown_Setting"))
         {
             DropDownValue = PlayerPrefs.GetInt("MapDropdown_Setting");
@@ -45,21 +47,24 @@ public class Menu_MapModeHandler : MonoBehaviour
 
     public void ActualizeMap()
     {
-        if (DropDownValue == 0)
+        if (DropDownValue == 0) // Map 1 (Forest 1)
         {
             Forest1.SetActive(true);
             Forest2.SetActive(false);
             Maze1.SetActive(false);
-        } else if (DropDownValue == 1)
+            SelectDifficultyHideParent.SetActive(true);
+        } else if (DropDownValue == 1) // Forest 2
         {
             Forest1.SetActive(false);
             Forest2.SetActive(true);
             Maze1.SetActive(false);
-        } else
+            SelectDifficultyHideParent.SetActive(true);
+        } else //Maze 1
         {
             Forest1.SetActive(false);
             Forest2.SetActive(false);
             Maze1.SetActive(true);
+            SelectDifficultyHideParent.SetActive(false);
         }
     }
 }

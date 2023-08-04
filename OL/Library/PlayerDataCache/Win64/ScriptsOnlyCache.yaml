@@ -8,6 +8,7 @@ ScriptsOnlyBuild:
     - CollisionFinisher
     - Compass
     - DifficultySlider
+    - EasterEgg1
     - EndUI
     - FadePlus
     - FirstPersonAudio
@@ -118,6 +119,15 @@ ScriptsOnlyBuild:
     methodName: ChooseComp
   - assembly: Assembly-CSharp
     fullTypeName: Menu_MainMenuScript
+    methodName: StartGame
+  - assembly: Assembly-CSharp
+    fullTypeName: Achievements
+    methodName: Reset
+  - assembly: Assembly-CSharp
+    fullTypeName: Menu_CompassChooser
+    methodName: Reset
+  - assembly: Assembly-CSharp
+    fullTypeName: Menu_MainMenuScript
     methodName: QuitGame
   - assembly: Assembly-CSharp
     fullTypeName: Menu_MainMenuScript
@@ -131,6 +141,9 @@ ScriptsOnlyBuild:
   - assembly: Assembly-CSharp
     fullTypeName: Menu_MainMenuScript
     methodName: BackToSettings
+  - assembly: Assembly-CSharp
+    fullTypeName: Menu_MainMenuScript
+    methodName: StartGame
   - assembly: Assembly-CSharp
     fullTypeName: Menu_MainMenuScript
     methodName: BackToSettings
@@ -166,13 +179,31 @@ ScriptsOnlyBuild:
     methodName: SettingsGame
   - assembly: Assembly-CSharp
     fullTypeName: PauseMenuScript
+    methodName: ExitToMainMenu
+  - assembly: Assembly-CSharp
+    fullTypeName: EndUI
+    methodName: RestartTheLevel
+  - assembly: Assembly-CSharp
+    fullTypeName: PauseMenuScript
     methodName: ResumeGame
+  - assembly: Assembly-CSharp
+    fullTypeName: Orienteering_MapObjectHandler
+    methodName: EndOfTheMode
   - assembly: Assembly-CSharp
     fullTypeName: PauseMenuScript
     methodName: ExitToMainMenu
   - assembly: Assembly-CSharp
+    fullTypeName: PauseMenuScript
+    methodName: ResumeGame
+  - assembly: Assembly-CSharp
     fullTypeName: Orienteering_MapObjectHandler
     methodName: EndOfTheMode
+  - assembly: Assembly-CSharp
+    fullTypeName: PauseMenuScript
+    methodName: ExitToMainMenu
+  - assembly: Assembly-CSharp
+    fullTypeName: PauseMenuScript
+    methodName: ExitToMainMenu
   - assembly: Assembly-CSharp
     fullTypeName: EndUI
     methodName: RestartTheLevel
@@ -180,17 +211,14 @@ ScriptsOnlyBuild:
     fullTypeName: PauseMenuScript
     methodName: ExitToMainMenu
   - assembly: Assembly-CSharp
+    fullTypeName: EndUI
+    methodName: RestartTheLevel
+  - assembly: Assembly-CSharp
     fullTypeName: PauseMenuScript
     methodName: ResumeGame
   - assembly: Assembly-CSharp
-    fullTypeName: PauseMenuScript
-    methodName: ExitToMainMenu
-  - assembly: Assembly-CSharp
     fullTypeName: Orienteering_MapObjectHandler
     methodName: EndOfTheMode
-  - assembly: Assembly-CSharp
-    fullTypeName: EndUI
-    methodName: RestartTheLevel
   - assembly: Assembly-CSharp
     fullTypeName: PauseMenuScript
     methodName: ExitToMainMenu
@@ -319,6 +347,147 @@ ScriptsOnlyBuild:
     - Class: 157
       Script: {instanceID: 0}
     - Class: 196
+      Script: {instanceID: 0}
+    - Class: 213
+      Script: {instanceID: 0}
+    - Class: 218
+      Script: {instanceID: 0}
+    - Class: 222
+      Script: {instanceID: 0}
+    - Class: 223
+      Script: {instanceID: 0}
+    - Class: 224
+      Script: {instanceID: 0}
+    - Class: 258
+      Script: {instanceID: 0}
+    - Class: 850595691
+      Script: {instanceID: 0}
+    - Class: 1953259897
+      Script: {instanceID: 0}
+    Assets/Scenes/Level3.unity:
+    - Class: 1
+      Script: {instanceID: 0}
+    - Class: 4
+      Script: {instanceID: 0}
+    - Class: 20
+      Script: {instanceID: 0}
+    - Class: 21
+      Script: {instanceID: 0}
+    - Class: 23
+      Script: {instanceID: 0}
+    - Class: 28
+      Script: {instanceID: 0}
+    - Class: 33
+      Script: {instanceID: 0}
+    - Class: 43
+      Script: {instanceID: 0}
+    - Class: 48
+      Script: {instanceID: 0}
+    - Class: 54
+      Script: {instanceID: 0}
+    - Class: 64
+      Script: {instanceID: 0}
+    - Class: 65
+      Script: {instanceID: 0}
+    - Class: 81
+      Script: {instanceID: 0}
+    - Class: 82
+      Script: {instanceID: 0}
+    - Class: 83
+      Script: {instanceID: 0}
+    - Class: 89
+      Script: {instanceID: 0}
+    - Class: 104
+      Script: {instanceID: 0}
+    - Class: 108
+      Script: {instanceID: 0}
+    - Class: 114
+      Script: {instanceID: 1580}
+    - Class: 114
+      Script: {instanceID: 1678}
+    - Class: 114
+      Script: {instanceID: 1730}
+    - Class: 114
+      Script: {instanceID: 1908}
+    - Class: 114
+      Script: {instanceID: 1946}
+    - Class: 114
+      Script: {instanceID: 1998}
+    - Class: 114
+      Script: {instanceID: 2068}
+    - Class: 114
+      Script: {instanceID: 2080}
+    - Class: 114
+      Script: {instanceID: 2204}
+    - Class: 114
+      Script: {instanceID: 2386}
+    - Class: 114
+      Script: {instanceID: 2564}
+    - Class: 114
+      Script: {instanceID: 2594}
+    - Class: 114
+      Script: {instanceID: 2770}
+    - Class: 114
+      Script: {instanceID: 2830}
+    - Class: 114
+      Script: {instanceID: 2958}
+    - Class: 114
+      Script: {instanceID: 3004}
+    - Class: 114
+      Script: {instanceID: 3052}
+    - Class: 114
+      Script: {instanceID: 3066}
+    - Class: 114
+      Script: {instanceID: 3074}
+    - Class: 114
+      Script: {instanceID: 3236}
+    - Class: 114
+      Script: {instanceID: 3252}
+    - Class: 114
+      Script: {instanceID: 3642}
+    - Class: 114
+      Script: {instanceID: 3676}
+    - Class: 114
+      Script: {instanceID: 3980}
+    - Class: 114
+      Script: {instanceID: 4214}
+    - Class: 114
+      Script: {instanceID: 4362}
+    - Class: 114
+      Script: {instanceID: 4396}
+    - Class: 114
+      Script: {instanceID: 4428}
+    - Class: 114
+      Script: {instanceID: 4466}
+    - Class: 114
+      Script: {instanceID: 4860}
+    - Class: 114
+      Script: {instanceID: 5434}
+    - Class: 114
+      Script: {instanceID: 5542}
+    - Class: 114
+      Script: {instanceID: 6026}
+    - Class: 114
+      Script: {instanceID: 27596}
+    - Class: 115
+      Script: {instanceID: 0}
+    - Class: 124
+      Script: {instanceID: 0}
+    - Class: 128
+      Script: {instanceID: 0}
+    - Class: 136
+      Script: {instanceID: 0}
+    - Class: 143
+      Script: {instanceID: 0}
+    - Class: 154
+      Script: {instanceID: 0}
+    - Class: 156
+      Script: {instanceID: 0}
+    - Class: 157
+      Script: {instanceID: 0}
+    - Class: 196
+      Script: {instanceID: 0}
+    - Class: 212
       Script: {instanceID: 0}
     - Class: 213
       Script: {instanceID: 0}
@@ -613,7 +782,7 @@ ScriptsOnlyBuild:
     className: AnimationPlayableAsset
   - hash:
       serializedVersion: 2
-      Hash: c666122583100ac294c0249b54a1ae6d
+      Hash: 190dfe7229ff815b6742da7a66125eb0
     assemblyName: Assembly-CSharp.dll
     namespaceName: 
     className: Menu_MapModeHandler
@@ -763,7 +932,7 @@ ScriptsOnlyBuild:
     className: CinemachineCameraOffset
   - hash:
       serializedVersion: 2
-      Hash: 89c8734bd828ecd45948dd624413fcd2
+      Hash: 8523910210feb0f8852b6d3f91dbfedd
     assemblyName: Assembly-CSharp.dll
     namespaceName: 
     className: OrienteeringMode_PostAssign
@@ -1051,7 +1220,7 @@ ScriptsOnlyBuild:
     className: GraphicRaycaster
   - hash:
       serializedVersion: 2
-      Hash: 1f335325d472a56ae1b360be4ac6f5f5
+      Hash: b6bde15e4a52ff1b4378ac5203418de5
     assemblyName: Assembly-CSharp.dll
     namespaceName: 
     className: EndUI
@@ -1339,7 +1508,7 @@ ScriptsOnlyBuild:
     className: CollisionFinisher
   - hash:
       serializedVersion: 2
-      Hash: 988cdec576a15fa6e4f51739980eb818
+      Hash: 6f087c13058d9732865aabdcc49205ae
     assemblyName: Assembly-CSharp.dll
     namespaceName: 
     className: AchievementHandler
@@ -1633,7 +1802,7 @@ ScriptsOnlyBuild:
     className: InputDeviceDebuggerWindow
   - hash:
       serializedVersion: 2
-      Hash: 12f080e3ef88f9084fdbe4d5f8295dbc
+      Hash: 38489b0f673c67d75e24c2ae08f38a89
     assemblyName: Assembly-CSharp.dll
     namespaceName: 
     className: Orienteering_MapObjectHandler
@@ -1721,9 +1890,16 @@ ScriptsOnlyBuild:
     assemblyName: Assembly-CSharp.dll
     namespaceName: 
     className: GroundCheck
+  - hash:
+      serializedVersion: 2
+      Hash: ac1508bcf8f1fb0827d1b81acf5cf13d
+    assemblyName: Assembly-CSharp.dll
+    namespaceName: 
+    className: EasterEgg1
   platform: 19
   scenePathNames:
   - Assets/Scenes/MainMenu.unity
   - Assets/Scenes/OLGameScene.unity
   - Assets/Scenes/Level2.unity
-  playerPath: D:/GitHub/Orienteering_Public_Builds/OL_Build_10/OL_Build.exe
+  - Assets/Scenes/Level3.unity
+  playerPath: D:/GitHub/Orienteering_Public_Builds/OL_Build_11/OL_Build.exe

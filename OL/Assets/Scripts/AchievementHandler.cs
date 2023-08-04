@@ -15,8 +15,8 @@ public class AchievementHandler : MonoBehaviour
     public GameObject UnlockCompassToo;
 
     private Vector3 originPosition;
-    
-    private float slideSpeed = 400f;
+    [Space]
+    public float slideSpeed = 400f;
 
     private void Start()
     {

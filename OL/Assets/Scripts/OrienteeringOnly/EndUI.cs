@@ -107,7 +107,7 @@ public class EndUI : MonoBehaviour
         Distance = Distance / Factor; //Bigger Screen = Longer Distance = Has to be canceled out
         if (IsMaze)
         {
-            Distance = Distance / 5; //Because Mazes are 100x100 not 500x500
+           Distance = Distance / 5; //Because Mazes are 100x100 not 500x500
         }
         if (Distance > 3.5f)
         {

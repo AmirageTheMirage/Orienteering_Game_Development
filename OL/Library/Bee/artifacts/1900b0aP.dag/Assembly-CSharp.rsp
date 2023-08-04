@@ -321,6 +321,7 @@
 "Assets/Scripts/CloudSpawner.cs"
 "Assets/Scripts/CollisionFinisher.cs"
 "Assets/Scripts/Compass.cs"
+"Assets/Scripts/EasterEgg1.cs"
 "Assets/Scripts/FadePlus.cs"
 "Assets/Scripts/MainMenu/Achievements.cs"
 "Assets/Scripts/MainMenu/DifficultySlider.cs"
