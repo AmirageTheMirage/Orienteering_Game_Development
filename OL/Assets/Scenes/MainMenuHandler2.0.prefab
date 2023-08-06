@@ -1,0 +1,194 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1 &6953115083551985634
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 6953115083551985635}
+  - component: {fileID: 6953115083551985627}
+  - component: {fileID: 6953115083551985626}
+  - component: {fileID: 6953115083551985625}
+  - component: {fileID: 6953115083551985624}
+  - component: {fileID: 6953115083551985639}
+  - component: {fileID: 6953115083551985638}
+  - component: {fileID: 6953115083551985637}
+  - component: {fileID: 6953115083551985636}
+  m_Layer: 0
+  m_Name: MainMenuHandler2.0
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &6953115083551985635
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6953115083551985634}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 493.93073, y: 359.70786, z: 102.53888}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &6953115083551985627
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6953115083551985634}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 22054fa640d83574d864e46ea12d2b85, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Achievement_1: 0
+  Achievement_2: 0
+  Achievement_3: 0
+  Achievement_4: 0
+  Achievement_5: 0
+  Achievement_6: 0
+  Achievement_7: 0
+  Achievement_8: 0
+  Check_1: {fileID: 0}
+  Check_2: {fileID: 0}
+  Check_3: {fileID: 0}
+  Check_4: {fileID: 0}
+  Check_5: {fileID: 0}
+  Check_6: {fileID: 0}
+  Check_7: {fileID: 0}
+  Check_8: {fileID: 0}
+--- !u!114 &6953115083551985626
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6953115083551985634}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 61455c217f2d2914a820007d10ed7d6a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  MySlider: {fileID: 0}
+  HowMuchFog: 0
+  PreviewText: {fileID: 0}
+--- !u!114 &6953115083551985625
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6953115083551985634}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9616cc70e2b2f564a86abb5e53a34d0d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  GameMode: 0
+  Orienteering: {fileID: 0}
+  PostSearch: {fileID: 0}
+--- !u!114 &6953115083551985624
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6953115083551985634}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4c86de4b54ac0f7479f3e23a8b1fbae7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  CompassChosen: 1
+  Highlighter: {fileID: 0}
+  Compass1: {fileID: 0}
+  Compass2: {fileID: 0}
+  Compass3: {fileID: 0}
+  Unlocked: 0100000000000000
+--- !u!114 &6953115083551985639
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6953115083551985634}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ce76219970362f345a2c8c3f1e18c338, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  DropDownValue: 0
+  ModeDropDown: {fileID: 0}
+  DifficultySlider: {fileID: 0}
+--- !u!114 &6953115083551985638
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6953115083551985634}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 60d3cc91f6a1bca48a844bda632bbf12, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  MainMenu: {fileID: 0}
+  Settings: {fileID: 0}
+  Fader: {fileID: 0}
+  PlayMenu: {fileID: 0}
+  ChooseMenu: {fileID: 0}
+  Achievements: {fileID: 0}
+  QualitySettingsDropDown: {fileID: 0}
+  ShadowSettingDropDown: {fileID: 0}
+  MapSettings: 0
+  QualitySetting: 3
+  AudioVolumeSetting: 1
+  MainAudioMixer: {fileID: 0}
+  AudioSlider: {fileID: 0}
+  AudioSliderText: {fileID: 0}
+  RealShadowDropDown: {fileID: 0}
+  FakeShadowDropDown: {fileID: 0}
+  ShadowsSetting: 1
+--- !u!114 &6953115083551985637
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6953115083551985634}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c9cc9ea31e20f0042b3f034159ba47d5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  DropDownValue: 0
+  ModeDropDown: {fileID: 0}
+  Forest1: {fileID: 0}
+  Forest2: {fileID: 0}
+  Maze1: {fileID: 0}
+  SelectDifficultyHideParent: {fileID: 0}
+--- !u!114 &6953115083551985636
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6953115083551985634}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9abeeb27fa8f5ff458963ccc90893a59, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  MySlider: {fileID: 0}
+  TimeSetting: 0
+  PreviewText: {fileID: 0}

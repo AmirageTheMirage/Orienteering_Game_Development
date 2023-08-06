@@ -3,6 +3,8 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
+using TMPro;
+using UnityEngine.Audio;
 
 
 public class Menu_MainMenuScript : MonoBehaviour
@@ -13,12 +15,33 @@ public class Menu_MainMenuScript : MonoBehaviour
     public GameObject PlayMenu;
     public GameObject ChooseMenu;
     public GameObject Achievements;
+    public TMP_Dropdown QualitySettingsDropDown;
+    public TMP_Dropdown ShadowSettingDropDown;
     private bool Fade;
     private float FP = 0f;
     public int MapSettings = 0;
+    public int QualitySetting = 3; //0=V.Low, 1 = Low, 2 = Medium, 3 = High, so we'll start with High
+    public float AudioVolumeSetting = 1f;
+    public AudioMixer MainAudioMixer;
+    public Slider AudioSlider;
+    public TextMeshProUGUI AudioSliderText;
+    public GameObject RealShadowDropDown;
+    public GameObject FakeShadowDropDown;
+    public int ShadowsSetting = 1;
+
+
+
+
+
+
+
+
+   // private int PreAudioVolumeSetting;
+
     // Start is called before the first frame update
     void Start()
     {
+        //AudioListener.volume = 0.5f;
         Cursor.lockState = CursorLockMode.None;
         MainMenu.SetActive(true);
         Settings.SetActive(false);
@@ -27,6 +50,9 @@ public class Menu_MainMenuScript : MonoBehaviour
         PlayMenu.SetActive(false);
         ChooseMenu.SetActive(false);
         Achievements.SetActive(false);
+        AssignAudioVolume();
+        AssignQualityDropDown();
+        AssignShadowsOnOff();
         GetMapSettings();
     }
 
@@ -58,7 +84,7 @@ public class Menu_MainMenuScript : MonoBehaviour
 }
     public void StartGame()
     {
-
+        
         Fade = true;
         MainMenu.SetActive(false);
         Fader.SetActive(true);
@@ -66,6 +92,84 @@ public class Menu_MainMenuScript : MonoBehaviour
         Achievements.SetActive(false);
         FP = 0f;
         //SceneManager.LoadScene(0);
+    }
+
+
+    public void AssignShadowsOnOff()
+    {
+
+        if (PlayerPrefs.HasKey("Shadows_Setting"))
+        {
+            ShadowsSetting = PlayerPrefs.GetInt("Shadows_Setting");
+            PlayerPrefs.Save();
+
+
+        }
+        else
+        {
+            PlayerPrefs.SetInt("Shadows_Setting", ShadowsSetting);
+            PlayerPrefs.Save();
+
+
+
+        }
+        Debug.Log(ShadowsSetting);
+        if (ShadowsSetting == 0)
+        {
+            QualitySettings.shadows = ShadowQuality.Disable;
+            
+        }
+        else
+        {
+            QualitySettings.shadows = ShadowQuality.All;
+        }
+        ShadowSettingDropDown.value = ShadowsSetting;
+       // Debug.Log(ShadowsSetting);
+        
+    }
+    public void AssignAudioVolume()
+    {
+        if (PlayerPrefs.HasKey("SoundVolume_Setting"))
+        {
+            AudioVolumeSetting = PlayerPrefs.GetFloat("SoundVolume_Setting");
+            PlayerPrefs.Save();
+
+
+        }
+        else
+        {
+            PlayerPrefs.SetFloat("SoundVolume_Setting", AudioVolumeSetting);
+            PlayerPrefs.Save();
+
+
+
+        }
+        AudioSlider.value = AudioVolumeSetting;
+        AudioListener.volume = AudioVolumeSetting;
+        AudioSliderText.text = Mathf.Round((AudioVolumeSetting * 100f)).ToString();
+        //AudioSliderText.text = AudioVolumeSetting.ToString();
+    }
+    public void AssignQualityDropDown()
+    {
+        
+        if (PlayerPrefs.HasKey("QualitySetting_Setting"))
+        {
+            QualitySetting = PlayerPrefs.GetInt("QualitySetting_Setting");
+            PlayerPrefs.Save();
+                       
+
+        }
+        else
+        {
+            PlayerPrefs.SetInt("QualitySetting_Setting", QualitySetting);
+            PlayerPrefs.Save();
+                       
+
+
+        }
+        QualitySettingsDropDown.value = QualitySetting; //Under 1
+        
+        SetGameQuality(QualitySetting);
     }
     public void QuitGame()
     {
@@ -84,6 +188,7 @@ public class Menu_MainMenuScript : MonoBehaviour
         MainMenu.SetActive(true);
         Settings.SetActive(false);
         PlayMenu.SetActive(false);
+        Achievements.SetActive(false);
     }
     public void ChangeToPlayMenu()
     {
@@ -122,5 +227,63 @@ public class Menu_MainMenuScript : MonoBehaviour
     {
         Achievements.SetActive(true);
         Settings.SetActive(false);
+    }
+
+    public void SetGameQuality(int SetToIndex)
+    {
+        QualitySettings.SetQualityLevel(SetToIndex); //that was easy
+        QualitySetting = SetToIndex;
+        PlayerPrefs.SetInt("QualitySetting_Setting", QualitySetting);
+        PlayerPrefs.Save();
+        if (QualitySetting <= 1)
+        {
+            RealShadowDropDown.SetActive(false);
+            FakeShadowDropDown.SetActive(true);
+        }
+        else
+        {
+            RealShadowDropDown.SetActive(true);
+            FakeShadowDropDown.SetActive(false); //So from now on you can change shadows again
+            //if (ShadowsSetting == 0)
+            //{
+            //    QualitySettings.shadows = ShadowQuality.Disable;
+            //}
+            //else
+            //{
+            //    QualitySettings.shadows = ShadowQuality.All;
+            //}
+            //ShadowSettingDropDown.value = ShadowsSetting; //So this part here resets the Shadows. so if you go over Low Res and have shadows turned off, this actualizes that.
+        }
+    }
+
+    public void SetVolumeOfGame(float SetVolume)
+    {
+
+       // Debug.Log(SetVolume);
+        AudioVolumeSetting = SetVolume;
+        AudioListener.volume = AudioVolumeSetting;
+        PlayerPrefs.SetFloat("SoundVolume_Setting", AudioVolumeSetting);
+        PlayerPrefs.Save();
+
+        //Debug.Log(SetVolume);
+        AudioSliderText.text = Mathf.Round((AudioVolumeSetting * 100f)).ToString();
+    }
+
+    
+
+
+    public void UpdateShadows(int ShadowNewSetting)
+    {
+        ShadowsSetting = ShadowNewSetting;
+        PlayerPrefs.SetInt("Shadows_Setting", ShadowsSetting);
+        PlayerPrefs.Save();
+        if (ShadowsSetting == 0)
+        {
+            QualitySettings.shadows = ShadowQuality.Disable;
+        } else
+        {
+            QualitySettings.shadows = ShadowQuality.All;
+        }
+        //Debug.Log(ShadowsSetting);
     }
 }

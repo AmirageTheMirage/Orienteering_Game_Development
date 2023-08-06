@@ -107,7 +107,9 @@ public class EndUI : MonoBehaviour
         Distance = Distance / Factor; //Bigger Screen = Longer Distance = Has to be canceled out
         if (IsMaze)
         {
-           Distance = Distance / 5; //Because Mazes are 100x100 not 500x500
+           Distance = Distance / 25; //Because Mazes are 100x100 not 500x500 + Map is much smaller:
+            //Map: 100x100 instead of 500x500 = Factor 5 Map alone
+            // Map on screen is bigger than the others, also Factor 5, means 5*5 = 25
         }
         if (Distance > 3.5f)
         {
@@ -117,19 +119,19 @@ public class EndUI : MonoBehaviour
         DistanceText.text = Mathf.Round(Distance).ToString() + "m";
         if (IsMaze)
         {
-            if (Distance * 5 < 10f)
+            if (Distance * 25 < 10f)
             {
                 RatingText.text = "Perfect";
             }
-            else if (Distance * 5 < 20f)
+            else if (Distance * 25 < 20f)
             {
                 RatingText.text = "Great";
             }
-            else if (Distance * 5 < 30f)
+            else if (Distance * 25 < 30f)
             {
                 RatingText.text = "Okay";
             }
-            else if (Distance * 5 < 50f)
+            else if (Distance * 25 < 50f)
             {
                 RatingText.text = "Bad";
             }
