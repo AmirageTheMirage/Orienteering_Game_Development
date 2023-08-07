@@ -19,13 +19,26 @@ public class MapHandler : MonoBehaviour
     void Start()
     {
         FogWall.SetActive(false);
-        TimeOfDay = PlayerPrefs.GetInt("Time_Setting");
+        if (PlayerPrefs.GetInt("UseCode_Setting") == 1) //Override with Code Input
+        {
+            TimeOfDay = PlayerPrefs.GetInt("TimePart_Code");
+        }
+        else
+        {
+            TimeOfDay = PlayerPrefs.GetInt("Time_Setting");
+        }
         DirectLight.transform.eulerAngles = new Vector3(360f / 24f * TimeOfDay - 90f, 90f, 0f); //So it's in east
         //if Its Time = 0, The Angle is -90f
         //One Complete TurnAround = 360
         //360 / 24 * TimeOfDay
-
-        FogSetting = PlayerPrefs.GetInt("Fog_Setting");
+        if (PlayerPrefs.GetInt("UseCode_Setting") == 1) //Override with Code Input
+        {
+            FogSetting = PlayerPrefs.GetInt("FogPart_Code");
+        }
+        else
+        {
+            FogSetting = PlayerPrefs.GetInt("Fog_Setting");
+        }
         if (FogSetting == 1)
         {
             RenderSettings.fogDensity = 0.005f;

@@ -18,16 +18,27 @@ public class CollisionFinisher : MonoBehaviour
     private int MapSettings;
     private int Difficulty;
     public AchievementHandler AchievScript;
-
+    public IsMapMaze IsMapMazeScript;
+    private bool IsMaze;
 
 
     public GameObject Fader;
     private float FP = 1f; //FP = FaderPercent
     public bool StartFade = false;
+    private int UsingCode = 0;
     
     void Start()
     {
-        Difficulty = PlayerPrefs.GetInt("Difficulty_Setting");
+        IsMaze = IsMapMazeScript.IsMaze;
+        // Debug.Log(IsMaze);
+        if (PlayerPrefs.GetInt("UseCode_Setting") == 1)
+        {
+            Difficulty = PlayerPrefs.GetInt("DifficultyPart_Code");
+        }
+        else
+        {
+            Difficulty = PlayerPrefs.GetInt("Difficulty_Setting");
+        }
         MyNameAsInt = int.Parse(gameObject.name);
         numberofendposten = IHave.endposten;
         StartFade = false;
@@ -43,13 +54,16 @@ public class CollisionFinisher : MonoBehaviour
 
         if (MyNameAsInt == numberofendposten && alreadyfading == false)
         {
-            
-            if (Difficulty == 1)
+            if (IsMaze == false)
             {
-            AchievScript.UnlockAchievement(3);
-            } else if (Difficulty == 3)
-            {
-                AchievScript.UnlockAchievement(4);
+                if (Difficulty == 1)
+                {
+                    AchievScript.UnlockAchievement(3);
+                }
+                else if (Difficulty == 3)
+                {
+                    AchievScript.UnlockAchievement(4);
+                }
             }
             alreadyfading = true;
             touching = true;
@@ -81,17 +95,28 @@ public class CollisionFinisher : MonoBehaviour
                 }
                 else
                 {
-                    GetMapSettings();
-                    if (MapSettings == 0)
+                    UsingCode = PlayerPrefs.GetInt("UseCode_Setting");
+                    if (UsingCode == 1)
                     {
-                        SceneManager.LoadScene(1); //Forest 1
+
+                        SceneManager.LoadScene(PlayerPrefs.GetInt("MapPart_Code")); //If using Code, open the Scene the Code wants to open
+
                     }
-                    else if (MapSettings == 1)
+                    else
                     {
-                        SceneManager.LoadScene(2); //Forest 2
-                    } else
-                    {
-                        SceneManager.LoadScene(3); //Maze 1
+                        GetMapSettings();
+                        if (MapSettings == 0)
+                        {
+                            SceneManager.LoadScene(1); //Forest 1
+                        }
+                        else if (MapSettings == 1)
+                        {
+                            SceneManager.LoadScene(2); //Forest 2
+                        }
+                        else
+                        {
+                            SceneManager.LoadScene(3); //Maze 1
+                        }
                     }
                 }
 

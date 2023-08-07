@@ -32,70 +32,84 @@ public class PostAssign : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        if (PlayerPrefs.GetInt("UseCode_Setting") == 1)
+        {
+           // Difficulty = PlayerPrefs.GetInt("Difficulty_Code");
+           startposten = PlayerPrefs.GetInt("StartPost_Code");
+           endposten = PlayerPrefs.GetInt("EndPost_Code");
+           MapSetting = PlayerPrefs.GetInt("MapPart_Code") - 1;
 
-        MapSetting = PlayerPrefs.GetInt("MapDropdown_Setting");
-        Difficulty = PlayerPrefs.GetInt("Difficulty_Setting");
-        //Debug.Log(Difficulty);
-        //Selection of Posts
-
-        if (MapSetting == 0)
-        {
-            EasySelection = Forest1EasyPosts;
-            MidSelection = Forest1MidPosts;
-            HardSelection = Forest1HardPosts;
-        } else if (MapSetting == 1)
-        {
-            EasySelection = Forest2EasyPosts;
-            MidSelection = Forest2MidPosts;
-            HardSelection = Forest2HardPosts;
-        } else
-        {
-            EasySelection = Forest2HardPosts;
-            MidSelection = Forest2HardPosts;
-            HardSelection = Forest2HardPosts; //Maze = No Difficulty Changing, so all posts
         }
-        if (Difficulty == 1)
+        else
         {
-            
-            startposten = int.Parse(EasySelection[Random.Range(0, EasySelection.Length)]);
-            endposten = int.Parse(EasySelection[Random.Range(0, EasySelection.Length)]);
+            MapSetting = PlayerPrefs.GetInt("MapDropdown_Setting");
+            Difficulty = PlayerPrefs.GetInt("Difficulty_Setting");
+            //Debug.Log(Difficulty);
+            //Selection of Posts
 
-            while (endposten - 0.1 < startposten && endposten + 0.1 > startposten)
+            if (MapSetting == 0)
             {
+                EasySelection = Forest1EasyPosts;
+                MidSelection = Forest1MidPosts;
+                HardSelection = Forest1HardPosts;
+            }
+            else if (MapSetting == 1)
+            {
+                EasySelection = Forest2EasyPosts;
+                MidSelection = Forest2MidPosts;
+                HardSelection = Forest2HardPosts;
+            }
+            else
+            {
+                EasySelection = Forest2HardPosts;
+                MidSelection = Forest2HardPosts;
+                HardSelection = Forest2HardPosts; //Maze = No Difficulty Changing, so all posts
+            }
+            if (Difficulty == 1)
+            {
+
+                startposten = int.Parse(EasySelection[Random.Range(0, EasySelection.Length)]);
                 endposten = int.Parse(EasySelection[Random.Range(0, EasySelection.Length)]);
-            }
 
-        }
-        else if (Difficulty == 2)
-        {
-            startposten = int.Parse(MidSelection[Random.Range(0, MidSelection.Length)]);
-            endposten = int.Parse(MidSelection[Random.Range(0, MidSelection.Length)]);
-            while (endposten - 0.1 < startposten && endposten + 0.1 > startposten)
+                while (endposten - 0.1 < startposten && endposten + 0.1 > startposten)
+                {
+                    endposten = int.Parse(EasySelection[Random.Range(0, EasySelection.Length)]);
+                }
+
+            }
+            else if (Difficulty == 2)
             {
+                startposten = int.Parse(MidSelection[Random.Range(0, MidSelection.Length)]);
                 endposten = int.Parse(MidSelection[Random.Range(0, MidSelection.Length)]);
+                while (endposten - 0.1 < startposten && endposten + 0.1 > startposten)
+                {
+                    endposten = int.Parse(MidSelection[Random.Range(0, MidSelection.Length)]);
+                }
+
             }
-
-        }
-        else if (Difficulty == 3)
-        {
-
-            startposten = int.Parse(HardSelection[Random.Range(0, HardSelection.Length)]);
-            endposten = int.Parse(HardSelection[Random.Range(0, HardSelection.Length)]);
-            while (endposten - 0.1 < startposten && endposten + 0.1 > startposten)
+            else if (Difficulty == 3)
             {
+
+                startposten = int.Parse(HardSelection[Random.Range(0, HardSelection.Length)]);
                 endposten = int.Parse(HardSelection[Random.Range(0, HardSelection.Length)]);
+                while (endposten - 0.1 < startposten && endposten + 0.1 > startposten)
+                {
+                    endposten = int.Parse(HardSelection[Random.Range(0, HardSelection.Length)]);
+                }
             }
+
+
+
         }
-        
 
 
 
 
 
-        
-
-
-
+        PlayerPrefs.SetInt("StartPost_Code", startposten);
+        PlayerPrefs.SetInt("EndPost_Code", endposten);
+       // PlayerPrefs.SetInt("DifficultyPart_Code", Difficulty);
+        PlayerPrefs.Save();
         GameObject child = Posten.transform.Find(startposten.ToString()).gameObject;
         child.SetActive(true);
         GameObject child2 = Posten.transform.Find(endposten.ToString()).gameObject;

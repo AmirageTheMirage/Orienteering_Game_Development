@@ -18,11 +18,12 @@ public class EndUI : MonoBehaviour
     public GameObject Loading;
     public GameObject LoadingScreenStuff;
     public AchievementHandler AchievementUnlocker;
-    public bool IsMaze;
-   
+    public IsMapMaze IsMapMazeScript;
+    private bool IsMaze;
 
 
 
+    private float MazeCorrection = 15f;
     private float FP = 1f; //FP = FaderPercent
     private float AfterFP = 0f;
     private bool Fade = false;
@@ -34,15 +35,24 @@ public class EndUI : MonoBehaviour
     private float YDiff;
     private int MapSettings;
     private int FogSettings;
+    private int UsingCode = 0;
     
     void Start()
     {
+        IsMaze = IsMapMazeScript.IsMaze;
         TargetUI.SetActive(true);
         PlayerUI.SetActive(true);
         Fader.SetActive(false);
         Loading.SetActive(false);
         LoadingScreenStuff.SetActive(true);
-        FogSettings = PlayerPrefs.GetInt("Fog_Setting");
+        if (PlayerPrefs.GetInt("UseCode_Setting") == 1)
+        {
+            FogSettings = PlayerPrefs.GetInt("FogPart_Code");
+        }
+        else
+        {
+            FogSettings = PlayerPrefs.GetInt("Fog_Setting");
+        }
         CalculateDistance();
         // Debug.Log(ScreenX.ToString());
 
@@ -71,17 +81,28 @@ public class EndUI : MonoBehaviour
                 }
                 else
                 {
-                    GetMapSettings();
-                    if (MapSettings == 0)
+                    UsingCode = PlayerPrefs.GetInt("UseCode_Setting");
+                    if (UsingCode == 1)
                     {
-                        SceneManager.LoadScene(1); //Forest 1
+
+                        SceneManager.LoadScene(PlayerPrefs.GetInt("MapPart_Code")); //If using Code, open the Scene the Code wants to open
+
                     }
-                    else if (MapSettings == 1)
+                    else
                     {
-                        SceneManager.LoadScene(2); //Forest 2
-                    } else
-                    {
-                        SceneManager.LoadScene(3); //Maze 1
+                        GetMapSettings();
+                        if (MapSettings == 0)
+                        {
+                            SceneManager.LoadScene(1); //Forest 1
+                        }
+                        else if (MapSettings == 1)
+                        {
+                            SceneManager.LoadScene(2); //Forest 2
+                        }
+                        else
+                        {
+                            SceneManager.LoadScene(3); //Maze 1
+                        }
                     }
                 }
             }
@@ -107,31 +128,34 @@ public class EndUI : MonoBehaviour
         Distance = Distance / Factor; //Bigger Screen = Longer Distance = Has to be canceled out
         if (IsMaze)
         {
-           Distance = Distance / 25; //Because Mazes are 100x100 not 500x500 + Map is much smaller:
+            Distance = Distance / MazeCorrection; //Because Mazes are 100x100 not 500x500 + Map is much smaller:
             //Map: 100x100 instead of 500x500 = Factor 5 Map alone
-            // Map on screen is bigger than the others, also Factor 5, means 5*5 = 25
+            // Map on screen is bigger than the others, also Factor 5, means 5*5 = 25, but I still only did /10 bc why not
         }
-        if (Distance > 3.5f)
+        else
         {
-            Distance = Distance - 3f; //TOLERANCE for Map not being pixelperfect
+            if (Distance > 3.5f)
+            {
+                Distance = Distance - 3f; //TOLERANCE for Map not being pixelperfect, except the Maze
+            }
         }
         Debug.Log(Distance.ToString());
         DistanceText.text = Mathf.Round(Distance).ToString() + "m";
         if (IsMaze)
         {
-            if (Distance * 25 < 10f)
+            if (Distance * MazeCorrection < 10f)
             {
                 RatingText.text = "Perfect";
             }
-            else if (Distance * 25 < 20f)
+            else if (Distance * MazeCorrection < 20f)
             {
                 RatingText.text = "Great";
             }
-            else if (Distance * 25 < 30f)
+            else if (Distance * MazeCorrection < 30f)
             {
                 RatingText.text = "Okay";
             }
-            else if (Distance * 25 < 50f)
+            else if (Distance * MazeCorrection < 50f)
             {
                 RatingText.text = "Bad";
             }
@@ -140,48 +164,54 @@ public class EndUI : MonoBehaviour
                 RatingText.text = "Terrible";
             }
 
-        }
-        if (Distance < 10f)
-        {
-            RatingText.text = "Perfect";
-        } else if (Distance < 20f)
-        {
-            RatingText.text = "Great";
-        }
-        else if (Distance < 30f)
-        {
-            RatingText.text = "Okay";
-        } else if (Distance < 50f)
-        {
-            RatingText.text = "Bad";
-        } else
-        {
-            RatingText.text = "Terrible";
-        }
-        if (Distance < 10f)
-        {
-            if (PlayerPrefs.GetInt("Achievement_1") == 0)
+        } else {
+            if (Distance < 10f)
             {
-                AchievementUnlocker.UnlockAchievement(1);
+                RatingText.text = "Perfect";
+            }
+            else if (Distance < 20f)
+            {
+                RatingText.text = "Great";
+            }
+            else if (Distance < 30f)
+            {
+                RatingText.text = "Okay";
+            }
+            else if (Distance < 50f)
+            {
+                RatingText.text = "Bad";
             }
             else
             {
-                if (FogSettings == 5)
-                {
-                    if (Distance < 1.5f)
-                    {
-                        AchievementUnlocker.UnlockAchievement(7);
-                    } else
-                    {
-                        AchievementUnlocker.UnlockAchievement(6);
-                    }
+                RatingText.text = "Terrible";
+            }
 
+            if (Distance < 10f)
+            {
+                if (PlayerPrefs.GetInt("Achievement_1") == 0)
+                {
+                    AchievementUnlocker.UnlockAchievement(1);
+                }
+                else
+                {
+                    if (FogSettings == 5)
+                    {
+                        if (Distance < 1.5f)
+                        {
+                            AchievementUnlocker.UnlockAchievement(7);
+                        }
+                        else
+                        {
+                            AchievementUnlocker.UnlockAchievement(6);
+                        }
+
+                    }
                 }
             }
-        }
-        if (Distance > 300f)
-        {
-            AchievementUnlocker.UnlockAchievement(5);
+            if (Distance > 300f)
+            {
+                AchievementUnlocker.UnlockAchievement(5);
+            }
         }
     }
     public void RestartTheLevel()

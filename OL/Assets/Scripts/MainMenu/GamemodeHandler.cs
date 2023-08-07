@@ -11,7 +11,14 @@ public class GamemodeHandler : MonoBehaviour
     {
         PostSearch.SetActive(false);
         Orienteering.SetActive(false);
-        GameMode = PlayerPrefs.GetInt("ModeDropdown_Setting");
+        if (PlayerPrefs.GetInt("UseCode_Setting") == 1)
+        {
+            GameMode = PlayerPrefs.GetInt("ModePart_Code");
+        }
+        else
+        {
+            GameMode = PlayerPrefs.GetInt("ModeDropdown_Setting");
+        }
        // Debug.Log(GameMode.ToString());
         if (GameMode == 0)
         {

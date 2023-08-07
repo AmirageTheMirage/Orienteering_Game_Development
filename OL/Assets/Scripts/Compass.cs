@@ -14,7 +14,14 @@ public class Compass : MonoBehaviour
     {
         
         NadelTransform = GetComponent<RectTransform>();
-        Mode = PlayerPrefs.GetInt("ModeDropdown_Setting");
+        if (PlayerPrefs.GetInt("UseCode_Setting") == 1)
+        {
+            Mode = PlayerPrefs.GetInt("ModePart_Code");
+        }
+        else
+        {
+            Mode = PlayerPrefs.GetInt("ModeDropdown_Setting");
+        }
 
     }
 

@@ -29,6 +29,8 @@ public class Menu_MainMenuScript : MonoBehaviour
     public GameObject FakeShadowDropDown;
     public int ShadowsSetting = 1;
 
+    public GameCode_PlayUsingCode CodeScript;
+    private int UsingCode = 0;
 
 
 
@@ -50,9 +52,10 @@ public class Menu_MainMenuScript : MonoBehaviour
         PlayMenu.SetActive(false);
         ChooseMenu.SetActive(false);
         Achievements.SetActive(false);
+        
         AssignAudioVolume();
+        AssignShadowsOnOff();//IMPORTANT: Needs to be BEFORE AssignQualityDropDown
         AssignQualityDropDown();
-        AssignShadowsOnOff();
         GetMapSettings();
     }
 
@@ -67,16 +70,28 @@ public class Menu_MainMenuScript : MonoBehaviour
                 Fader.GetComponent<Image>().color = col;
             }
             else {
-                GetMapSettings();
-                if (MapSettings == 0)
+                UsingCode = PlayerPrefs.GetInt("UseCode_Setting");
+                if (UsingCode == 1)
                 {
-                    SceneManager.LoadScene(1); //Forest 1
-                } else if (MapSettings == 1)
+                    
+                    SceneManager.LoadScene(CodeScript.MapPart); //If using Code, open the Scene the Code wants to
+
+                }
+                else
                 {
-                    SceneManager.LoadScene(2); //Forest 2
-                } else
-                {
-                    SceneManager.LoadScene(3); //Maze 1
+                    GetMapSettings();
+                    if (MapSettings == 0)
+                    {
+                        SceneManager.LoadScene(1); //Forest 1
+                    }
+                    else if (MapSettings == 1)
+                    {
+                        SceneManager.LoadScene(2); //Forest 2
+                    }
+                    else
+                    {
+                        SceneManager.LoadScene(3); //Maze 1
+                    }
                 }
             }
         }
@@ -113,17 +128,7 @@ public class Menu_MainMenuScript : MonoBehaviour
 
 
         }
-        Debug.Log(ShadowsSetting);
-        if (ShadowsSetting == 0)
-        {
-            QualitySettings.shadows = ShadowQuality.Disable;
-            
-        }
-        else
-        {
-            QualitySettings.shadows = ShadowQuality.All;
-        }
-        ShadowSettingDropDown.value = ShadowsSetting;
+        UpdateShadows(ShadowsSetting); //Do visual & PlayerPrefUpdate
        // Debug.Log(ShadowsSetting);
         
     }
@@ -254,6 +259,7 @@ public class Menu_MainMenuScript : MonoBehaviour
             //}
             //ShadowSettingDropDown.value = ShadowsSetting; //So this part here resets the Shadows. so if you go over Low Res and have shadows turned off, this actualizes that.
         }
+        UpdateShadows(ShadowsSetting); //Update the PlayerPrefShadow Manager
     }
 
     public void SetVolumeOfGame(float SetVolume)
@@ -272,18 +278,22 @@ public class Menu_MainMenuScript : MonoBehaviour
     
 
 
-    public void UpdateShadows(int ShadowNewSetting)
+    public void UpdateShadows(int ShadowNewSetting) //PlayerPref Shadow Handler
     {
         ShadowsSetting = ShadowNewSetting;
         PlayerPrefs.SetInt("Shadows_Setting", ShadowsSetting);
         PlayerPrefs.Save();
-        if (ShadowsSetting == 0)
-        {
-            QualitySettings.shadows = ShadowQuality.Disable;
-        } else
+        if (ShadowsSetting == 1 && !(QualitySetting <= 1))
         {
             QualitySettings.shadows = ShadowQuality.All;
+           
+        } else
+        {
+            QualitySettings.shadows = ShadowQuality.Disable;
         }
+        ShadowSettingDropDown.value = ShadowsSetting;
         //Debug.Log(ShadowsSetting);
     }
+
+
 }

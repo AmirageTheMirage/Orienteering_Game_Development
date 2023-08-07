@@ -33,6 +33,8 @@ public class Menu_CompassChooser : MonoBehaviour
     }
     void ReStart()
     {
+        Unlocked.Clear();
+        //Debug.Log(Unlocked[0]);
         PlayerPrefs.SetInt("Compass_1", 1);
         PlayerPrefs.Save();
 
@@ -51,7 +53,7 @@ public class Menu_CompassChooser : MonoBehaviour
         //First Compass = AlwaysUnlocked
 
 
-        for (int i = 1; i <= 3; i++) //Fetch from PlayerPrefs
+        for (int i = 1; i <= 3; i++) //Fetch from PlayerPrefs, Change the 3 if I add more compasses
         {
             string currentstringname = "Compass_" + i.ToString();
             if (PlayerPrefs.HasKey(currentstringname))
@@ -62,11 +64,12 @@ public class Menu_CompassChooser : MonoBehaviour
             else
             {
                 Debug.Log("PlayerPref Compass_" + i.ToString() + " is missing, making a new one.");
-                PlayerPrefs.SetInt(currentstringname, 0);
+                PlayerPrefs.SetInt(currentstringname, 0); //If the Compass Setting is missing, make a new Setting
                 PlayerPrefs.Save();
 
             }
             Unlocked.Add(PlayerPrefs.GetInt(currentstringname));
+            
             int currentnumber = PlayerPrefs.GetInt(currentstringname);
 
             GameObject currentCompass = null;
@@ -81,6 +84,9 @@ public class Menu_CompassChooser : MonoBehaviour
             else if (i == 3)
             {
                 currentCompass = Compass3;
+            } else
+            {
+                Debug.Log("There is no instance of i = " + i);
             }
 
             if (currentnumber == 0)
@@ -88,7 +94,7 @@ public class Menu_CompassChooser : MonoBehaviour
                 Transform lockedTransform = currentCompass.transform.Find("Locked");
                 if (lockedTransform != null)
                 {
-                    lockedTransform.gameObject.SetActive(true);
+                    lockedTransform.gameObject.SetActive(true); //Show Locked Sign if the Compass is not yet Unlocked
                 }
                 else
                 {
@@ -102,11 +108,13 @@ public class Menu_CompassChooser : MonoBehaviour
 
 
 
+        
+       // Debug.Log(Unlocked[2].ToString()); // => 1
+       // Debug.Log(PlayerPrefs.GetInt("Compass_3")); // => 0, means its a Problem of the unlocked assignment.
 
 
 
-
-        if (PlayerPrefs.HasKey("Compass_Setting"))
+        if (PlayerPrefs.HasKey("Compass_Setting")) //So in case the player loads with a compass that isnt unlocked, then automatically go back to Compass Number 1
         {
 
             CompassChosen = PlayerPrefs.GetInt("Compass_Setting");
@@ -124,7 +132,7 @@ public class Menu_CompassChooser : MonoBehaviour
             PlayerPrefs.Save();
         }
 
-
+        
         AssignHighlighter(CompassChosen);
     }
 
@@ -132,6 +140,7 @@ public class Menu_CompassChooser : MonoBehaviour
     {
         int CompMinusOne = Comp - 1;
         if (Unlocked[CompMinusOne] == 1) {
+            Debug.Log("Compass " + Comp + " is unlocked!");
             CompassChosen = Comp;
             PlayerPrefs.SetInt("Compass_Setting", CompassChosen);
             PlayerPrefs.Save();
