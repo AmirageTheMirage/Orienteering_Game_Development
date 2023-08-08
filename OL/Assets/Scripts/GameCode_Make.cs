@@ -2,6 +2,8 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using UnityEngine.UI;
+using TMPro;
 
 public class GameCode_Make : MonoBehaviour
 {
@@ -18,6 +20,7 @@ public class GameCode_Make : MonoBehaviour
     public int OrienteeringZPart;
     [Space]
     public string Code;
+    public TMP_Text CopyText;
     void Start()
     {
         // So we'll need: (Shopping List hahhhaaaaaa)
@@ -28,7 +31,8 @@ public class GameCode_Make : MonoBehaviour
         // Mode: PostSearch = 1, Orienteering = 2
         // Time Setting: 01 to 24
         // Fog Setting: 1 = No Fog to Max Fog = 5
-        MakeNewGameCode();
+        //MakeNewGameCode();
+        CopyText.text = "Copy Gamecode";
     }
 
     // Update is called once per frame
@@ -111,6 +115,16 @@ public class GameCode_Make : MonoBehaviour
         
         PlayerPrefs.SetString("ActualCode_Code", Code);
         PlayerPrefs.Save();
+        GUIUtility.systemCopyBuffer = Code;
         Debug.Log(Code);
+        CopyText.text = "Copied!";
+        StartCoroutine(TextReset(2f));
+    }
+
+    private IEnumerator TextReset(float Delay)
+    {
+        yield return new WaitForSeconds(Delay);
+        CopyText.text = "Copy Gamecode";
+
     }
 }

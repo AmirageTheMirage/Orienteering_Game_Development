@@ -593,6 +593,18 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: db65ab135a402a94f88cb34595ac04c4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  MapPart: 0
+  ModePart: 0
+  TimePart: 0
+  FogPart: 0
+  DifficultyPart: 0
+  StartPostPart: 0
+  EndPostPart: 0
+  OrienteeringXPart: 0
+  OrienteeringYPart: 0
+  OrienteeringZPart: 0
+  Code: 
+  CopyText: {fileID: 6641549306801607907}
 --- !u!1 &3700276827577846033
 GameObject:
   m_ObjectHideFlags: 0

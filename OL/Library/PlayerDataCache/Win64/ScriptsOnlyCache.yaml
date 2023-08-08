@@ -15,8 +15,11 @@ ScriptsOnlyBuild:
     - FirstPersonLook
     - FirstPersonMovement
     - FogSetting
+    - GameCode_Make
+    - GameCode_PlayUsingCode
     - GamemodeHandler
     - GroundCheck
+    - IsMapMaze
     - MapHandler
     - Menu_Circler
     - Menu_CompassChooser
@@ -32,6 +35,7 @@ ScriptsOnlyBuild:
     - Segelflieger
     - ShowPostsOnMap
     - TimeSlider
+    - TouchingThorns
     - UnlockCompass
     Unity.InputSystem.dll:
     - UnityEngine.InputSystem.InputActionAsset
@@ -45,6 +49,7 @@ ScriptsOnlyBuild:
     Unity.TextMeshPro.dll:
     - TMPro.TMP_Dropdown
     - TMPro.TMP_FontAsset
+    - TMPro.TMP_InputField
     - TMPro.TMP_Settings
     - TMPro.TMP_SpriteAsset
     - TMPro.TMP_StyleSheet
@@ -60,8 +65,10 @@ ScriptsOnlyBuild:
     - UnityEngine.UI.CanvasScaler
     - UnityEngine.UI.GraphicRaycaster
     - UnityEngine.UI.Image
+    - UnityEngine.UI.LayoutElement
     - UnityEngine.UI.Mask
     - UnityEngine.UI.RawImage
+    - UnityEngine.UI.RectMask2D
     - UnityEngine.UI.ScrollRect
     - UnityEngine.UI.Scrollbar
     - UnityEngine.UI.Slider
@@ -88,6 +95,11 @@ ScriptsOnlyBuild:
     - TMPro.TMP_GlyphAdjustmentRecord
     - TMPro.TMP_GlyphPairAdjustmentRecord
     - TMPro.TMP_GlyphValueRecord
+    - TMPro.TMP_InputField/OnChangeEvent
+    - TMPro.TMP_InputField/SelectionEvent
+    - TMPro.TMP_InputField/SubmitEvent
+    - TMPro.TMP_InputField/TextSelectionEvent
+    - TMPro.TMP_InputField/TouchScreenKeyboardEvent
     - TMPro.TMP_Sprite
     - TMPro.TMP_SpriteCharacter
     - TMPro.TMP_SpriteGlyph
@@ -169,11 +181,29 @@ ScriptsOnlyBuild:
     fullTypeName: Menu_MainMenuScript
     methodName: SettingsGame
   - assembly: Assembly-CSharp
+    fullTypeName: GameCode_Make
+    methodName: MakeNewGameCode
+  - assembly: Assembly-CSharp
+    fullTypeName: PauseMenuScript
+    methodName: ExitToMainMenu
+  - assembly: Assembly-CSharp
+    fullTypeName: PauseMenuScript
+    methodName: ResumeGame
+  - assembly: Assembly-CSharp
     fullTypeName: PauseMenuScript
     methodName: ExitToMainMenu
   - assembly: Assembly-CSharp
     fullTypeName: EndUI
     methodName: RestartTheLevel
+  - assembly: Assembly-CSharp
+    fullTypeName: Orienteering_MapObjectHandler
+    methodName: EndOfTheMode
+  - assembly: Assembly-CSharp
+    fullTypeName: GameCode_Make
+    methodName: MakeNewGameCode
+  - assembly: Assembly-CSharp
+    fullTypeName: PauseMenuScript
+    methodName: ExitToMainMenu
   - assembly: Assembly-CSharp
     fullTypeName: PauseMenuScript
     methodName: ResumeGame
@@ -184,14 +214,17 @@ ScriptsOnlyBuild:
     fullTypeName: PauseMenuScript
     methodName: ExitToMainMenu
   - assembly: Assembly-CSharp
-    fullTypeName: PauseMenuScript
-    methodName: ResumeGame
+    fullTypeName: EndUI
+    methodName: RestartTheLevel
   - assembly: Assembly-CSharp
-    fullTypeName: Orienteering_MapObjectHandler
-    methodName: EndOfTheMode
+    fullTypeName: GameCode_Make
+    methodName: MakeNewGameCode
   - assembly: Assembly-CSharp
     fullTypeName: PauseMenuScript
     methodName: ExitToMainMenu
+  - assembly: Assembly-CSharp
+    fullTypeName: PauseMenuScript
+    methodName: ResumeGame
   - assembly: Assembly-CSharp
     fullTypeName: PauseMenuScript
     methodName: ExitToMainMenu
@@ -199,20 +232,8 @@ ScriptsOnlyBuild:
     fullTypeName: EndUI
     methodName: RestartTheLevel
   - assembly: Assembly-CSharp
-    fullTypeName: PauseMenuScript
-    methodName: ExitToMainMenu
-  - assembly: Assembly-CSharp
-    fullTypeName: EndUI
-    methodName: RestartTheLevel
-  - assembly: Assembly-CSharp
-    fullTypeName: PauseMenuScript
-    methodName: ResumeGame
-  - assembly: Assembly-CSharp
     fullTypeName: Orienteering_MapObjectHandler
     methodName: EndOfTheMode
-  - assembly: Assembly-CSharp
-    fullTypeName: PauseMenuScript
-    methodName: ExitToMainMenu
   sceneClasses:
     Assets/Scenes/Level2.unity:
     - Class: 1
@@ -300,25 +321,31 @@ ScriptsOnlyBuild:
     - Class: 114
       Script: {instanceID: 3678}
     - Class: 114
-      Script: {instanceID: 3982}
+      Script: {instanceID: 3984}
     - Class: 114
-      Script: {instanceID: 4216}
+      Script: {instanceID: 4044}
     - Class: 114
-      Script: {instanceID: 4364}
+      Script: {instanceID: 4220}
     - Class: 114
-      Script: {instanceID: 4398}
+      Script: {instanceID: 4368}
     - Class: 114
-      Script: {instanceID: 4430}
+      Script: {instanceID: 4402}
     - Class: 114
-      Script: {instanceID: 4468}
+      Script: {instanceID: 4434}
     - Class: 114
-      Script: {instanceID: 4862}
+      Script: {instanceID: 4472}
     - Class: 114
-      Script: {instanceID: 5436}
+      Script: {instanceID: 4718}
     - Class: 114
-      Script: {instanceID: 5544}
+      Script: {instanceID: 4868}
     - Class: 114
-      Script: {instanceID: 6028}
+      Script: {instanceID: 5018}
+    - Class: 114
+      Script: {instanceID: 5444}
+    - Class: 114
+      Script: {instanceID: 5552}
+    - Class: 114
+      Script: {instanceID: 6036}
     - Class: 115
       Script: {instanceID: 0}
     - Class: 124
@@ -441,25 +468,31 @@ ScriptsOnlyBuild:
     - Class: 114
       Script: {instanceID: 3678}
     - Class: 114
-      Script: {instanceID: 3982}
+      Script: {instanceID: 3984}
     - Class: 114
-      Script: {instanceID: 4216}
+      Script: {instanceID: 4044}
     - Class: 114
-      Script: {instanceID: 4364}
+      Script: {instanceID: 4220}
     - Class: 114
-      Script: {instanceID: 4398}
+      Script: {instanceID: 4368}
     - Class: 114
-      Script: {instanceID: 4430}
+      Script: {instanceID: 4402}
     - Class: 114
-      Script: {instanceID: 4468}
+      Script: {instanceID: 4434}
     - Class: 114
-      Script: {instanceID: 4862}
+      Script: {instanceID: 4472}
     - Class: 114
-      Script: {instanceID: 5436}
+      Script: {instanceID: 4718}
     - Class: 114
-      Script: {instanceID: 5544}
+      Script: {instanceID: 4868}
     - Class: 114
-      Script: {instanceID: 6028}
+      Script: {instanceID: 5018}
+    - Class: 114
+      Script: {instanceID: 5444}
+    - Class: 114
+      Script: {instanceID: 5552}
+    - Class: 114
+      Script: {instanceID: 6036}
     - Class: 115
       Script: {instanceID: 0}
     - Class: 124
@@ -532,7 +565,11 @@ ScriptsOnlyBuild:
     - Class: 114
       Script: {instanceID: 1630}
     - Class: 114
+      Script: {instanceID: 1684}
+    - Class: 114
       Script: {instanceID: 1786}
+    - Class: 114
+      Script: {instanceID: 1804}
     - Class: 114
       Script: {instanceID: 1876}
     - Class: 114
@@ -562,31 +599,35 @@ ScriptsOnlyBuild:
     - Class: 114
       Script: {instanceID: 3644}
     - Class: 114
-      Script: {instanceID: 3982}
+      Script: {instanceID: 3928}
     - Class: 114
-      Script: {instanceID: 4216}
+      Script: {instanceID: 3984}
     - Class: 114
-      Script: {instanceID: 4468}
+      Script: {instanceID: 4220}
     - Class: 114
-      Script: {instanceID: 4594}
+      Script: {instanceID: 4472}
     - Class: 114
-      Script: {instanceID: 4682}
+      Script: {instanceID: 4598}
     - Class: 114
-      Script: {instanceID: 4720}
+      Script: {instanceID: 4686}
     - Class: 114
-      Script: {instanceID: 4774}
+      Script: {instanceID: 4726}
     - Class: 114
-      Script: {instanceID: 4862}
+      Script: {instanceID: 4780}
     - Class: 114
-      Script: {instanceID: 4896}
+      Script: {instanceID: 4868}
     - Class: 114
-      Script: {instanceID: 5026}
+      Script: {instanceID: 4902}
     - Class: 114
-      Script: {instanceID: 5388}
+      Script: {instanceID: 5014}
     - Class: 114
-      Script: {instanceID: 5436}
+      Script: {instanceID: 5034}
     - Class: 114
-      Script: {instanceID: 5670}
+      Script: {instanceID: 5396}
+    - Class: 114
+      Script: {instanceID: 5444}
+    - Class: 114
+      Script: {instanceID: 5678}
     - Class: 115
       Script: {instanceID: 0}
     - Class: 128
@@ -701,25 +742,31 @@ ScriptsOnlyBuild:
     - Class: 114
       Script: {instanceID: 3678}
     - Class: 114
-      Script: {instanceID: 3982}
+      Script: {instanceID: 3984}
     - Class: 114
-      Script: {instanceID: 4216}
+      Script: {instanceID: 4044}
     - Class: 114
-      Script: {instanceID: 4364}
+      Script: {instanceID: 4220}
     - Class: 114
-      Script: {instanceID: 4398}
+      Script: {instanceID: 4368}
     - Class: 114
-      Script: {instanceID: 4430}
+      Script: {instanceID: 4402}
     - Class: 114
-      Script: {instanceID: 4468}
+      Script: {instanceID: 4434}
     - Class: 114
-      Script: {instanceID: 4862}
+      Script: {instanceID: 4472}
     - Class: 114
-      Script: {instanceID: 5436}
+      Script: {instanceID: 4718}
     - Class: 114
-      Script: {instanceID: 5544}
+      Script: {instanceID: 4868}
     - Class: 114
-      Script: {instanceID: 6028}
+      Script: {instanceID: 5018}
+    - Class: 114
+      Script: {instanceID: 5444}
+    - Class: 114
+      Script: {instanceID: 5552}
+    - Class: 114
+      Script: {instanceID: 6036}
     - Class: 115
       Script: {instanceID: 0}
     - Class: 124
@@ -925,13 +972,13 @@ ScriptsOnlyBuild:
     className: CinemachineCameraOffset
   - hash:
       serializedVersion: 2
-      Hash: 8523910210feb0f8852b6d3f91dbfedd
+      Hash: 328755fc23b9c04f313e40a102de11a1
     assemblyName: Assembly-CSharp.dll
     namespaceName: 
     className: OrienteeringMode_PostAssign
   - hash:
       serializedVersion: 2
-      Hash: 7d9b18f841d3122c8b09dd28941ebeb2
+      Hash: 9bc5493660481952fda52513fc9f044b
     assemblyName: Assembly-CSharp.dll
     namespaceName: 
     className: FirstPersonMovement
@@ -1069,7 +1116,7 @@ ScriptsOnlyBuild:
     className: CinemachineOrbitalTransposer
   - hash:
       serializedVersion: 2
-      Hash: c7a78db8767cf42b7252224078d75ccf
+      Hash: ee7bc71180f786ea2eed4b6913d63376
     assemblyName: Assembly-CSharp.dll
     namespaceName: 
     className: Menu_MainMenuScript
@@ -1213,7 +1260,7 @@ ScriptsOnlyBuild:
     className: GraphicRaycaster
   - hash:
       serializedVersion: 2
-      Hash: b6bde15e4a52ff1b4378ac5203418de5
+      Hash: 2c999ec8437b4b620f4b3cd32484a015
     assemblyName: Assembly-CSharp.dll
     namespaceName: 
     className: EndUI
@@ -1399,6 +1446,12 @@ ScriptsOnlyBuild:
     className: InputActionImporterEditor
   - hash:
       serializedVersion: 2
+      Hash: 9c7717080c869851d5f1e5d5c0ad84cd
+    assemblyName: Assembly-CSharp.dll
+    namespaceName: 
+    className: GameCode_PlayUsingCode
+  - hash:
+      serializedVersion: 2
       Hash: caa533b001ae39b864ba8425019e2268
     assemblyName: UnityEngine.UI.dll
     namespaceName: UnityEngine.UI
@@ -1427,6 +1480,12 @@ ScriptsOnlyBuild:
     assemblyName: UnityEngine.UI.dll
     namespaceName: UnityEngine.UI
     className: VerticalLayoutGroup
+  - hash:
+      serializedVersion: 2
+      Hash: 138806bfeb09c3415cd4d853bbc7a683
+    assemblyName: Assembly-CSharp.dll
+    namespaceName: 
+    className: TouchingThorns
   - hash:
       serializedVersion: 2
       Hash: 71bb6a6b6c8f052f948db64c7dd3ca4f
@@ -1501,7 +1560,7 @@ ScriptsOnlyBuild:
     className: CinemachineTransposer
   - hash:
       serializedVersion: 2
-      Hash: 2656b9bb6beff431de22ef46fb70e302
+      Hash: 899921eaeb6d9e1080f56d226c9cb9b8
     assemblyName: Assembly-CSharp.dll
     namespaceName: 
     className: CollisionFinisher
@@ -1595,6 +1654,12 @@ ScriptsOnlyBuild:
     assemblyName: UnityEngine.UI.dll
     namespaceName: UnityEngine.UI
     className: Mask
+  - hash:
+      serializedVersion: 2
+      Hash: 73813268916abf6c4085465193c0d6d9
+    assemblyName: Assembly-CSharp.dll
+    namespaceName: 
+    className: IsMapMaze
   - hash:
       serializedVersion: 2
       Hash: e8d0729c5d73d396562aea01e8da5918
@@ -1703,6 +1768,12 @@ ScriptsOnlyBuild:
     assemblyName: UnityEngine.UI.dll
     namespaceName: UnityEngine.UI
     className: RectMask2D
+  - hash:
+      serializedVersion: 2
+      Hash: 964236d8714684963d625267efdf8ebe
+    assemblyName: Assembly-CSharp.dll
+    namespaceName: 
+    className: GameCode_Make
   - hash:
       serializedVersion: 2
       Hash: 23d669c8bf2983ca4a3df160658318a6
@@ -1895,4 +1966,4 @@ ScriptsOnlyBuild:
   - Assets/Scenes/OLGameScene.unity
   - Assets/Scenes/Level2.unity
   - Assets/Scenes/Level3.unity
-  playerPath: C:/Users/Werner Emch/Downloads/Debug_Build_12/OL_Build.exe
+  playerPath: D:/GitHub/Orienteering_Public_Builds/OL_Build_12/OL_Build.exe

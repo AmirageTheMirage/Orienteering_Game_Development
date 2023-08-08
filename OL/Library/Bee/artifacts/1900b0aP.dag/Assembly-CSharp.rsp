@@ -323,6 +323,9 @@
 "Assets/Scripts/Compass.cs"
 "Assets/Scripts/EasterEgg1.cs"
 "Assets/Scripts/FadePlus.cs"
+"Assets/Scripts/GameCode_Make.cs"
+"Assets/Scripts/GameCode_PlayUsingCode.cs"
+"Assets/Scripts/IsMapMaze.cs"
 "Assets/Scripts/MainMenu/Achievements.cs"
 "Assets/Scripts/MainMenu/DifficultySlider.cs"
 "Assets/Scripts/MainMenu/FogSetting.cs"
@@ -346,6 +349,7 @@
 "Assets/Scripts/RotatingWindmill.cs"
 "Assets/Scripts/Segelflieger.cs"
 "Assets/Scripts/ShowPostsOnMap.cs"
+"Assets/Scripts/TouchingThorns.cs"
 "Assets/Scripts/TouchSensor.cs"
 "Assets/Scripts/UnlockCompass.cs"
 -langversion:9.0
