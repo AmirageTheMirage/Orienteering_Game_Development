@@ -17172,6 +17172,12 @@ MonoBehaviour:
   ModePart: 0
   TimePart: 0
   FogPart: 0
+  DifficultyPart: 0
+  StartPostPart: 0
+  EndPostPart: 0
+  OrienteeringXPart: 0
+  OrienteeringYPart: 0
+  OrienteeringZPart: 0
   ValidInput: 0
   ValidCheck: {fileID: 515739643}
   PlayText: {fileID: 853481034}

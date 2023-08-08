@@ -383,6 +383,7 @@
 "Assets/Scripts/RotatingWindmill.cs"
 "Assets/Scripts/Segelflieger.cs"
 "Assets/Scripts/ShowPostsOnMap.cs"
+"Assets/Scripts/TouchingThorns.cs"
 "Assets/Scripts/TouchSensor.cs"
 "Assets/Scripts/UnlockCompass.cs"
 -langversion:9.0
