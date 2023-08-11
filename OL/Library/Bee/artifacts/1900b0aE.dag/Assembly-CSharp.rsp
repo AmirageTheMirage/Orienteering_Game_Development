@@ -385,6 +385,10 @@
 "Assets/Scripts/ShowPostsOnMap.cs"
 "Assets/Scripts/TouchingThorns.cs"
 "Assets/Scripts/TouchSensor.cs"
+"Assets/Scripts/Tutorial/LerpScript.cs"
+"Assets/Scripts/Tutorial/LockOnCamera.cs"
+"Assets/Scripts/Tutorial/StartTutorial.cs"
+"Assets/Scripts/Tutorial/TutorialHandler.cs"
 "Assets/Scripts/UnlockCompass.cs"
 -langversion:9.0
 
