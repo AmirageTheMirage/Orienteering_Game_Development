@@ -6,6 +6,7 @@ public class LerpScript : MonoBehaviour
     public GameObject Cam;
     public GameObject LerpParent;
     public float LerpSpeed = 1f;
+    public float LastLerpSpeed = 0.2f;
     public float RotationSpeed = 1f;
     public float DistanceToTarget; 
     public TutorialHandler TutorialHandlerScript;
@@ -39,7 +40,7 @@ public class LerpScript : MonoBehaviour
 
 
             //Rotation Cycle
-            if (OriginalDistanceToTarget / 2 < DistanceToTarget)
+            if (OriginalDistanceToTarget / 2 < DistanceToTarget && LerpInt != 9)
             {
                 Quaternion TargetRotation = Quaternion.LookRotation(TargetPos - CamPos); //Get Diff between the Rotations so I can Lerp
                 Cam.transform.rotation = Quaternion.Lerp(Cam.transform.rotation, TargetRotation, RotationSpeed * Time.deltaTime);
@@ -55,12 +56,25 @@ public class LerpScript : MonoBehaviour
 
             }
             
-
+            if (DistanceToTarget < (OriginalDistanceToTarget / 1.5) && LerpInt == 9)
+                
+            {
+                TutorialHandlerScript.StartLogo();
+            }
             //Stop the Cycle
             if (DistanceToTarget < 0.1f)
             {
+                
                 DoLerp = false;
-                TutorialHandlerScript.Tutorial(LerpInt);
+                if (LerpInt != 9)
+                {
+                    TutorialHandlerScript.Tutorial(LerpInt);
+                    //Debug.Log("LerpedIn");
+                }
+                if (LerpInt == 8)
+                {
+                    LerpSpeed = LastLerpSpeed;
+                }
             }
         }
 
@@ -71,6 +85,8 @@ public class LerpScript : MonoBehaviour
     {
         //LerpInt++; //Might want to remove this one later
         //LerpChildNumber = LerpInt;
+        LerpInt = LerpChildNumber;
+        
         if (!DoLerp)
         {
             //Debug.Log("TryingLerp");

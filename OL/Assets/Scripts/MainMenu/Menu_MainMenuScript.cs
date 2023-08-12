@@ -28,7 +28,7 @@ public class Menu_MainMenuScript : MonoBehaviour
     public GameObject RealShadowDropDown;
     public GameObject FakeShadowDropDown;
     public int ShadowsSetting = 1;
-
+    public GameObject OverrideObject;
     public GameCode_PlayUsingCode CodeScript;
     private int UsingCode = 0;
 
@@ -44,6 +44,13 @@ public class Menu_MainMenuScript : MonoBehaviour
     void Start()
     {
         //AudioListener.volume = 0.5f;
+        if (PlayerPrefs.GetInt("TutorialAbsolved") != 1)
+        {
+            SceneManager.LoadScene("TutorialScene");
+        } else
+        {
+            OverrideObject.SetActive(false);
+        }
         Cursor.lockState = CursorLockMode.None;
         MainMenu.SetActive(true);
         Settings.SetActive(false);
