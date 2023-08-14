@@ -33,8 +33,9 @@ RectTransform:
   - {fileID: 6723906331541531451}
   - {fileID: 6723906332504009761}
   - {fileID: 6723906332432941622}
+  - {fileID: 1465758216019275988}
   m_Father: {fileID: 7623990224178060732}
-  m_RootOrder: 0
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
@@ -113,7 +114,7 @@ RectTransform:
   - {fileID: 6723906332386805464}
   - {fileID: 6723906333113325158}
   m_Father: {fileID: 7623990224178060732}
-  m_RootOrder: 1
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 1, y: 1}
   m_AnchorMax: {x: 1, y: 1}
@@ -870,9 +871,14 @@ MonoBehaviour:
   Description: {fileID: 6723906333113325159}
   Compass2: {fileID: 6723906332504009760}
   Compass3: {fileID: 6723906332432941625}
+  Compass4: {fileID: 8160943525376147086}
   Achievement: {fileID: 7061152445869523220}
   TargetObject: {fileID: 6723906331411969261}
   UnlockCompassToo: {fileID: 2333828898260448925}
+  SceneryInt: 0
+  AlreadySliding: 0
+  AchievementUnlockedText: {fileID: 6723906332434063975}
+  FramesInScene: 0
   slideSpeed: 700
 --- !u!1 &6723906333113325161
 GameObject:
@@ -1037,8 +1043,8 @@ RectTransform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
-  - {fileID: 3672046911547735795}
   - {fileID: 5196875738400713590}
+  - {fileID: 3672046911547735795}
   m_Father: {fileID: 6723906333064146206}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -1047,3 +1053,79 @@ RectTransform:
   m_AnchoredPosition: {x: 213.56763, y: -246.2845}
   m_SizeDelta: {x: 25.427002, y: 2.9512634}
   m_Pivot: {x: 0.5, y: 0.5}
+--- !u!1 &8160943525376147086
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1465758216019275988}
+  - component: {fileID: 1890540327287301230}
+  - component: {fileID: 7935459922965516545}
+  m_Layer: 0
+  m_Name: Compass4
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 0
+--- !u!224 &1465758216019275988
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8160943525376147086}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 4.2191215, y: 4.474085, z: 3.8807216}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 3672046911547735795}
+  m_RootOrder: 3
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0.5, y: 0.5}
+  m_AnchorMax: {x: 0.5, y: 0.5}
+  m_AnchoredPosition: {x: -6.0004616, y: -57}
+  m_SizeDelta: {x: 100, y: 100}
+  m_Pivot: {x: 0.5, y: 0.5}
+--- !u!222 &1890540327287301230
+CanvasRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8160943525376147086}
+  m_CullTransparentMesh: 1
+--- !u!114 &7935459922965516545
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8160943525376147086}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Material: {fileID: 0}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_RaycastTarget: 1
+  m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
+  m_Maskable: 1
+  m_OnCullStateChanged:
+    m_PersistentCalls:
+      m_Calls: []
+  m_Sprite: {fileID: 21300000, guid: 5b62ff90ed80f14409e2274169f9789d, type: 3}
+  m_Type: 0
+  m_PreserveAspect: 0
+  m_FillCenter: 1
+  m_FillMethod: 4
+  m_FillAmount: 1
+  m_FillClockwise: 1
+  m_FillOrigin: 0
+  m_UseSpriteMesh: 0
+  m_PixelsPerUnitMultiplier: 1

@@ -104,6 +104,11 @@ public class Menu_MainMenuScript : MonoBehaviour
         }
     
 }
+
+    public void ReDoTutorial()
+    {
+        SceneManager.LoadScene("TutorialScene");
+    }
     public void StartGame()
     {
         

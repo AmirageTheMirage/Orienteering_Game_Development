@@ -23,7 +23,7 @@ public class EndUI : MonoBehaviour
 
 
 
-    private float MazeCorrection = 15f;
+    public float MazeCorrection = 15f;
     private float FP = 1f; //FP = FaderPercent
     private float AfterFP = 0f;
     private bool Fade = false;
@@ -36,7 +36,7 @@ public class EndUI : MonoBehaviour
     private int MapSettings;
     private int FogSettings;
     private int UsingCode = 0;
-    
+    //public AchievementHandler AchievementUnlocker;
     void Start()
     {
         IsMaze = IsMapMazeScript.IsMaze;
@@ -45,6 +45,7 @@ public class EndUI : MonoBehaviour
         Fader.SetActive(false);
         Loading.SetActive(false);
         LoadingScreenStuff.SetActive(true);
+        
         if (PlayerPrefs.GetInt("UseCode_Setting") == 1)
         {
             FogSettings = PlayerPrefs.GetInt("FogPart_Code");
@@ -126,6 +127,7 @@ public class EndUI : MonoBehaviour
         Distance = XDiff * XDiff + YDiff * YDiff;
         Distance = Mathf.Sqrt(Distance);
         Distance = Distance / Factor; //Bigger Screen = Longer Distance = Has to be canceled out
+        Debug.Log("RawScreenDistance = " + Distance);
         if (IsMaze)
         {
             Distance = Distance / MazeCorrection; //Because Mazes are 100x100 not 500x500 + Map is much smaller:
@@ -143,19 +145,26 @@ public class EndUI : MonoBehaviour
         DistanceText.text = Mathf.Round(Distance).ToString() + "m";
         if (IsMaze)
         {
-            if (Distance * MazeCorrection < 10f)
+            Debug.Log("MazeCorrection * Distance = " + Distance);
+            if (Distance * MazeCorrection / 2 < 10f) //Meaning if MazeCorrection = 15, Perfect is around 2m
             {
                 RatingText.text = "Perfect";
+                if (AchievementUnlocker.SceneryInt == 3) //Mastery Progress in Maze1
+                {
+                    Debug.Log("Sent Mastery Request for: " + AchievementUnlocker.SceneryInt);
+                    AchievementUnlocker.Mastery(AchievementUnlocker.SceneryInt);
+                }
+
             }
-            else if (Distance * MazeCorrection < 20f)
+            else if (Distance * MazeCorrection / 2 < 20f)
             {
                 RatingText.text = "Great";
             }
-            else if (Distance * MazeCorrection < 30f)
+            else if (Distance * MazeCorrection / 2 < 30f)
             {
                 RatingText.text = "Okay";
             }
-            else if (Distance * MazeCorrection < 50f)
+            else if (Distance * MazeCorrection / 2 < 50f)
             {
                 RatingText.text = "Bad";
             }
@@ -200,10 +209,10 @@ public class EndUI : MonoBehaviour
                         {
                             AchievementUnlocker.UnlockAchievement(7);
                         }
-                        else
-                        {
-                            AchievementUnlocker.UnlockAchievement(6);
-                        }
+                        //else
+                        //{
+                        //    AchievementUnlocker.UnlockAchievement(6);
+                        //}
 
                     }
                 }

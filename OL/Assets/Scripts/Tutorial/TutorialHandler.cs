@@ -27,7 +27,7 @@ public class TutorialHandler : MonoBehaviour
     string[] TitleTexts = { "ThisIsElement[0]", "Orienteering", "Compass-Usage", "Map", "Post-Search-Mode", "Orienteering-Mode", "Achievements", "Settings", "Savecodes" };
     string[] ActualTexts = {
     "ThisIsElement[0]",
-    "Thank you for downloading \"Orienteering\"! This is a Learning\u2011game about orientating in a 3D\u2011World. Please click \"Proceed\".",
+    "Thank you for downloading \"Orienteering\"! This is a Learning\u2011Game about orientating in a 3D\u2011World. Please click \"Proceed\".",
     "While playing, look at the bottom right of your screen, as you will find a compass there, which will always point towards north. You can also choose your compass, as seen in the image below.",
     "You also have a map that you can open or close using the \"m\" key on your keyboard. Use the mouse to rotate your character towards north, so your map matches the environment around you.",
     "There are two gamemodes implemented. In Post\u2011Search\u2011Mode, you will start besides a post and have to search for the other one. Use your map to find out at which post you are, and move to the second post using the W, A, S and D keys on your keyboard. Walk close to the post you targeted so you can mark its discovery.",

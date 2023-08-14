@@ -20,7 +20,7 @@ public class CollisionFinisher : MonoBehaviour
     public AchievementHandler AchievScript;
     public IsMapMaze IsMapMazeScript;
     private bool IsMaze;
-
+    
 
     public GameObject Fader;
     private float FP = 1f; //FP = FaderPercent
@@ -52,24 +52,30 @@ public class CollisionFinisher : MonoBehaviour
         
 
 
-        if (MyNameAsInt == numberofendposten && alreadyfading == false)
+        if (MyNameAsInt == numberofendposten && alreadyfading == false && AchievScript.FramesInScene > 19)
         {
-            if (IsMaze == false)
+            if (AchievScript.SceneryInt == 1 || AchievScript.SceneryInt == 2) //Mastery Progress
             {
-                if (Difficulty == 1)
-                {
-                    AchievScript.UnlockAchievement(3);
-                }
-                else if (Difficulty == 3)
-                {
-                    AchievScript.UnlockAchievement(4);
-                }
+                AchievScript.Mastery(AchievScript.SceneryInt);
+                Debug.Log("Sent out Mastery Request for " + AchievScript.SceneryInt);
             }
+            //if (IsMaze == false)
+            //{
+            //    if (Difficulty == 1)
+            //    {
+            //        AchievScript.UnlockAchievement(3);
+            //    }
+            //    else if (Difficulty == 3)
+            //    {
+            //        AchievScript.UnlockAchievement(4); //Deleted ones
+            //    }
+            //}
             alreadyfading = true;
             touching = true;
             Fader.SetActive(true);
             StartFade = true;
             FP = 0f;
+            
 
         }
         
@@ -80,6 +86,7 @@ public class CollisionFinisher : MonoBehaviour
     {
         if (StartFade == true)
         {
+
             if (FP < 1f)
             {
                 FP = FP + 0.5f * Time.deltaTime;

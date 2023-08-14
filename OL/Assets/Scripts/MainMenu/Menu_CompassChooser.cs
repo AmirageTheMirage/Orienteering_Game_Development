@@ -9,6 +9,7 @@ public class Menu_CompassChooser : MonoBehaviour
     public GameObject Compass1;
     public GameObject Compass2;
     public GameObject Compass3;
+    public GameObject Compass4;
     public List<int> Unlocked = new List<int>();
 
 
@@ -24,12 +25,16 @@ public class Menu_CompassChooser : MonoBehaviour
         PlayerPrefs.SetInt("Compass_1", 1);
         PlayerPrefs.SetInt("Compass_2", 0);
         PlayerPrefs.SetInt("Compass_3", 0);
+        PlayerPrefs.SetInt("Compass_4", 0);
         PlayerPrefs.Save();
         ReStart();
     }
     void Start()
     {
+        PlayerPrefs.SetInt("Compass_4", 1);
+        PlayerPrefs.Save();
         ReStart();
+
     }
     void ReStart()
     {
@@ -53,7 +58,7 @@ public class Menu_CompassChooser : MonoBehaviour
         //First Compass = AlwaysUnlocked
 
 
-        for (int i = 1; i <= 3; i++) //Fetch from PlayerPrefs, Change the 3 if I add more compasses
+        for (int i = 1; i <= 4; i++) //Fetch from PlayerPrefs, Change the 4 if I add more compasses
         {
             string currentstringname = "Compass_" + i.ToString();
             if (PlayerPrefs.HasKey(currentstringname))
@@ -84,6 +89,9 @@ public class Menu_CompassChooser : MonoBehaviour
             else if (i == 3)
             {
                 currentCompass = Compass3;
+            } else if (i == 4)
+            {
+                currentCompass = Compass4;
             } else
             {
                 Debug.Log("There is no instance of i = " + i);
@@ -163,6 +171,10 @@ public class Menu_CompassChooser : MonoBehaviour
         else if (Comp == 3)
         {
             Highlighter.transform.position = new Vector3(Compass3.transform.position.x, Compass3.transform.position.y, Compass3.transform.position.z);
+        } else if (Comp == 4)
+        {
+            Highlighter.transform.position = new Vector3(Compass4.transform.position.x, Compass4.transform.position.y, Compass4.transform.position.z);
+            
         }
     }
 }
