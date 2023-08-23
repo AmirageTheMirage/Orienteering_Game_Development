@@ -84,27 +84,30 @@ public class AchievementHandler : MonoBehaviour
                 Debug.Log("Mastery Complete!");
                 if (MasteryInt == 1)
                 {
-                    UnlockCompassToo.SetActive(false);
+                    UnlockCompassToo.SetActive(true);
+                    Compass2.SetActive(true);
                     TitleText.text = "Mastery of Forest 1";
+                    PlayerPrefs.SetInt("Compass_2", 1); //Unlock
+                    PlayerPrefs.Save();
 
 
                 }
                 else if (MasteryInt == 2)
                 {
-                    Compass4.SetActive(true);
+                    Compass3.SetActive(true);
                     TitleText.text = "Mastery of Forest 2";
                     UnlockCompassToo.SetActive(true);
-                    PlayerPrefs.SetInt("Compass_4", 1); //Unlock
+                    PlayerPrefs.SetInt("Compass_3", 1); //Unlock
                     PlayerPrefs.Save();
 
 
                 }
                 else if (MasteryInt == 3)
                 {
-                    Compass3.SetActive(true);
+                    Compass4.SetActive(true);
                     TitleText.text = "Mastery of the Maze";
                     UnlockCompassToo.SetActive(true);
-                    PlayerPrefs.SetInt("Compass_3", 1); //Unlock
+                    PlayerPrefs.SetInt("Compass_4", 1); //Unlock
                     PlayerPrefs.Save();
                 }
                 AlreadySliding = true;
@@ -131,12 +134,12 @@ public class AchievementHandler : MonoBehaviour
         {
             if (AchievementName == 1)
             {
-                Compass2.SetActive(true);
+               // Compass2.SetActive(true);
                 TitleText.text = "Pinpointed";
                 Description.text = "You Pinpointed your exact location.";
-                UnlockCompassToo.SetActive(true);
-                PlayerPrefs.SetInt("Compass_2", 1); //Unlock
-                PlayerPrefs.Save();
+                UnlockCompassToo.SetActive(false);
+                //PlayerPrefs.SetInt("Compass_2", 1); //Unlock
+                //PlayerPrefs.Save();
                 // PlayerPrefs.SetInt("Achievement_1", 1);
                 //Implemented2
 

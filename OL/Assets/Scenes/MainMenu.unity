@@ -1281,11 +1281,12 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: 'Achievements are Sidequests that you can complete during the Game. Some
-    of them may unlock a new Compass, while others don''t unlock anything new.
+  m_text: 'Masteries are long-term missions that each unlock a new compass.
 
 
-'
+    Achievements
+    are optional Sidemissions that dont unlock anything. I''m warning you, some of
+    the Achievements can be really tricky!'
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
@@ -1312,14 +1313,14 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 14
-  m_fontSizeBase: 14
+  m_fontSize: 12
+  m_fontSizeBase: 12
   m_fontWeight: 400
   m_enableAutoSizing: 0
   m_fontSizeMin: 18
   m_fontSizeMax: 72
   m_fontStyle: 0
-  m_HorizontalAlignment: 8
+  m_HorizontalAlignment: 1
   m_VerticalAlignment: 256
   m_textAlignment: 65535
   m_characterSpacing: 0
@@ -1348,7 +1349,7 @@ MonoBehaviour:
   m_VertexBufferAutoSizeReduction: 0
   m_useMaxVisibleDescender: 1
   m_pageToDisplay: 1
-  m_margin: {x: 2.2160034, y: 0, z: -36.150944, w: -54.51066}
+  m_margin: {x: 2.2160034, y: 0, z: -37.50783, w: -54.51066}
   m_isUsingLegacyAnimationComponent: 0
   m_isVolumetricText: 0
   m_hasFontAssetChanged: 0
@@ -25832,8 +25833,8 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1985227388}
   m_HandleRect: {fileID: 1985227387}
   m_Direction: 2
-  m_Value: 1.000002
-  m_Size: 0.2923764
+  m_Value: 1.0000019
+  m_Size: 0.29237637
   m_NumberOfSteps: 0
   m_OnValueChanged:
     m_PersistentCalls:
@@ -27364,6 +27365,50 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1985227386}
   m_CullTransparentMesh: 1
+--- !u!1 &1987672942
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1987672944}
+  - component: {fileID: 1987672943}
+  m_Layer: 0
+  m_Name: DeleteStuffFrompreviousUpdates
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &1987672943
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1987672942}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 44b50836f974d134f88324f46ab1957d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!4 &1987672944
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1987672942}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 612.5007, y: 336.11227, z: -411.44174}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 9
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1988158170
 GameObject:
   m_ObjectHideFlags: 0
@@ -29772,6 +29817,63 @@ RectTransform:
   m_AnchoredPosition: {x: -404, y: -180}
   m_SizeDelta: {x: 200, y: 50}
   m_Pivot: {x: 0.5, y: 0.5}
+--- !u!1001 &2438870025584025788
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 2438870024972279905, guid: 1717084dcf85dc346ba4a8efbf35e50b, type: 3}
+      propertyPath: m_RootOrder
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 2438870024972279905, guid: 1717084dcf85dc346ba4a8efbf35e50b, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 91.22
+      objectReference: {fileID: 0}
+    - target: {fileID: 2438870024972279905, guid: 1717084dcf85dc346ba4a8efbf35e50b, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2438870024972279905, guid: 1717084dcf85dc346ba4a8efbf35e50b, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 69.79
+      objectReference: {fileID: 0}
+    - target: {fileID: 2438870024972279905, guid: 1717084dcf85dc346ba4a8efbf35e50b, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 0.7071068
+      objectReference: {fileID: 0}
+    - target: {fileID: 2438870024972279905, guid: 1717084dcf85dc346ba4a8efbf35e50b, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: -0.7071068
+      objectReference: {fileID: 0}
+    - target: {fileID: 2438870024972279905, guid: 1717084dcf85dc346ba4a8efbf35e50b, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2438870024972279905, guid: 1717084dcf85dc346ba4a8efbf35e50b, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2438870024972279905, guid: 1717084dcf85dc346ba4a8efbf35e50b, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: -90
+      objectReference: {fileID: 0}
+    - target: {fileID: 2438870024972279905, guid: 1717084dcf85dc346ba4a8efbf35e50b, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2438870024972279905, guid: 1717084dcf85dc346ba4a8efbf35e50b, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2438870024972279910, guid: 1717084dcf85dc346ba4a8efbf35e50b, type: 3}
+      propertyPath: m_Name
+      value: Flies
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 1717084dcf85dc346ba4a8efbf35e50b, type: 3}
 --- !u!33 &2974148824673400035
 MeshFilter:
   m_ObjectHideFlags: 0

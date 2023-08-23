@@ -17668,7 +17668,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   character: {fileID: 663279223}
-  sensitivity: 2
+  sensitivity: 200
   smoothing: 1.5
   Map: {fileID: 146274633}
   PauseScript: {fileID: 264544876}
@@ -32507,6 +32507,10 @@ PrefabInstance:
       propertyPath: PauseScript
       value: 
       objectReference: {fileID: 264544876}
+    - target: {fileID: 6765182782974385016, guid: 0af056c5b40d6c5408a561a6e6d3dfe2, type: 3}
+      propertyPath: sensitivity
+      value: 200
+      objectReference: {fileID: 0}
     - target: {fileID: 6768338349432258610, guid: 0af056c5b40d6c5408a561a6e6d3dfe2, type: 3}
       propertyPath: Map
       value: 
