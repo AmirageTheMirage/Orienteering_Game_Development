@@ -14,7 +14,7 @@ public class RotatingWindmill : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        Vector3 rotationToAdd = new Vector3(0, -1 * speed * Time.deltaTime, 0);
+        Vector3 rotationToAdd = new Vector3(0f,0f, -1f * speed * Time.deltaTime);
         transform.Rotate(rotationToAdd);
     
 }

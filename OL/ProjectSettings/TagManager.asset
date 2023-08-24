@@ -19,8 +19,8 @@ TagManager:
   - TriggersResetOrientMode
   - GroundMaze
   - Thorn
-  - 
-  - 
+  - PostProcess
+  - BloomProcessing
   - 
   - 
   - 

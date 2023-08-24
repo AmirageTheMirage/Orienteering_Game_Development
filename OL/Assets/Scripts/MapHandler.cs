@@ -14,12 +14,15 @@ public class MapHandler : MonoBehaviour
     public GameObject DirectLight;
     private int TimeOfDay;
     private int FogSetting;
+    private Light SunLightComponent;
+    public Color EveningColor;
     public Color NightFogColor;
     public GameObject FogWall;
     void Start()
     {
+        SunLightComponent = DirectLight.GetComponent<Light>();
         FogWall.SetActive(false);
-        if (PlayerPrefs.GetInt("UseCode_Setting") == 1) //Override with Code Input
+        if (PlayerPrefs.GetInt("UseCode_Setting") == 1) //Override with GameCode Input
         {
             TimeOfDay = PlayerPrefs.GetInt("TimePart_Code");
         }
@@ -27,7 +30,18 @@ public class MapHandler : MonoBehaviour
         {
             TimeOfDay = PlayerPrefs.GetInt("Time_Setting");
         }
-        DirectLight.transform.eulerAngles = new Vector3(360f / 24f * TimeOfDay - 90f, 90f, 0f); //So it's in east
+        DirectLight.transform.eulerAngles = new Vector3(15f * TimeOfDay -90f, 90f, 0f); //So it's in east
+        if (TimeOfDay <= 7 || TimeOfDay >= 17) //If Evening
+        {
+            if (TimeOfDay <= 5 || TimeOfDay >= 20)
+            {
+                //Nothing
+            } else
+            {
+                SunLightComponent.color = EveningColor;
+            }
+        }
+        
         //if Its Time = 0, The Angle is -90f
         //One Complete TurnAround = 360
         //360 / 24 * TimeOfDay
