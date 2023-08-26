@@ -26,7 +26,10 @@ public class CollisionFinisher : MonoBehaviour
     private float FP = 1f; //FP = FaderPercent
     public bool StartFade = false;
     private int UsingCode = 0;
-    
+
+    public float Speed = 2f;
+    public bool ShowLoading = true;
+
     void Start()
     {
         IsMaze = IsMapMazeScript.IsMaze;
@@ -89,7 +92,7 @@ public class CollisionFinisher : MonoBehaviour
 
             if (FP < 1f)
             {
-                FP = FP + 0.5f * Time.deltaTime;
+                FP = FP + 0.5f * Speed * Time.deltaTime;
                 Color col = Fader.GetComponent<Image>().color;
                 col.a = FP;
                 Fader.GetComponent<Image>().color = col;
@@ -97,8 +100,11 @@ public class CollisionFinisher : MonoBehaviour
             {
                 if (AfterFP <= 2f)
                 {
-                    Loading.SetActive(true);
-                    AfterFP = AfterFP + 1f * Time.deltaTime;
+                    if (ShowLoading == true)
+                    {
+                        Loading.SetActive(true);
+                    }
+                    AfterFP = AfterFP + 1f * Speed * Time.deltaTime;
                 }
                 else
                 {

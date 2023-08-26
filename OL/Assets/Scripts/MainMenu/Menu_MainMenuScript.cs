@@ -30,18 +30,19 @@ public class Menu_MainMenuScript : MonoBehaviour
     public int ShadowsSetting = 1;
     public GameObject OverrideObject;
     public GameCode_PlayUsingCode CodeScript;
+    public GameObject VersionChangeObject;
     private int UsingCode = 0;
+    public float Speed = 2f;
 
 
 
 
 
 
-
-   // private int PreAudioVolumeSetting;
+    // private int PreAudioVolumeSetting;
 
     // Start is called before the first frame update
-    void Start()
+    void Awake()
     {
         //AudioListener.volume = 0.5f;
         if (PlayerPrefs.GetInt("TutorialAbsolved") != 1)
@@ -71,7 +72,7 @@ public class Menu_MainMenuScript : MonoBehaviour
     {
         if (Fade) {
             if (FP < 1f) {
-                FP = FP + 0.5f * Time.deltaTime;
+                FP = FP + 0.5f * Speed * Time.deltaTime;
                 Color col = Fader.GetComponent<Image>().color;
                 col.a = FP;
                 Fader.GetComponent<Image>().color = col;

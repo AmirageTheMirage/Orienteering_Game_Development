@@ -129,7 +129,7 @@ public class PostAssign : MonoBehaviour
             EndY = child3.transform.position.y;
             EndZ = child3.transform.position.z;
         }
-        Charakter.transform.position = new Vector3(EndX + 1f, EndY + 1f, EndZ); //AfterHolidayEdit: EndXYZ is actually the start coordinates. No Idea what I smoked back then. Not gonna change it anymore.
+        Charakter.transform.position = new Vector3(EndX + 1f, EndY, EndZ); //AfterHolidayEdit: EndXYZ is actually the start coordinates. No Idea what I did back then. Not gonna change it anymore.
 
 
 

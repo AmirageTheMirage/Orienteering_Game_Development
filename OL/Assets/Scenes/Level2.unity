@@ -890,6 +890,8 @@ MonoBehaviour:
   IsMapMazeScript: {fileID: 5114899629437508912}
   Fader: {fileID: 690012029}
   StartFade: 0
+  Speed: 2
+  ShowLoading: 0
 --- !u!65 &79270866
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -2631,6 +2633,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 663279223}
+  - {fileID: 1446302498}
   m_Father: {fileID: 58597533}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -2789,6 +2792,8 @@ MonoBehaviour:
   IsMapMazeScript: {fileID: 5114899629437508912}
   Fader: {fileID: 690012029}
   StartFade: 0
+  Speed: 2
+  ShowLoading: 0
 --- !u!1 &280764055
 GameObject:
   m_ObjectHideFlags: 0
@@ -2886,6 +2891,8 @@ MonoBehaviour:
   IsMapMazeScript: {fileID: 5114899629437508912}
   Fader: {fileID: 690012029}
   StartFade: 0
+  Speed: 2
+  ShowLoading: 0
 --- !u!65 &308819513
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -3867,7 +3874,7 @@ GameObject:
   - component: {fileID: 378816094}
   - component: {fileID: 378816093}
   - component: {fileID: 378816092}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: Bloom (1)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -4106,6 +4113,8 @@ MonoBehaviour:
   IsMapMazeScript: {fileID: 5114899629437508912}
   Fader: {fileID: 690012029}
   StartFade: 0
+  Speed: 2
+  ShowLoading: 0
 --- !u!65 &391407369
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -4761,6 +4770,8 @@ MonoBehaviour:
   IsMapMazeScript: {fileID: 5114899629437508912}
   Fader: {fileID: 690012029}
   StartFade: 0
+  Speed: 2
+  ShowLoading: 0
 --- !u!1001 &469662383
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -5189,6 +5200,8 @@ MonoBehaviour:
   IsMapMazeScript: {fileID: 5114899629437508912}
   Fader: {fileID: 690012029}
   StartFade: 0
+  Speed: 2
+  ShowLoading: 0
 --- !u!65 &531764839
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -5550,7 +5563,7 @@ GameObject:
   - component: {fileID: 573456029}
   - component: {fileID: 573456028}
   - component: {fileID: 573456027}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: Bloom (2)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -5804,6 +5817,8 @@ MonoBehaviour:
   IsMapMazeScript: {fileID: 5114899629437508912}
   Fader: {fileID: 690012029}
   StartFade: 0
+  Speed: 2
+  ShowLoading: 0
 --- !u!1 &606241112
 GameObject:
   m_ObjectHideFlags: 0
@@ -8354,7 +8369,7 @@ GameObject:
   - component: {fileID: 912462255}
   - component: {fileID: 912462254}
   - component: {fileID: 912462253}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: Bloom
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -9424,7 +9439,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4924222626929705055, guid: ee36a5d25387ffb40b60bcab5ef491db, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -19.93928
+      value: -20.97
       objectReference: {fileID: 0}
     - target: {fileID: 4924222626929705055, guid: ee36a5d25387ffb40b60bcab5ef491db, type: 3}
       propertyPath: m_LocalPosition.y
@@ -9432,23 +9447,23 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4924222626929705055, guid: ee36a5d25387ffb40b60bcab5ef491db, type: 3}
       propertyPath: m_LocalPosition.z
-      value: -30.978565
+      value: -31.74
       objectReference: {fileID: 0}
     - target: {fileID: 4924222626929705055, guid: ee36a5d25387ffb40b60bcab5ef491db, type: 3}
       propertyPath: m_LocalRotation.w
-      value: 0.5372101
+      value: 0.7046307
       objectReference: {fileID: 0}
     - target: {fileID: 4924222626929705055, guid: ee36a5d25387ffb40b60bcab5ef491db, type: 3}
       propertyPath: m_LocalRotation.x
-      value: -0.53721017
+      value: -0.70463055
       objectReference: {fileID: 0}
     - target: {fileID: 4924222626929705055, guid: ee36a5d25387ffb40b60bcab5ef491db, type: 3}
       propertyPath: m_LocalRotation.y
-      value: 0.45978832
+      value: 0.0591247
       objectReference: {fileID: 0}
     - target: {fileID: 4924222626929705055, guid: ee36a5d25387ffb40b60bcab5ef491db, type: 3}
       propertyPath: m_LocalRotation.z
-      value: 0.45978823
+      value: 0.059124578
       objectReference: {fileID: 0}
     - target: {fileID: 4924222626929705055, guid: ee36a5d25387ffb40b60bcab5ef491db, type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
@@ -9460,7 +9475,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4924222626929705055, guid: ee36a5d25387ffb40b60bcab5ef491db, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
-      value: 81.119
+      value: 9.593
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: ee36a5d25387ffb40b60bcab5ef491db, type: 3}
@@ -9811,6 +9826,8 @@ MonoBehaviour:
   IsMapMazeScript: {fileID: 5114899629437508912}
   Fader: {fileID: 690012029}
   StartFade: 0
+  Speed: 2
+  ShowLoading: 0
 --- !u!1 &1078216508
 GameObject:
   m_ObjectHideFlags: 0
@@ -10023,6 +10040,8 @@ MonoBehaviour:
   IsMapMazeScript: {fileID: 5114899629437508912}
   Fader: {fileID: 690012029}
   StartFade: 0
+  Speed: 2
+  ShowLoading: 0
 --- !u!1 &1123756618
 GameObject:
   m_ObjectHideFlags: 0
@@ -10678,6 +10697,71 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 2438870024972279905, guid: 1717084dcf85dc346ba4a8efbf35e50b, type: 3}
   m_PrefabInstance: {fileID: 1197984660}
   m_PrefabAsset: {fileID: 0}
+--- !u!1001 &1209652397
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 2802461036083975884, guid: d3d31841344dd374fa5d6a6e851aa7bf, type: 3}
+      propertyPath: m_Name
+      value: FullAudioHandler
+      objectReference: {fileID: 0}
+    - target: {fileID: 2802461036083975886, guid: d3d31841344dd374fa5d6a6e851aa7bf, type: 3}
+      propertyPath: PostCamera
+      value: 
+      objectReference: {fileID: 5242010299439196327}
+    - target: {fileID: 2802461036083975886, guid: d3d31841344dd374fa5d6a6e851aa7bf, type: 3}
+      propertyPath: OrienteeringCamera
+      value: 
+      objectReference: {fileID: 1284779519}
+    - target: {fileID: 2802461036083975887, guid: d3d31841344dd374fa5d6a6e851aa7bf, type: 3}
+      propertyPath: m_RootOrder
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 2802461036083975887, guid: d3d31841344dd374fa5d6a6e851aa7bf, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 435.17328
+      objectReference: {fileID: 0}
+    - target: {fileID: 2802461036083975887, guid: d3d31841344dd374fa5d6a6e851aa7bf, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 42.992603
+      objectReference: {fileID: 0}
+    - target: {fileID: 2802461036083975887, guid: d3d31841344dd374fa5d6a6e851aa7bf, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 480.80368
+      objectReference: {fileID: 0}
+    - target: {fileID: 2802461036083975887, guid: d3d31841344dd374fa5d6a6e851aa7bf, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2802461036083975887, guid: d3d31841344dd374fa5d6a6e851aa7bf, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2802461036083975887, guid: d3d31841344dd374fa5d6a6e851aa7bf, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2802461036083975887, guid: d3d31841344dd374fa5d6a6e851aa7bf, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2802461036083975887, guid: d3d31841344dd374fa5d6a6e851aa7bf, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2802461036083975887, guid: d3d31841344dd374fa5d6a6e851aa7bf, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2802461036083975887, guid: d3d31841344dd374fa5d6a6e851aa7bf, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: d3d31841344dd374fa5d6a6e851aa7bf, type: 3}
 --- !u!1 &1213287682
 GameObject:
   m_ObjectHideFlags: 0
@@ -11404,6 +11488,8 @@ MonoBehaviour:
   IsMapMazeScript: {fileID: 5114899629437508912}
   Fader: {fileID: 690012029}
   StartFade: 0
+  Speed: 2
+  ShowLoading: 0
 --- !u!65 &1280393602
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -11698,6 +11784,8 @@ MonoBehaviour:
   IsMapMazeScript: {fileID: 5114899629437508912}
   Fader: {fileID: 690012029}
   StartFade: 0
+  Speed: 2
+  ShowLoading: 0
 --- !u!4 &1312228530 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 7179378031154968930, guid: b39482cfa0d54d1479796ee0fa184757, type: 3}
@@ -12484,6 +12572,17 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   MapScript: {fileID: 264544875}
   MapShowing: 0
+--- !u!114 &1395482324 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 2802461036083975886, guid: d3d31841344dd374fa5d6a6e851aa7bf, type: 3}
+  m_PrefabInstance: {fileID: 1209652397}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 158cd374b0761c64d8a8e22fb560bdc1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1397438272
 GameObject:
   m_ObjectHideFlags: 0
@@ -12979,6 +13078,68 @@ PrefabInstance:
 Transform:
   m_CorrespondingSourceObject: {fileID: 5645922041939077146, guid: 790dc23f08d7e83448e9c6323f68fa8d, type: 3}
   m_PrefabInstance: {fileID: 1443426608}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1001 &1446302497
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 262959931}
+    m_Modifications:
+    - target: {fileID: 7928657484138225101, guid: 53800e6c0767e6a498d5d82d2a444e70, type: 3}
+      propertyPath: m_RootOrder
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7928657484138225101, guid: 53800e6c0767e6a498d5d82d2a444e70, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7928657484138225101, guid: 53800e6c0767e6a498d5d82d2a444e70, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 1.33
+      objectReference: {fileID: 0}
+    - target: {fileID: 7928657484138225101, guid: 53800e6c0767e6a498d5d82d2a444e70, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7928657484138225101, guid: 53800e6c0767e6a498d5d82d2a444e70, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7928657484138225101, guid: 53800e6c0767e6a498d5d82d2a444e70, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7928657484138225101, guid: 53800e6c0767e6a498d5d82d2a444e70, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7928657484138225101, guid: 53800e6c0767e6a498d5d82d2a444e70, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7928657484138225101, guid: 53800e6c0767e6a498d5d82d2a444e70, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7928657484138225101, guid: 53800e6c0767e6a498d5d82d2a444e70, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7928657484138225101, guid: 53800e6c0767e6a498d5d82d2a444e70, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7928657484138225102, guid: 53800e6c0767e6a498d5d82d2a444e70, type: 3}
+      propertyPath: m_Name
+      value: BackGroundSound
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 53800e6c0767e6a498d5d82d2a444e70, type: 3}
+--- !u!4 &1446302498 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 7928657484138225101, guid: 53800e6c0767e6a498d5d82d2a444e70, type: 3}
+  m_PrefabInstance: {fileID: 1446302497}
   m_PrefabAsset: {fileID: 0}
 --- !u!1 &1446305608
 GameObject:
@@ -13648,6 +13809,8 @@ MonoBehaviour:
   IsMapMazeScript: {fileID: 5114899629437508912}
   Fader: {fileID: 690012029}
   StartFade: 0
+  Speed: 2
+  ShowLoading: 0
 --- !u!1 &1579409006
 GameObject:
   m_ObjectHideFlags: 0
@@ -14346,6 +14509,8 @@ MonoBehaviour:
   IsMapMazeScript: {fileID: 5114899629437508912}
   Fader: {fileID: 690012029}
   StartFade: 0
+  Speed: 2
+  ShowLoading: 0
 --- !u!65 &1664782570
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -14583,6 +14748,8 @@ MonoBehaviour:
   IsMapMazeScript: {fileID: 5114899629437508912}
   Fader: {fileID: 690012029}
   StartFade: 0
+  Speed: 2
+  ShowLoading: 0
 --- !u!65 &1685163198
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -15056,15 +15223,15 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1793501730}
-  m_LocalRotation: {x: 0.1319467, y: 0.29467845, z: 0.041120894, w: 0.9455495}
-  m_LocalPosition: {x: -253.93, y: -7.967, z: 151.003}
+  m_LocalRotation: {x: -0, y: 0.62577075, z: -0, w: 0.78000706}
+  m_LocalPosition: {x: -253.93001, y: -8.07, z: 151.00302}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 2227477568790568561}
   m_Father: {fileID: 1165554632}
   m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 13.02, y: 35.669, z: 9.185}
+  m_LocalEulerAnglesHint: {x: 0, y: 77.478, z: 0}
 --- !u!65 &1793501732
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -15107,6 +15274,8 @@ MonoBehaviour:
   IsMapMazeScript: {fileID: 5114899629437508912}
   Fader: {fileID: 690012029}
   StartFade: 0
+  Speed: 2
+  ShowLoading: 0
 --- !u!1001 &1798243964
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -15435,6 +15604,8 @@ MonoBehaviour:
   IsMapMazeScript: {fileID: 5114899629437508912}
   Fader: {fileID: 690012029}
   StartFade: 0
+  Speed: 2
+  ShowLoading: 0
 --- !u!1001 &1844588310
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -17277,6 +17448,8 @@ MonoBehaviour:
   IsMapMazeScript: {fileID: 5114899629437508912}
   Fader: {fileID: 690012029}
   StartFade: 0
+  Speed: 2
+  ShowLoading: 0
 --- !u!1 &2042140693
 GameObject:
   m_ObjectHideFlags: 0
@@ -24646,7 +24819,7 @@ Camera:
   m_Depth: 0
   m_CullingMask:
     serializedVersion: 2
-    m_Bits: 4294967295
+    m_Bits: 2039
   m_RenderingPath: -1
   m_TargetTexture: {fileID: 0}
   m_TargetDisplay: 0
@@ -24684,6 +24857,7 @@ MonoBehaviour:
   PauseScript: {fileID: 264544876}
   AchievScript: {fileID: 1137641524}
   ThornsScript: {fileID: 5286307982897156995}
+  AudioScript: {fileID: 1395482324}
 --- !u!114 &5272657470718313619
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -24780,7 +24954,7 @@ MonoBehaviour:
   volumeTrigger: {fileID: 1284779520}
   volumeLayer:
     serializedVersion: 2
-    m_Bits: 3072
+    m_Bits: 1024
   stopNaNPropagation: 1
   finalBlitToCameraTarget: 0
   antialiasingMode: 0
@@ -24819,8 +24993,8 @@ MonoBehaviour:
       colorBlindnessType: 0
       colorBlindnessStrength: 1
   m_Resources: {fileID: 11400000, guid: d82512f9c8e5d4a4d938b575d47f88d4, type: 2}
-  m_ShowToolkit: 0
-  m_ShowCustomSorter: 0
+  m_ShowToolkit: 1
+  m_ShowCustomSorter: 1
   breakBeforeColorGrading: 0
   m_BeforeTransparentBundles: []
   m_BeforeStackBundles: []

@@ -31,8 +31,8 @@ public class Menu_CompassChooser : MonoBehaviour
     }
     void Start()
     {
-        PlayerPrefs.SetInt("Compass_4", 1);
-        PlayerPrefs.Save();
+        //PlayerPrefs.SetInt("Compass_4", 1);
+        //PlayerPrefs.Save();
         ReStart();
 
     }

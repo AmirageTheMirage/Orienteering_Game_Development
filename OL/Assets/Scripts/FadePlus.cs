@@ -10,6 +10,8 @@ public class FadePlus : MonoBehaviour
     public GameObject Loading;
     private float AfterFP = 0f;
     private float FP = 1f; //FP = FaderPercent
+    public float Speed = 2f;
+    public bool ShowLoading = true;
     // Start is called before the first frame update
     void Start()
     {
@@ -32,11 +34,11 @@ public class FadePlus : MonoBehaviour
     {
         if (AfterFP < 1) {
 
-            AfterFP = AfterFP + 1f * Time.deltaTime;
+            AfterFP = AfterFP + 1f * Speed * Time.deltaTime;
 
         } else {
             Loading.SetActive(false);   
-            FP = FP - 0.5f * Time.deltaTime;
+            FP = FP - 0.5f * Speed * Time.deltaTime;
             Color col = Fader.GetComponent<Image>().color;
             col.a = FP;
             Fader.GetComponent<Image>().color = col;

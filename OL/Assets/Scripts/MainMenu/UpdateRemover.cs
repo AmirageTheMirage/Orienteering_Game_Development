@@ -4,12 +4,49 @@ using UnityEngine;
 
 public class UpdateRemover : MonoBehaviour
 {
+    public int Updated;
+    public string VersionName;
+    private string VersionNameCheck;
+    public VersionPopUp VersionScript;
     
     void Start()
     {
-        DeleteKey("Achievement_3"); //Easy!
-        DeleteKey("Achievement_4"); //Hard Mode!
-        DeleteKey("Achievement_6"); //Where Am I?
+        Updated = 0;
+        if (PlayerPrefs.HasKey("GameVersion")){
+            VersionNameCheck = PlayerPrefs.GetString("GameVersion");
+
+        } else
+        {
+            VersionNameCheck = "";
+            PlayerPrefs.SetString("GameVersion", VersionName); //Sets The Gameversion to the Current Version
+            PlayerPrefs.Save();
+        }
+
+        if (VersionNameCheck == VersionName)
+        {
+            
+            Updated = 1;
+        } else
+        {
+            Updated = 0;
+            PlayerPrefs.SetString("GameVersion", VersionName); //Sets The Gameversion to the Current Version
+            PlayerPrefs.Save();
+            Debug.Log("You just Updated");
+        }
+        
+
+
+
+
+        if (Updated == 0) //If not yet Updated
+        {
+            PlayerPrefs.SetInt("ShowVersion", 0);
+            PlayerPrefs.Save();
+            VersionScript.ReStart();
+            DeleteKey("Achievement_3"); //Easy!
+            DeleteKey("Achievement_4"); //Hard Mode!
+            DeleteKey("Achievement_6"); //Where Am I?
+        }
     }
     public void DeleteKey(string Key)
     {

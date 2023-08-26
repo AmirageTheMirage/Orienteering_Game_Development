@@ -226,6 +226,8 @@ MonoBehaviour:
   Fader: {fileID: 4651881152273405353}
   FaderHandler: {fileID: 4651881151955957695}
   Loading: {fileID: 4651881151928036957}
+  Speed: 2
+  ShowLoading: 0
 --- !u!1 &4651881152273405353
 GameObject:
   m_ObjectHideFlags: 0

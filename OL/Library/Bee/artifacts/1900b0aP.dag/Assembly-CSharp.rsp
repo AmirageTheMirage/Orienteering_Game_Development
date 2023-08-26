@@ -109,6 +109,7 @@
 -define:ENABLE_INPUT_SYSTEM
 -define:ENABLE_LEGACY_INPUT_MANAGER
 -define:CROSS_PLATFORM_INPUT
+-define:UNITY_POST_PROCESSING_STACK_V2
 -define:CSHARP_7_OR_LATER
 -define:CSHARP_7_3_OR_NEWER
 -r:"C:/Program Files/Unity/Hub/Editor/2021.3.11f1/Editor/Data/NetStandard/compat/2.1.0/shims/netfx/mscorlib.dll"
@@ -302,19 +303,13 @@
 -r:"D:/Orienteering_Game_Development/OL/Library/PackageCache/com.unity.nuget.newtonsoft-json@3.0.2/Runtime/AOT/Newtonsoft.Json.dll"
 -r:"Library/Bee/artifacts/1900b0aP.dag/Cinemachine.ref.dll"
 -r:"Library/Bee/artifacts/1900b0aP.dag/Unity.InputSystem.ref.dll"
+-r:"Library/Bee/artifacts/1900b0aP.dag/Unity.Postprocessing.Runtime.ref.dll"
 -r:"Library/Bee/artifacts/1900b0aP.dag/Unity.Services.Core.Analytics.ref.dll"
 -r:"Library/Bee/artifacts/1900b0aP.dag/Unity.Services.Core.Environments.ref.dll"
 -r:"Library/Bee/artifacts/1900b0aP.dag/Unity.Services.Core.ref.dll"
 -r:"Library/Bee/artifacts/1900b0aP.dag/Unity.TextMeshPro.ref.dll"
 -r:"Library/Bee/artifacts/1900b0aP.dag/Unity.Timeline.ref.dll"
 -r:"Library/Bee/artifacts/1900b0aP.dag/UnityEngine.UI.ref.dll"
-"Assets/Mini First Person Controller/Scripts/Components/Crouch.cs"
-"Assets/Mini First Person Controller/Scripts/Components/FirstPersonAudio.cs"
-"Assets/Mini First Person Controller/Scripts/Components/GroundCheck.cs"
-"Assets/Mini First Person Controller/Scripts/Components/Jump.cs"
-"Assets/Mini First Person Controller/Scripts/Components/Zoom.cs"
-"Assets/Mini First Person Controller/Scripts/FirstPersonLook.cs"
-"Assets/Mini First Person Controller/Scripts/FirstPersonMovement.cs"
 "Assets/Scripts/AchievementHandler.cs"
 "Assets/Scripts/AlignScript.cs"
 "Assets/Scripts/AssignCompass.cs"
@@ -326,6 +321,7 @@
 "Assets/Scripts/GameCode_Make.cs"
 "Assets/Scripts/GameCode_PlayUsingCode.cs"
 "Assets/Scripts/IsMapMaze.cs"
+"Assets/Scripts/LookAround.cs"
 "Assets/Scripts/MainMenu/Achievements.cs"
 "Assets/Scripts/MainMenu/DifficultySlider.cs"
 "Assets/Scripts/MainMenu/FogSetting.cs"
@@ -336,8 +332,10 @@
 "Assets/Scripts/MainMenu/Menu_MainMenuScript.cs"
 "Assets/Scripts/MainMenu/Menu_MapModeHandler.cs"
 "Assets/Scripts/MainMenu/TimeSlider.cs"
+"Assets/Scripts/MainMenu/UpdateRemover.cs"
 "Assets/Scripts/MapHandler.cs"
 "Assets/Scripts/MoveClouds.cs"
+"Assets/Scripts/MovementScript.cs"
 "Assets/Scripts/OrienteeringOnly/EndUI.cs"
 "Assets/Scripts/OrienteeringOnly/OrienteeringMode_PostAssign.cs"
 "Assets/Scripts/OrienteeringOnly/Orienteering_MapObjectHandler.cs"

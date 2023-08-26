@@ -13,9 +13,14 @@ public class MovementScript : MonoBehaviour
     private bool AlreadyUnlocked2 = false;
     public AchievementHandler AchievScript;
     public TouchingThorns ThornsScript;
+    public AudioHandler AudioScript;
 
     private Quaternion originalRotation;
     private Rigidbody rigidbody;
+    private float FootStepInterval = 0.4f;
+    private float TimeSinceLastFootStep = 0f;
+    private bool IsMoving;
+ 
 
     public List<System.Func<float>> speedOverrides = new List<System.Func<float>>(); // This took me AGES
 
@@ -35,43 +40,61 @@ public class MovementScript : MonoBehaviour
 
     void FixedUpdate()
     {
-        if (Map.activeSelf == false && PauseScript.EscapeMenu == false)
-        {
-            
-            Vector3 InputDirection = new Vector3(Input.GetAxis("Horizontal"), 0, Input.GetAxis("Vertical"));
-            Vector3 RotatedDirection = originalRotation * InputDirection;
-            float PlayerMoveSpeed = 0f;
-            if (ThornsScript.IsTouchingThorns)
+        
+       
+            if (Map.activeSelf == false && PauseScript.EscapeMenu == false)
             {
 
-                PlayerMoveSpeed = ThornSpeed;
+                Vector3 InputDirection = new Vector3(Input.GetAxis("Horizontal"), 0, Input.GetAxis("Vertical"));
+                Vector3 RotatedDirection = originalRotation * InputDirection;
+                float PlayerMoveSpeed = 0f;
+                if (ThornsScript.IsTouchingThorns)
+                {
 
-            } else
-            {
-                PlayerMoveSpeed = speed;
+                    PlayerMoveSpeed = ThornSpeed;
+
+                }
+                else
+                {
+                    PlayerMoveSpeed = speed;
+                }
+                Vector3 TargetVelocity = RotatedDirection * PlayerMoveSpeed;
+
+                rigidbody.velocity = new Vector3(TargetVelocity.x, rigidbody.velocity.y, TargetVelocity.z);
+                IsMoving = TargetVelocity.magnitude > 0.2f; //This feels advanced to know
+                if (IsMoving)
+                {
+                    TimeSinceLastFootStep += Time.fixedDeltaTime;
+                    if (TimeSinceLastFootStep >= FootStepInterval)
+                    {
+                        AudioScript.PlaySound("Footstep");
+                        TimeSinceLastFootStep = 0f;
+                    }
+                }
             }
-            Vector3 targetVelocity = RotatedDirection * PlayerMoveSpeed;
+            else
+            {
 
-            rigidbody.velocity = new Vector3(targetVelocity.x, rigidbody.velocity.y, targetVelocity.z);
-        }
-        else
-        {
-            
-            rigidbody.freezeRotation = true; //Dumb fix for Dumb bug.
-            rigidbody.velocity = Vector3.zero;
-        }
+                rigidbody.freezeRotation = true; //Dumb fix for Dumb bug.
+                rigidbody.velocity = Vector3.zero;
+            }
 
-        if (Map.activeSelf == false && PauseScript.EscapeMenu == false)
-        {
-            
-            originalRotation = transform.rotation;
-        }
+            if (Map.activeSelf == false && PauseScript.EscapeMenu == false)
+            {
 
-        if (AlreadyUnlocked2 == false && transform.position.y < -50f)
-        {
-            AchievScript.UnlockAchievement(8);
-            AlreadyUnlocked2 = true;
-        }
+                originalRotation = transform.rotation;
+            }
+
+            if (AlreadyUnlocked2 == false && transform.position.y < -50f)
+            {
+                AchievScript.UnlockAchievement(8);
+                AlreadyUnlocked2 = true;
+            }
+
+
+
+
+    
     }
 
     private void OnTriggerEnter(Collider other)
