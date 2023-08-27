@@ -254,6 +254,7 @@ public class Menu_MainMenuScript : MonoBehaviour
 
     public void ChangeToAchievements()
     {
+        MainMenu.SetActive(false);
         Achievements.SetActive(true);
         Settings.SetActive(false);
         AudioScript.PlaySound("Select1");

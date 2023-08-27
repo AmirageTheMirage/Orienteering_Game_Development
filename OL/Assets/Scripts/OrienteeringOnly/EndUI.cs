@@ -37,6 +37,7 @@ public class EndUI : MonoBehaviour
     private int MapSettings;
     private int FogSettings;
     private int UsingCode = 0;
+    public bool LoadingBool = false;
     //public AchievementHandler AchievementUnlocker;
     void Start()
     {
@@ -45,7 +46,13 @@ public class EndUI : MonoBehaviour
         TargetUI.SetActive(true);
         PlayerUI.SetActive(true);
         Fader.SetActive(false);
-        Loading.SetActive(false);
+        if (LoadingBool)
+        {
+            Loading.SetActive(true);
+        } else
+        {
+            Loading.SetActive(false);
+        }
         LoadingScreenStuff.SetActive(true);
         
         if (PlayerPrefs.GetInt("UseCode_Setting") == 1)

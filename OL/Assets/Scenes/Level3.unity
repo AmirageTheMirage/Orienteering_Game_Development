@@ -1603,7 +1603,7 @@ MonoBehaviour:
   Fader: {fileID: 690012029}
   StartFade: 0
   Speed: 2
-  ShowLoading: 1
+  ShowLoading: 0
 --- !u!65 &79270866
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -4241,7 +4241,7 @@ MonoBehaviour:
   Fader: {fileID: 690012029}
   StartFade: 0
   Speed: 2
-  ShowLoading: 1
+  ShowLoading: 0
 --- !u!1001 &276631478
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -4726,7 +4726,7 @@ MonoBehaviour:
   Fader: {fileID: 690012029}
   StartFade: 0
   Speed: 2
-  ShowLoading: 1
+  ShowLoading: 0
 --- !u!65 &308819513
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -5848,7 +5848,7 @@ MonoBehaviour:
   Fader: {fileID: 690012029}
   StartFade: 0
   Speed: 2
-  ShowLoading: 1
+  ShowLoading: 0
 --- !u!65 &391407369
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -6653,7 +6653,7 @@ MonoBehaviour:
   Fader: {fileID: 690012029}
   StartFade: 0
   Speed: 2
-  ShowLoading: 1
+  ShowLoading: 0
 --- !u!1001 &444810927
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -7654,17 +7654,6 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: d3d31841344dd374fa5d6a6e851aa7bf, type: 3}
---- !u!114 &521794166 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 2802461036083975886, guid: d3d31841344dd374fa5d6a6e851aa7bf, type: 3}
-  m_PrefabInstance: {fileID: 521794165}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 158cd374b0761c64d8a8e22fb560bdc1, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1001 &523969801
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -8043,7 +8032,7 @@ MonoBehaviour:
   Fader: {fileID: 690012029}
   StartFade: 0
   Speed: 2
-  ShowLoading: 1
+  ShowLoading: 0
 --- !u!65 &531764839
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -8791,7 +8780,7 @@ MonoBehaviour:
   Fader: {fileID: 690012029}
   StartFade: 0
   Speed: 2
-  ShowLoading: 1
+  ShowLoading: 0
 --- !u!1 &606241112
 GameObject:
   m_ObjectHideFlags: 0
@@ -14809,7 +14798,7 @@ MonoBehaviour:
   Fader: {fileID: 690012029}
   StartFade: 0
   Speed: 2
-  ShowLoading: 1
+  ShowLoading: 0
 --- !u!1001 &1076940874
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -15089,7 +15078,7 @@ MonoBehaviour:
   Fader: {fileID: 690012029}
   StartFade: 0
   Speed: 2
-  ShowLoading: 1
+  ShowLoading: 0
 --- !u!1001 &1112981495
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -17552,7 +17541,7 @@ MonoBehaviour:
   Fader: {fileID: 690012029}
   StartFade: 0
   Speed: 2
-  ShowLoading: 1
+  ShowLoading: 0
 --- !u!65 &1280393602
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -17770,7 +17759,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   character: {fileID: 663279223}
-  sensitivity: 200
   smoothing: 1.5
   Map: {fileID: 146274633}
   PauseScript: {fileID: 264544876}
@@ -17945,7 +17933,7 @@ MonoBehaviour:
   Fader: {fileID: 690012029}
   StartFade: 0
   Speed: 2
-  ShowLoading: 1
+  ShowLoading: 0
 --- !u!1001 &1291635446
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -21978,7 +21966,7 @@ MonoBehaviour:
   Fader: {fileID: 690012029}
   StartFade: 0
   Speed: 2
-  ShowLoading: 1
+  ShowLoading: 0
 --- !u!1001 &1578913916
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -23296,7 +23284,7 @@ MonoBehaviour:
   Fader: {fileID: 690012029}
   StartFade: 0
   Speed: 2
-  ShowLoading: 1
+  ShowLoading: 0
 --- !u!65 &1664782570
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -23606,7 +23594,7 @@ MonoBehaviour:
   Fader: {fileID: 690012029}
   StartFade: 0
   Speed: 2
-  ShowLoading: 1
+  ShowLoading: 0
 --- !u!65 &1685163198
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -25134,7 +25122,7 @@ MonoBehaviour:
   Fader: {fileID: 690012029}
   StartFade: 0
   Speed: 2
-  ShowLoading: 1
+  ShowLoading: 0
 --- !u!1 &1798920990
 GameObject:
   m_ObjectHideFlags: 0
@@ -25666,7 +25654,7 @@ MonoBehaviour:
   Fader: {fileID: 690012029}
   StartFade: 0
   Speed: 2
-  ShowLoading: 1
+  ShowLoading: 0
 --- !u!1001 &1846759638
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -27970,7 +27958,7 @@ MonoBehaviour:
   Fader: {fileID: 690012029}
   StartFade: 0
   Speed: 2
-  ShowLoading: 1
+  ShowLoading: 0
 --- !u!1 &2034713981
 GameObject:
   m_ObjectHideFlags: 0
@@ -29756,7 +29744,6 @@ MonoBehaviour:
   PauseScript: {fileID: 264544876}
   AchievScript: {fileID: 6723906333424909593}
   ThornsScript: {fileID: 1069731082772109053}
-  AudioScript: {fileID: 521794166}
 --- !u!114 &1003662068705859173
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -29770,7 +29757,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   character: {fileID: 897363570984171291}
-  sensitivity: 200
   smoothing: 1.5
   Map: {fileID: 146274633}
   PauseScript: {fileID: 264544876}

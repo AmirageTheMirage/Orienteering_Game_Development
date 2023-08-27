@@ -5,7 +5,7 @@ using System.Collections;
 public class LookAround : MonoBehaviour
 {
     public Transform character;
-    public float sensitivity;
+    private float sensitivity = 50f;
     public float smoothing = 1.5f;
     public GameObject Map;
     public PauseMenuScript PauseScript;
