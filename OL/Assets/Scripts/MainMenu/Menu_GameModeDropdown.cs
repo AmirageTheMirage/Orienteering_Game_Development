@@ -9,8 +9,10 @@ public class Menu_GameModeDropdown : MonoBehaviour
     public int DropDownValue = 0;
     public TMP_Dropdown ModeDropDown;
     public GameObject DifficultySlider;
+    private AudioHandler AudioScript;
     void Start()
     {
+        AudioScript = GameObject.Find("FullAudioHandler").GetComponent<AudioHandler>();
         DifficultySlider.SetActive(true);
         if (PlayerPrefs.HasKey("ModeDropdown_Setting"))
         {
@@ -40,6 +42,7 @@ public class Menu_GameModeDropdown : MonoBehaviour
 
     private void OnDropdownValueChanged(int value)
     {
+        AudioScript.ExtraSound();
         DropDownValue = value;
         PlayerPrefs.SetInt("ModeDropdown_Setting", DropDownValue);
         PlayerPrefs.Save();

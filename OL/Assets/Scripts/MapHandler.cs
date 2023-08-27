@@ -18,8 +18,10 @@ public class MapHandler : MonoBehaviour
     public Color EveningColor;
     public Color NightFogColor;
     public GameObject FogWall;
+    private AudioHandler AudioScript;
     void Start()
     {
+        AudioScript = GameObject.Find("FullAudioHandler").GetComponent<AudioHandler>();
         SunLightComponent = DirectLight.GetComponent<Light>();
         FogWall.SetActive(false);
         if (PlayerPrefs.GetInt("UseCode_Setting") == 1) //Override with GameCode Input
@@ -102,13 +104,16 @@ public class MapHandler : MonoBehaviour
                     if (MapActive) {
                     if (Orienteering_EndUI.activeSelf == false)
                     {
+                        
                         CloseMap();
+                        AudioScript.PlaySound("CloseMap");
                     }
 
                 } else {
                     MapActive = true;
                     Map.SetActive(true);
                     Cursor.lockState = CursorLockMode.None;
+                    AudioScript.PlaySound("OpenMap");
 
                 }
                 }

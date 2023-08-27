@@ -20,12 +20,15 @@ public class LerpScript : MonoBehaviour
     private bool UpdatedCameraPosition = false;
     private Vector3 UpdatedCamPos;
     private int LerpInt = 0;
+    private AudioHandler AudioScript;
+
     //private 
 
     private void Start()
     {
-       // LerpTo(1);
-        
+        AudioScript = GameObject.Find("FullAudioHandler").GetComponent<AudioHandler>();
+        // LerpTo(1);
+
     }
 
     private void Update()
@@ -66,6 +69,7 @@ public class LerpScript : MonoBehaviour
             {
                 
                 DoLerp = false;
+                
                 if (LerpInt != 9)
                 {
                     TutorialHandlerScript.Tutorial(LerpInt);
@@ -74,6 +78,14 @@ public class LerpScript : MonoBehaviour
                 if (LerpInt == 8)
                 {
                     LerpSpeed = LastLerpSpeed;
+                }
+                int RandomNumber = Random.Range(0, 2);
+                if (RandomNumber == 1)
+                {
+                    AudioScript.PlaySound("OpenMap");
+                } else
+                {
+                    AudioScript.PlaySound("CloseMap");
                 }
             }
         }
@@ -86,7 +98,7 @@ public class LerpScript : MonoBehaviour
         //LerpInt++; //Might want to remove this one later
         //LerpChildNumber = LerpInt;
         LerpInt = LerpChildNumber;
-        
+        AudioScript.PlaySound("Select1");
         if (!DoLerp)
         {
             //Debug.Log("TryingLerp");

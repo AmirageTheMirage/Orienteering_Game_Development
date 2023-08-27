@@ -18,6 +18,7 @@ public class AchievementHandler : MonoBehaviour
     public bool AlreadySliding = false;
     public TMP_Text AchievementUnlockedText;
     public int FramesInScene = 0;
+    private AudioHandler AudioScript;
 
     private Vector3 originPosition;
     [Space]
@@ -25,6 +26,7 @@ public class AchievementHandler : MonoBehaviour
 
     private void Start()
     {
+        AudioScript = GameObject.Find("FullAudioHandler").GetComponent<AudioHandler>();
         originPosition = Achievement.transform.position;
         
         
@@ -214,6 +216,7 @@ public class AchievementHandler : MonoBehaviour
             if (AlreadySliding == false)
             {
                 AlreadySliding = true;
+                AudioScript.PlaySound("Select3");
                 StartCoroutine(ShowAchievement());
             }
            // UnlockCompassToo.SetActive(false);

@@ -2633,7 +2633,6 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 663279223}
-  - {fileID: 1446302498}
   m_Father: {fileID: 58597533}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -2715,6 +2714,7 @@ MonoBehaviour:
   Compass: {fileID: 570226683}
   Fader: {fileID: 690012029}
   Orienteering_Handler: {fileID: 714345272}
+  AudioScript: {fileID: 1395482324}
 --- !u!1 &276443480
 GameObject:
   m_ObjectHideFlags: 0
@@ -6863,6 +6863,7 @@ MonoBehaviour:
   EndUI: {fileID: 4242986531491021326}
   Compass: {fileID: 570226683}
   IsMaze: 0
+  AudioScript: {fileID: 1395482324}
 --- !u!1 &717435884
 GameObject:
   m_ObjectHideFlags: 0
@@ -13078,68 +13079,6 @@ PrefabInstance:
 Transform:
   m_CorrespondingSourceObject: {fileID: 5645922041939077146, guid: 790dc23f08d7e83448e9c6323f68fa8d, type: 3}
   m_PrefabInstance: {fileID: 1443426608}
-  m_PrefabAsset: {fileID: 0}
---- !u!1001 &1446302497
-PrefabInstance:
-  m_ObjectHideFlags: 0
-  serializedVersion: 2
-  m_Modification:
-    m_TransformParent: {fileID: 262959931}
-    m_Modifications:
-    - target: {fileID: 7928657484138225101, guid: 53800e6c0767e6a498d5d82d2a444e70, type: 3}
-      propertyPath: m_RootOrder
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 7928657484138225101, guid: 53800e6c0767e6a498d5d82d2a444e70, type: 3}
-      propertyPath: m_LocalPosition.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 7928657484138225101, guid: 53800e6c0767e6a498d5d82d2a444e70, type: 3}
-      propertyPath: m_LocalPosition.y
-      value: 1.33
-      objectReference: {fileID: 0}
-    - target: {fileID: 7928657484138225101, guid: 53800e6c0767e6a498d5d82d2a444e70, type: 3}
-      propertyPath: m_LocalPosition.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 7928657484138225101, guid: 53800e6c0767e6a498d5d82d2a444e70, type: 3}
-      propertyPath: m_LocalRotation.w
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 7928657484138225101, guid: 53800e6c0767e6a498d5d82d2a444e70, type: 3}
-      propertyPath: m_LocalRotation.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 7928657484138225101, guid: 53800e6c0767e6a498d5d82d2a444e70, type: 3}
-      propertyPath: m_LocalRotation.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 7928657484138225101, guid: 53800e6c0767e6a498d5d82d2a444e70, type: 3}
-      propertyPath: m_LocalRotation.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 7928657484138225101, guid: 53800e6c0767e6a498d5d82d2a444e70, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 7928657484138225101, guid: 53800e6c0767e6a498d5d82d2a444e70, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 7928657484138225101, guid: 53800e6c0767e6a498d5d82d2a444e70, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 7928657484138225102, guid: 53800e6c0767e6a498d5d82d2a444e70, type: 3}
-      propertyPath: m_Name
-      value: BackGroundSound
-      objectReference: {fileID: 0}
-    m_RemovedComponents: []
-  m_SourcePrefab: {fileID: 100100000, guid: 53800e6c0767e6a498d5d82d2a444e70, type: 3}
---- !u!4 &1446302498 stripped
-Transform:
-  m_CorrespondingSourceObject: {fileID: 7928657484138225101, guid: 53800e6c0767e6a498d5d82d2a444e70, type: 3}
-  m_PrefabInstance: {fileID: 1446302497}
   m_PrefabAsset: {fileID: 0}
 --- !u!1 &1446305608
 GameObject:
@@ -23044,6 +22983,7 @@ MonoBehaviour:
   AchievementUnlocker: {fileID: 1137641524}
   IsMapMazeScript: {fileID: 5114899629437508912}
   MazeCorrection: 15
+  AudioScript: {fileID: 1395482324}
 --- !u!224 &4242986531491021325
 RectTransform:
   m_ObjectHideFlags: 0
@@ -25270,6 +25210,10 @@ PrefabInstance:
       propertyPath: SceneryInt
       value: 2
       objectReference: {fileID: 0}
+    - target: {fileID: 6723906333064146202, guid: 455053448cc75b7408b14a0b3c3ea789, type: 3}
+      propertyPath: AudioScript
+      value: 
+      objectReference: {fileID: 1395482324}
     - target: {fileID: 6723906333064146206, guid: 455053448cc75b7408b14a0b3c3ea789, type: 3}
       propertyPath: m_Pivot.x
       value: 0

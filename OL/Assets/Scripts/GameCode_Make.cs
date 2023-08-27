@@ -18,11 +18,14 @@ public class GameCode_Make : MonoBehaviour
     public int OrienteeringXPart;
     public int OrienteeringYPart;
     public int OrienteeringZPart;
+    private AudioHandler AudioScript;
     [Space]
     public string Code;
     public TMP_Text CopyText;
     void Start()
     {
+        AudioScript = GameObject.Find("FullAudioHandler").GetComponent<AudioHandler>();
+        
         // So we'll need: (Shopping List hahhhaaaaaa)
         // 1x Coffee, 1x Milk, 1x Maturaarbeit done in under 2'000'000hours (impossible)
         // No but for real:
@@ -49,7 +52,7 @@ public class GameCode_Make : MonoBehaviour
         //PlayerPrefs.SetInt("FogPart_Code", 0);
         //PlayerPrefs.Save();
         // Get Map:
-        
+        AudioScript.PlaySound("Select1");
         if (PlayerPrefs.GetInt("UseCode_Setting") == 1)
         {
             Code = PlayerPrefs.GetString("ActualCode_Code"); //Just reuse the old Code

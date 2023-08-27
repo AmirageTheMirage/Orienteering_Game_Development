@@ -33,6 +33,8 @@ public class Menu_MainMenuScript : MonoBehaviour
     public GameObject VersionChangeObject;
     private int UsingCode = 0;
     public float Speed = 2f;
+    private AudioHandler AudioScript;
+    private float StartCooldown = 0.4f;
 
 
 
@@ -44,6 +46,7 @@ public class Menu_MainMenuScript : MonoBehaviour
     // Start is called before the first frame update
     void Awake()
     {
+        AudioScript = GameObject.Find("FullAudioHandler").GetComponent<AudioHandler>();
         //AudioListener.volume = 0.5f;
         if (PlayerPrefs.GetInt("TutorialAbsolved") != 1)
         {
@@ -70,6 +73,10 @@ public class Menu_MainMenuScript : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        if (StartCooldown > 0f)
+        {
+            StartCooldown = StartCooldown - 1f * Time.deltaTime;
+        }
         if (Fade) {
             if (FP < 1f) {
                 FP = FP + 0.5f * Speed * Time.deltaTime;
@@ -108,6 +115,7 @@ public class Menu_MainMenuScript : MonoBehaviour
 
     public void ReDoTutorial()
     {
+        AudioScript.PlaySound("Select1");
         SceneManager.LoadScene("TutorialScene");
     }
     public void StartGame()
@@ -119,6 +127,7 @@ public class Menu_MainMenuScript : MonoBehaviour
         PlayMenu.SetActive(false);
         Achievements.SetActive(false);
         FP = 0f;
+        AudioScript.PlaySound("Select2");
         //SceneManager.LoadScene(0);
     }
 
@@ -196,22 +205,28 @@ public class Menu_MainMenuScript : MonoBehaviour
 
     public void SettingsGame()
     {
+        
         MainMenu.SetActive(false);
         Achievements.SetActive(false);
         Settings.SetActive(true);
+        AudioScript.PlaySound("Select1");
     }
 
     public void BackToMainMenu()
     {
+        
         MainMenu.SetActive(true);
         Settings.SetActive(false);
         PlayMenu.SetActive(false);
         Achievements.SetActive(false);
+        AudioScript.PlaySound("Select1");
     }
     public void ChangeToPlayMenu()
     {
+        
         PlayMenu.SetActive(true);
         MainMenu.SetActive(false);
+        AudioScript.PlaySound("Select1");
     }
 
     public void ChangeToChooseMenu()
@@ -219,6 +234,7 @@ public class Menu_MainMenuScript : MonoBehaviour
         ChooseMenu.SetActive(true);
         MainMenu.SetActive(false);
         Settings.SetActive(false);
+        AudioScript.PlaySound("Select1");
     }
 
     public void BackToSettings()
@@ -228,6 +244,7 @@ public class Menu_MainMenuScript : MonoBehaviour
         Settings.SetActive(true);
         MainMenu.SetActive(false);
         PlayMenu.SetActive(false);
+        AudioScript.PlaySound("Select1");
     }
 
     public void GetMapSettings()
@@ -239,12 +256,14 @@ public class Menu_MainMenuScript : MonoBehaviour
     {
         Achievements.SetActive(true);
         Settings.SetActive(false);
+        AudioScript.PlaySound("Select1");
     }
 
     public void DeleteAllPlayerPrefs()
     {
         Achievements.SetActive(true);
         Settings.SetActive(false);
+        AudioScript.PlaySound("Select1");
     }
 
     public void SetGameQuality(int SetToIndex)
@@ -272,7 +291,9 @@ public class Menu_MainMenuScript : MonoBehaviour
             //}
             //ShadowSettingDropDown.value = ShadowsSetting; //So this part here resets the Shadows. so if you go over Low Res and have shadows turned off, this actualizes that.
         }
+
         UpdateShadows(ShadowsSetting); //Update the PlayerPrefShadow Manager
+        
     }
 
     public void SetVolumeOfGame(float SetVolume)
@@ -306,6 +327,14 @@ public class Menu_MainMenuScript : MonoBehaviour
         }
         ShadowSettingDropDown.value = ShadowsSetting;
         //Debug.Log(ShadowsSetting);
+    }
+    public void ExtraSound() 
+    {
+        if (StartCooldown < 0f)
+        {
+            Debug.Log("ExtraSound got called!");
+            AudioScript.PlaySound("Tick2");
+        }
     }
 
 

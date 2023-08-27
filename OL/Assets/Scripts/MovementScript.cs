@@ -13,7 +13,7 @@ public class MovementScript : MonoBehaviour
     private bool AlreadyUnlocked2 = false;
     public AchievementHandler AchievScript;
     public TouchingThorns ThornsScript;
-    public AudioHandler AudioScript;
+    private AudioHandler AudioScript;
 
     private Quaternion originalRotation;
     private Rigidbody rigidbody;
@@ -26,6 +26,7 @@ public class MovementScript : MonoBehaviour
 
     void Awake()
     {
+        AudioScript = GameObject.Find("FullAudioHandler").GetComponent<AudioHandler>();
         rigidbody = GetComponent<Rigidbody>();
         originalRotation = transform.rotation;
         if (PlayerPrefs.GetInt("Achievement_8") == 1)

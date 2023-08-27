@@ -11,6 +11,7 @@ public class Menu_CompassChooser : MonoBehaviour
     public GameObject Compass3;
     public GameObject Compass4;
     public List<int> Unlocked = new List<int>();
+    private AudioHandler AudioScript;
 
 
 
@@ -31,6 +32,8 @@ public class Menu_CompassChooser : MonoBehaviour
     }
     void Start()
     {
+        AudioScript = GameObject.Find("FullAudioHandler").GetComponent<AudioHandler>();
+        
         //PlayerPrefs.SetInt("Compass_4", 1);
         //PlayerPrefs.Save();
         ReStart();
@@ -146,8 +149,10 @@ public class Menu_CompassChooser : MonoBehaviour
 
     public void ChooseComp(int Comp)
     {
+        
         int CompMinusOne = Comp - 1;
         if (Unlocked[CompMinusOne] == 1) {
+            AudioScript.PlaySound("Select3");
             Debug.Log("Compass " + Comp + " is unlocked!");
             CompassChosen = Comp;
             PlayerPrefs.SetInt("Compass_Setting", CompassChosen);

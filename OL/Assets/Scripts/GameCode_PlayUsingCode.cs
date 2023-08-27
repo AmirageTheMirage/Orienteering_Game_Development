@@ -20,10 +20,13 @@ public class GameCode_PlayUsingCode : MonoBehaviour
     public bool ValidInput = false;
     public GameObject ValidCheck;
     public TMP_Text PlayText;
+    private AudioHandler AudioScript;
+
     void Start()
     {
+            AudioScript = GameObject.Find("FullAudioHandler").GetComponent<AudioHandler>();
             PlayerPrefs.SetInt("UseCode_Setting", 0);
-          //  PlayerPrefs.SetInt("MapPart_Code", 0);
+            //  PlayerPrefs.SetInt("MapPart_Code", 0);
             PlayerPrefs.SetInt("ModePart_Code", 0);
             PlayerPrefs.SetInt("TimePart_Code", 0);
             PlayerPrefs.SetInt("FogPart_Code", 0);
@@ -66,6 +69,7 @@ public class GameCode_PlayUsingCode : MonoBehaviour
                 && TimePart >= 1 && TimePart <= 24
                 && FogPart >= 1 && FogPart <= 5)
             {
+
                 ValidInput = true;
                 ValidCheck.SetActive(true);
                 PlayText.text = "Play (from code)";
@@ -83,6 +87,7 @@ public class GameCode_PlayUsingCode : MonoBehaviour
                 PlayerPrefs.SetInt("OrienteeringZ_Code", OrienteeringZPart);
                 PlayerPrefs.Save();
                 Debug.Log("Valid Input");
+                AudioScript.PlaySound("Select2");
             }
             else
             {

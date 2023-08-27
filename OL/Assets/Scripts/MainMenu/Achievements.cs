@@ -38,8 +38,10 @@ public class Achievements : MonoBehaviour
     public int NumberOfMasteries;
     List<int> Unlocked = new List<int>();
     public GameObject ContentObjectOfScrollBar;
+    private AudioHandler AudioScript;
     void Start()
     {
+        AudioScript = GameObject.Find("FullAudioHandler").GetComponent<AudioHandler>();
         ReStart();
     }
     void ReStart()
@@ -195,5 +197,6 @@ public class Achievements : MonoBehaviour
         PlayerPrefs.SetInt("MasteryUnlockProgress_3", 0);
         PlayerPrefs.Save();
         ReStart();
+        AudioScript.PlaySound("Select3");
     }
 }

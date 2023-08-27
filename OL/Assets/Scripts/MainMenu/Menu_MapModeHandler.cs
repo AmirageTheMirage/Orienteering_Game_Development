@@ -12,10 +12,12 @@ public class Menu_MapModeHandler : MonoBehaviour
     public GameObject Forest2;
     public GameObject Maze1;
     public GameObject SelectDifficultyHideParent;
+    private AudioHandler AudioScript;
 
     // Start is called before the first frame update
     void Start()
     {
+        AudioScript = GameObject.Find("FullAudioHandler").GetComponent<AudioHandler>();
         SelectDifficultyHideParent.SetActive(true);
         if (PlayerPrefs.HasKey("MapDropdown_Setting"))
         {
@@ -42,6 +44,7 @@ public class Menu_MapModeHandler : MonoBehaviour
         DropDownValue = value;
         PlayerPrefs.SetInt("MapDropdown_Setting", DropDownValue);
         PlayerPrefs.Save();
+        AudioScript.PlaySound("Tick2");
         ActualizeMap();
     }
 

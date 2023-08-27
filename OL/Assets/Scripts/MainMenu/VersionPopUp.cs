@@ -9,8 +9,10 @@ public class VersionPopUp : MonoBehaviour
     public GameObject MainMenu;
     public int ShowVersion;
     public bool JustShowVersionPopUp = false;
+    private AudioHandler AudioScript;
     void Start()
     {
+        AudioScript = GameObject.Find("FullAudioHandler").GetComponent<AudioHandler>();
         ReStart();
     }
     
@@ -20,6 +22,7 @@ public class VersionPopUp : MonoBehaviour
         {
             MainMenu.SetActive(false);
             VersionChangeObject.SetActive(true);
+            AudioScript.PlaySound("Select1");
         } else
         {
             if (PlayerPrefs.HasKey("ShowVersion"))
@@ -37,6 +40,7 @@ public class VersionPopUp : MonoBehaviour
             {
                 MainMenu.SetActive(false);
                 VersionChangeObject.SetActive(true);
+                AudioScript.PlaySound("Select1");
             }
             else
             {
@@ -53,6 +57,7 @@ public class VersionPopUp : MonoBehaviour
         PlayerPrefs.SetInt("ShowVersion", 1);
         PlayerPrefs.Save();
         ShowVersion = 1;
+        AudioScript.PlaySound("Select1");
     }
 
 
@@ -60,5 +65,6 @@ public class VersionPopUp : MonoBehaviour
     {
         MainMenu.SetActive(false);
         VersionChangeObject.SetActive(true);
+        AudioScript.PlaySound("Select1");
     }
 }

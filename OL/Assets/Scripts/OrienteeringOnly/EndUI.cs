@@ -19,11 +19,12 @@ public class EndUI : MonoBehaviour
     public GameObject LoadingScreenStuff;
     public AchievementHandler AchievementUnlocker;
     public IsMapMaze IsMapMazeScript;
-    private bool IsMaze;
-
-
-
     public float MazeCorrection = 15f;
+    private AudioHandler AudioScript;
+
+
+
+    private bool IsMaze;
     private float FP = 1f; //FP = FaderPercent
     private float AfterFP = 0f;
     private bool Fade = false;
@@ -39,6 +40,7 @@ public class EndUI : MonoBehaviour
     //public AchievementHandler AchievementUnlocker;
     void Start()
     {
+        AudioScript = GameObject.Find("FullAudioHandler").GetComponent<AudioHandler>();
         IsMaze = IsMapMazeScript.IsMaze;
         TargetUI.SetActive(true);
         PlayerUI.SetActive(true);
@@ -112,7 +114,7 @@ public class EndUI : MonoBehaviour
 
     public void CalculateDistance()   
     {
-       
+        AudioScript.PlaySound("Select2");
         Factor = (float)Screen.width / 1000f; //Ex. Screen Size of 2000 => Factor 2
         Debug.Log(Factor.ToString());
         PlayerX = PlayerUI.transform.position.x;
@@ -225,6 +227,7 @@ public class EndUI : MonoBehaviour
     }
     public void RestartTheLevel()
     {
+        AudioScript.PlaySound("Select1");
         Fade = true;
         Fader.SetActive(true);
         FP = 0f;

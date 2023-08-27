@@ -10,9 +10,10 @@ public class DifficultySlider : MonoBehaviour
     public int Difficulty;
     public TextMeshProUGUI PreviewText;
     string[] DifficultyText = new string[] { "Easy", "Middle", "Hard" };
+    private AudioHandler AudioScript;
     void Start()
     {
-        
+        AudioScript = GameObject.Find("FullAudioHandler").GetComponent<AudioHandler>();
         // Difficulty = 1;
         // PlayerPrefs.SetInt("Difficulty_Setting", Difficulty);
         MySlider.onValueChanged.AddListener(OnceValueIsChanged);
@@ -39,6 +40,7 @@ public class DifficultySlider : MonoBehaviour
 
     private void OnceValueIsChanged(float value)
     {
+        AudioScript.ExtraSound();
         Difficulty = Mathf.RoundToInt(value);
         PlayerPrefs.SetInt("Difficulty_Setting", Difficulty);
         PlayerPrefs.Save();

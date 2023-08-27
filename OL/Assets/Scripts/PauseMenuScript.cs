@@ -14,9 +14,11 @@ public class PauseMenuScript : MonoBehaviour
     public GameObject Compass;
     public GameObject Fader;
     public Orienteering_MapObjectHandler Orienteering_Handler;
+    private AudioHandler AudioScript; //AudioScript.PlaySound("Select3");
     // Start is called before the first frame update
     void Start()
     {
+        AudioScript = GameObject.Find("FullAudioHandler").GetComponent<AudioHandler>();
         EscapeMenu = false;
         TheMainMenu.SetActive(false);
         Compass.SetActive(true);
@@ -27,8 +29,10 @@ public class PauseMenuScript : MonoBehaviour
     {
         if (Input.GetKeyDown(KeyCode.Escape) && Fader.activeSelf == false)
         {
+            
             if (EscapeMenu)
             {
+                AudioScript.PlaySound("Tick1");
                 EscapeMenu = false;
                 Cursor.lockState = CursorLockMode.Locked;
                 TheMainMenu.SetActive(false);
@@ -40,6 +44,7 @@ public class PauseMenuScript : MonoBehaviour
             }
             else
             {
+                AudioScript.PlaySound("Tick1");
                 if (Handler != null)
                 {
                     Handler.CloseMap();
@@ -57,6 +62,7 @@ public class PauseMenuScript : MonoBehaviour
 
     public void ResumeGame()
     {
+        AudioScript.PlaySound("Select1");
         EscapeMenu = false;
         TheMainMenu.SetActive(false);
         Cursor.lockState = CursorLockMode.Locked;
@@ -67,6 +73,7 @@ public class PauseMenuScript : MonoBehaviour
 
     public void ExitToMainMenu()
     {
+        AudioScript.PlaySound("Select1");
         SceneManager.LoadScene(0);
         
     }

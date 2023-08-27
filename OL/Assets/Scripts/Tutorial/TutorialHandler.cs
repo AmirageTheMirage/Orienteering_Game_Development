@@ -22,6 +22,7 @@ public class TutorialHandler : MonoBehaviour
     private CanvasGroup OrienteeringCanvasGroup;
     public GameObject ProceedToMainMenu;
     public GameObject GetChildFromThisPanel;
+    private AudioHandler AudioScript;
 
 
     string[] TitleTexts = { "ThisIsElement[0]", "Orienteering", "Compass-Usage", "Map", "Post-Search-Mode", "Orienteering-Mode", "Achievements", "Settings", "Savecodes" };
@@ -41,10 +42,12 @@ public class TutorialHandler : MonoBehaviour
     public void ToMainMenu()
     {
         PlayerPrefs.SetInt("TutorialAbsolved", 1);
+        AudioScript.PlaySound("Select2");
         SceneManager.LoadScene(0);
     }
     private void Start()
     {
+        AudioScript = GameObject.Find("FullAudioHandler").GetComponent<AudioHandler>();
         TutorialElement.SetActive(false);
         OrienteeringObject.SetActive(false);
         ThankYouForPlaying.SetActive(false);

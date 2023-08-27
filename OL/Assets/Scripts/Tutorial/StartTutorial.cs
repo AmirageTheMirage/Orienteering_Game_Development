@@ -8,8 +8,10 @@ public class StartTutorial : MonoBehaviour
     public GameObject GetCanvasGroupFrom;
     public LerpScript LerperScript;
     private CanvasGroup ObjectCanvasGroup;
+    private AudioHandler AudioScript;
     void Start()
     {
+        AudioScript = GameObject.Find("FullAudioHandler").GetComponent<AudioHandler>();
         GetCanvasGroupFrom.SetActive(true);
     ObjectCanvasGroup = GetCanvasGroupFrom.GetComponent<CanvasGroup>();
     }
@@ -17,6 +19,7 @@ public class StartTutorial : MonoBehaviour
 
     public void StartTheTutorial()
     {
+        AudioScript.PlaySound("Select1");
         StartCoroutine(FadeOut());
     }
 

@@ -9,10 +9,11 @@ public class TimeSlider : MonoBehaviour
     public Slider MySlider;
     public int TimeSetting;
     public TextMeshProUGUI PreviewText;
+    private AudioHandler AudioScript;
     string[] TimeSettingText = new string[] { "Night", "Morning",  "Midday", "Afternoon", "Evening", "Night" };
     void Start()
     {
-        
+        AudioScript = GameObject.Find("FullAudioHandler").GetComponent<AudioHandler>();
         // TimeSetting = 1;
         // PlayerPrefs.SetInt("TimeSetting_Setting", TimeSetting);
         MySlider.onValueChanged.AddListener(OnceValueIsChanged);
@@ -39,6 +40,7 @@ public class TimeSlider : MonoBehaviour
 
     private void OnceValueIsChanged(float value)
     {
+        AudioScript.ExtraSound();
         TimeSetting = Mathf.RoundToInt(value);
         PlayerPrefs.SetInt("Time_Setting", TimeSetting);
         PlayerPrefs.Save();

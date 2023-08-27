@@ -18,10 +18,12 @@ public class Orienteering_MapObjectHandler : MonoBehaviour
     public GameObject EndUI;
     public GameObject Compass;
     public bool IsMaze;
+    private AudioHandler AudioScript;
     
 
     void Start()
     {
+        AudioScript = GameObject.Find("FullAudioHandler").GetComponent<AudioHandler>();
         UI_Player.SetActive(false);
         UI_Target.SetActive(false);
         SideUI.SetActive(false);
@@ -89,6 +91,7 @@ public class Orienteering_MapObjectHandler : MonoBehaviour
     {
         UI_Player.SetActive(true);
         AlreadySetTarget = true;
+        AudioScript.PlaySound("Select3");
 
         RectTransform canvasRectTransform = UI_Player.GetComponentInParent<Canvas>().GetComponent<RectTransform>();
 
@@ -102,6 +105,7 @@ public class Orienteering_MapObjectHandler : MonoBehaviour
     {
         if (AlreadySetTarget)
         {
+            AudioScript.PlaySound("Select1");
             ended = true;
             EndUI.SetActive(true);
             UI_Target.SetActive(true);

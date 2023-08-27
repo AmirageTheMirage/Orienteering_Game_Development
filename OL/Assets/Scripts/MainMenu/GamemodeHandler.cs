@@ -7,8 +7,10 @@ public class GamemodeHandler : MonoBehaviour
     public int GameMode;
     public GameObject Orienteering;
     public GameObject PostSearch;
+    private AudioHandler AudioScript;
     void Start()
     {
+        AudioScript = GameObject.Find("FullAudioHandler").GetComponent<AudioHandler>();
         PostSearch.SetActive(false);
         Orienteering.SetActive(false);
         if (PlayerPrefs.GetInt("UseCode_Setting") == 1)

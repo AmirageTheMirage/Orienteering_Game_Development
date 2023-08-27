@@ -10,9 +10,10 @@ public class FogSetting : MonoBehaviour
     public int HowMuchFog;
     public TextMeshProUGUI PreviewText;
     string[] HowMuchFogText = new string[] { "No Fog", "Small", "Medium", "High", "Extreme"};
+    private AudioHandler AudioScript;
     void Start()
     {
-
+        AudioScript = GameObject.Find("FullAudioHandler").GetComponent<AudioHandler>();
         // HowMuchFog = 1;
         // PlayerPrefs.SetInt("HowMuchFog_Setting", HowMuchFog);
         MySlider.onValueChanged.AddListener(OnceValueIsChanged);
@@ -39,6 +40,7 @@ public class FogSetting : MonoBehaviour
 
     private void OnceValueIsChanged(float value)
     {
+        AudioScript.ExtraSound();
         HowMuchFog = Mathf.RoundToInt(value);
         PlayerPrefs.SetInt("Fog_Setting", HowMuchFog);
         PlayerPrefs.Save();
