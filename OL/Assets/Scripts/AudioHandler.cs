@@ -8,11 +8,12 @@ public class AudioHandler : MonoBehaviour
     // Start is called before the first frame update
     [Header("Setup")]
     public bool PlayBackGroundSound = true;
+    public bool IsMainMenu = false;
     public bool FollowPostCam = false;
     public GameObject OrienteeringCamera;
     public GameObject PostCamera;
     [Header("Sources")]
-    public AudioSource BackGroundSound;
+    public AudioSource BackGroundSoundDay;
     public AudioSource FootstepSound;
     public AudioSource SelectSound;
     public AudioSource TickSound1;
@@ -21,16 +22,50 @@ public class AudioHandler : MonoBehaviour
     public AudioSource SelectSoundDown;
     public AudioSource OpenMap;
     public AudioSource CloseMap;
+    public AudioSource BackGroundSoundNight;
     private int Mode;
     private float StartCooldown = 0.5f;
+    private int TimeOfDay;
     void Start()
     {
-        if (PlayBackGroundSound)
+        if (PlayerPrefs.GetInt("UseCode_Setting") == 1) //Override with GameCode Input, Get TimeOfDay
+        {
+            TimeOfDay = PlayerPrefs.GetInt("TimePart_Code");
+        }
+        else
+        {
+            TimeOfDay = PlayerPrefs.GetInt("Time_Setting");
+        }
+        if (IsMainMenu)
         {
             float StartBackGround = Random.Range(1f, 140f);
-            BackGroundSound.time = StartBackGround;
-            BackGroundSound.Play();
+            BackGroundSoundDay.time = StartBackGround;
+            BackGroundSoundDay.Play();
         }
+        else
+        {
+            if (PlayBackGroundSound)
+            {
+
+                if (TimeOfDay >= 6 && TimeOfDay <= 18) //If Day
+                {
+
+                    float StartBackGround = Random.Range(1f, 140f);
+                    BackGroundSoundDay.time = StartBackGround;
+                    BackGroundSoundDay.Play();
+
+                }
+                else //If Night
+                {
+                    float StartBackGround = Random.Range(1f, 140f);
+                    BackGroundSoundNight.time = StartBackGround;
+                    BackGroundSoundNight.Play();
+                }
+            }
+        }
+    
+        
+        
         if (FollowPostCam)
         {
             Mode = 0;

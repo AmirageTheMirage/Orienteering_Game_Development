@@ -18,11 +18,27 @@ public class MapHandler : MonoBehaviour
     public Color EveningColor;
     public Color NightFogColor;
     public GameObject FogWall;
+    public GameObject PostSearchCam;
+    public GameObject OrienteeringCam;
     private AudioHandler AudioScript;
+    private bool FlashlightActive;
+    public int GameMode;
+    private GameObject FlashLightObject;
     void Start()
     {
+        FlashlightActive = false; 
+        if (PlayerPrefs.GetInt("UseCode_Setting") == 1)
+        {
+            GameMode = PlayerPrefs.GetInt("ModePart_Code");
+        }
+        else
+        {
+            GameMode = PlayerPrefs.GetInt("ModeDropdown_Setting");
+        }
+
         AudioScript = GameObject.Find("FullAudioHandler").GetComponent<AudioHandler>();
         SunLightComponent = DirectLight.GetComponent<Light>();
+        
         FogWall.SetActive(false);
         if (PlayerPrefs.GetInt("UseCode_Setting") == 1) //Override with GameCode Input
         {
@@ -33,11 +49,12 @@ public class MapHandler : MonoBehaviour
             TimeOfDay = PlayerPrefs.GetInt("Time_Setting");
         }
         DirectLight.transform.eulerAngles = new Vector3(15f * TimeOfDay -90f, 90f, 0f); //So it's in east
-        if (TimeOfDay <= 7 || TimeOfDay >= 17) //If Evening
+        if (TimeOfDay <= 7 || TimeOfDay >= 16) //If Evening
         {
-            if (TimeOfDay <= 5 || TimeOfDay >= 20)
+            if (TimeOfDay <= 5 || TimeOfDay >= 19)
             {
-                //Nothing
+                DirectLight.SetActive(false);
+                FlashlightActive = true;
             } else
             {
                 SunLightComponent.color = EveningColor;
@@ -86,11 +103,50 @@ public class MapHandler : MonoBehaviour
         }
         Map.SetActive(false);
         Cursor.lockState = CursorLockMode.Locked;
+        
+
+
+
+        if (FlashlightActive)
+        {
+            if (GameMode == 0)
+            {
+                FlashLightObject = PostSearchCam.transform.Find("FlashLightHolder").gameObject;
+                FlashLightObject.SetActive(true);
+            } else if (GameMode == 1)
+            {
+                FlashLightObject = OrienteeringCam.transform.Find("FlashLightHolder").gameObject;
+                FlashLightObject.SetActive(true);
+            }
+        }
+        
     }
 
     // Update is called once per frame
     void Update()
     {
+        //if (FlashlightActive)
+        //{
+        //    Vector3 FlashlightPosition;
+
+        //    if (GameMode == 0) // If PostSearch
+        //    {
+        //        FlashlightPosition = PostSearchCam.transform.position;
+        //    }
+        //    else if (GameMode == 1) // If Orienteering
+        //    {
+        //        FlashlightPosition = OrienteeringCam.transform.position;
+        //    }
+        //    else
+        //    {
+        //        Debug.Log("GameMode couldn't be fetched (MapHandlerScript for Flashlight Part)");
+        //        return;
+        //    }
+
+            
+        //    FlashLightObject.transform.position = FlashlightPosition;
+        //}
+
         EscapeMen = PauseScript.EscapeMenu;
 
         if (cooldown >= 0)
