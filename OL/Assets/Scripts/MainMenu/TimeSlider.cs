@@ -23,7 +23,7 @@ public class TimeSlider : MonoBehaviour
         // TimeSetting = 1;
         // PlayerPrefs.SetInt("TimeSetting_Setting", TimeSetting);
 
-        TimeSetting = 1;
+        TimeSetting = 12;
         if (PlayerPrefs.HasKey("Time_Setting"))
         {
             TimeSetting = PlayerPrefs.GetInt("Time_Setting");
