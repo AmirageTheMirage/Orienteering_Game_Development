@@ -12,6 +12,7 @@ public class OrienteeringMode_PostAssign : MonoBehaviour
     private bool IsMaze;
     public float raycastDistance = 100f;
     public LayerMask terrainLayerMask;
+    public LayerMask FieldLayer;
     public GameObject DebugObject;
     public IsMapMaze IsMapMazeScript;
 
@@ -65,8 +66,18 @@ public class OrienteeringMode_PostAssign : MonoBehaviour
             }
             else
             {
-                SetPlayer();
-            }
+                    Ray ray = new Ray(Target.transform.position, Vector3.down);
+                    RaycastHit hit;
+                    if (Physics.Raycast(ray, out hit, Mathf.Infinity, FieldLayer)) //If Hit Field
+                    {
+                        Debug.Log("TrySettingPlayerNew");
+                        Ground();
+                    }
+                    else
+                    {
+                        SetPlayer();
+                    }
+                }
         }
         
     }

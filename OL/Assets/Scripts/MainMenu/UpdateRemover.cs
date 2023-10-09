@@ -43,9 +43,14 @@ public class UpdateRemover : MonoBehaviour
             PlayerPrefs.SetInt("ShowVersion", 0);
             PlayerPrefs.Save();
             VersionScript.ReStart();
+
+
+            //For v.2.9:
             DeleteKey("Achievement_3"); //Easy!
             DeleteKey("Achievement_4"); //Hard Mode!
             DeleteKey("Achievement_6"); //Where Am I?
+
+            
         }
     }
     public void DeleteKey(string Key)

@@ -312,6 +312,24 @@ ScriptsOnlyBuild:
   - assembly: Assembly-CSharp
     fullTypeName: StartTutorial
     methodName: StartTheTutorial
+  - assembly: Assembly-CSharp
+    fullTypeName: GameCode_Make
+    methodName: MakeNewGameCode
+  - assembly: Assembly-CSharp
+    fullTypeName: PauseMenuScript
+    methodName: ExitToMainMenu
+  - assembly: Assembly-CSharp
+    fullTypeName: PauseMenuScript
+    methodName: ResumeGame
+  - assembly: Assembly-CSharp
+    fullTypeName: Orienteering_MapObjectHandler
+    methodName: EndOfTheMode
+  - assembly: Assembly-CSharp
+    fullTypeName: PauseMenuScript
+    methodName: ExitToMainMenu
+  - assembly: Assembly-CSharp
+    fullTypeName: EndUI
+    methodName: RestartTheLevel
   sceneClasses:
     Assets/Scenes/Level2.unity:
     - Class: 1
@@ -443,7 +461,7 @@ ScriptsOnlyBuild:
     - Class: 114
       Script: {instanceID: 6274}
     - Class: 114
-      Script: {instanceID: 23698}
+      Script: {instanceID: 30652}
     - Class: 115
       Script: {instanceID: 0}
     - Class: 124
@@ -630,6 +648,173 @@ ScriptsOnlyBuild:
     - Class: 196
       Script: {instanceID: 0}
     - Class: 212
+      Script: {instanceID: 0}
+    - Class: 213
+      Script: {instanceID: 0}
+    - Class: 218
+      Script: {instanceID: 0}
+    - Class: 222
+      Script: {instanceID: 0}
+    - Class: 223
+      Script: {instanceID: 0}
+    - Class: 224
+      Script: {instanceID: 0}
+    - Class: 258
+      Script: {instanceID: 0}
+    - Class: 850595691
+      Script: {instanceID: 0}
+    - Class: 1953259897
+      Script: {instanceID: 0}
+    Assets/Scenes/Level4.unity:
+    - Class: 1
+      Script: {instanceID: 0}
+    - Class: 4
+      Script: {instanceID: 0}
+    - Class: 20
+      Script: {instanceID: 0}
+    - Class: 21
+      Script: {instanceID: 0}
+    - Class: 23
+      Script: {instanceID: 0}
+    - Class: 28
+      Script: {instanceID: 0}
+    - Class: 33
+      Script: {instanceID: 0}
+    - Class: 43
+      Script: {instanceID: 0}
+    - Class: 48
+      Script: {instanceID: 0}
+    - Class: 54
+      Script: {instanceID: 0}
+    - Class: 64
+      Script: {instanceID: 0}
+    - Class: 65
+      Script: {instanceID: 0}
+    - Class: 72
+      Script: {instanceID: 0}
+    - Class: 81
+      Script: {instanceID: 0}
+    - Class: 82
+      Script: {instanceID: 0}
+    - Class: 83
+      Script: {instanceID: 0}
+    - Class: 89
+      Script: {instanceID: 0}
+    - Class: 104
+      Script: {instanceID: 0}
+    - Class: 108
+      Script: {instanceID: 0}
+    - Class: 114
+      Script: {instanceID: 1634}
+    - Class: 114
+      Script: {instanceID: 1738}
+    - Class: 114
+      Script: {instanceID: 1790}
+    - Class: 114
+      Script: {instanceID: 1980}
+    - Class: 114
+      Script: {instanceID: 2018}
+    - Class: 114
+      Script: {instanceID: 2074}
+    - Class: 114
+      Script: {instanceID: 2148}
+    - Class: 114
+      Script: {instanceID: 2150}
+    - Class: 114
+      Script: {instanceID: 2164}
+    - Class: 114
+      Script: {instanceID: 2290}
+    - Class: 114
+      Script: {instanceID: 2478}
+    - Class: 114
+      Script: {instanceID: 2664}
+    - Class: 114
+      Script: {instanceID: 2698}
+    - Class: 114
+      Script: {instanceID: 2776}
+    - Class: 114
+      Script: {instanceID: 2948}
+    - Class: 114
+      Script: {instanceID: 3076}
+    - Class: 114
+      Script: {instanceID: 3126}
+    - Class: 114
+      Script: {instanceID: 3164}
+    - Class: 114
+      Script: {instanceID: 3174}
+    - Class: 114
+      Script: {instanceID: 3190}
+    - Class: 114
+      Script: {instanceID: 3198}
+    - Class: 114
+      Script: {instanceID: 3202}
+    - Class: 114
+      Script: {instanceID: 3364}
+    - Class: 114
+      Script: {instanceID: 3380}
+    - Class: 114
+      Script: {instanceID: 3792}
+    - Class: 114
+      Script: {instanceID: 3826}
+    - Class: 114
+      Script: {instanceID: 4140}
+    - Class: 114
+      Script: {instanceID: 4202}
+    - Class: 114
+      Script: {instanceID: 4382}
+    - Class: 114
+      Script: {instanceID: 4394}
+    - Class: 114
+      Script: {instanceID: 4542}
+    - Class: 114
+      Script: {instanceID: 4576}
+    - Class: 114
+      Script: {instanceID: 4608}
+    - Class: 114
+      Script: {instanceID: 4648}
+    - Class: 114
+      Script: {instanceID: 4912}
+    - Class: 114
+      Script: {instanceID: 5054}
+    - Class: 114
+      Script: {instanceID: 5072}
+    - Class: 114
+      Script: {instanceID: 5226}
+    - Class: 114
+      Script: {instanceID: 5546}
+    - Class: 114
+      Script: {instanceID: 5672}
+    - Class: 114
+      Script: {instanceID: 5780}
+    - Class: 114
+      Script: {instanceID: 5984}
+    - Class: 114
+      Script: {instanceID: 6220}
+    - Class: 114
+      Script: {instanceID: 6274}
+    - Class: 114
+      Script: {instanceID: 30652}
+    - Class: 115
+      Script: {instanceID: 0}
+    - Class: 124
+      Script: {instanceID: 0}
+    - Class: 128
+      Script: {instanceID: 0}
+    - Class: 136
+      Script: {instanceID: 0}
+    - Class: 143
+      Script: {instanceID: 0}
+    - Class: 154
+      Script: {instanceID: 0}
+    - Class: 156
+      Script: {instanceID: 0}
+    - Class: 157
+      Script: {instanceID: 0}
+    - Class: 196
+      Script: {instanceID: 0}
+    - Class: 198
+      Script: {instanceID: 0}
+    - Class: 199
       Script: {instanceID: 0}
     - Class: 213
       Script: {instanceID: 0}
@@ -1077,7 +1262,7 @@ ScriptsOnlyBuild:
     className: AnimationPlayableAsset
   - hash:
       serializedVersion: 2
-      Hash: 190dfe7229ff815b6742da7a66125eb0
+      Hash: a70a6119656e0c7b2cf4a6b271245ec5
     assemblyName: Assembly-CSharp.dll
     namespaceName: 
     className: Menu_MapModeHandler
@@ -1245,7 +1430,7 @@ ScriptsOnlyBuild:
     className: DepthOfField
   - hash:
       serializedVersion: 2
-      Hash: 328755fc23b9c04f313e40a102de11a1
+      Hash: ef877250d0965ddab89314b283ea788d
     assemblyName: Assembly-CSharp.dll
     namespaceName: 
     className: OrienteeringMode_PostAssign
@@ -2336,4 +2521,5 @@ ScriptsOnlyBuild:
   - Assets/Scenes/Level2.unity
   - Assets/Scenes/Level3.unity
   - Assets/Scenes/TutorialScene.unity
-  playerPath: D:/GitHub/Orienteering_Public_Builds/OL_Build_15/OL_Build.exe
+  - Assets/Scenes/Level4.unity
+  playerPath: D:/GitHub/Orienteering_Public_Builds/OL_Build_16/OL_Build.exe

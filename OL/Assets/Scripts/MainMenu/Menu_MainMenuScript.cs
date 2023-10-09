@@ -103,9 +103,12 @@ public class Menu_MainMenuScript : MonoBehaviour
                     {
                         SceneManager.LoadScene(2); //Forest 2
                     }
-                    else
+                    else if (MapSettings == 2)
                     {
                         SceneManager.LoadScene(3); //Maze 1
+                    } else
+                    {
+                        SceneManager.LoadScene(5); // (5 bc 4 is Tutorial)
                     }
                 }
             }

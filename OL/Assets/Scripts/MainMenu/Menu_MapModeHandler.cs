@@ -11,6 +11,7 @@ public class Menu_MapModeHandler : MonoBehaviour
     public GameObject Forest1;
     public GameObject Forest2;
     public GameObject Maze1;
+    public GameObject Forest3;
     public GameObject SelectDifficultyHideParent;
     private AudioHandler AudioScript;
 
@@ -55,19 +56,30 @@ public class Menu_MapModeHandler : MonoBehaviour
             Forest1.SetActive(true);
             Forest2.SetActive(false);
             Maze1.SetActive(false);
+            Forest3.SetActive(false);
             SelectDifficultyHideParent.SetActive(true);
         } else if (DropDownValue == 1) // Forest 2
         {
             Forest1.SetActive(false);
             Forest2.SetActive(true);
             Maze1.SetActive(false);
+            Forest3.SetActive(false);
             SelectDifficultyHideParent.SetActive(true);
-        } else //Maze 1
+        } else if (DropDownValue == 2) // Maze
         {
             Forest1.SetActive(false);
             Forest2.SetActive(false);
             Maze1.SetActive(true);
+            Forest3.SetActive(false);
             SelectDifficultyHideParent.SetActive(false);
+
+        } else
+        {
+            Forest1.SetActive(false);
+            Forest2.SetActive(false);
+            Maze1.SetActive(false);
+            Forest3.SetActive(true);
+            SelectDifficultyHideParent.SetActive(true);
         }
     }
 }

@@ -109,9 +109,12 @@ public class EndUI : MonoBehaviour
                         {
                             SceneManager.LoadScene(2); //Forest 2
                         }
-                        else
+                        else if (MapSettings == 2)
                         {
                             SceneManager.LoadScene(3); //Maze 1
+                        } else
+                        {
+                            SceneManager.LoadScene(5);
                         }
                     }
                 }
@@ -158,11 +161,7 @@ public class EndUI : MonoBehaviour
             if (Distance * MazeCorrection / 2 < 10f) //Meaning if MazeCorrection = 15, Perfect is around 2m
             {
                 RatingText.text = "Perfect";
-                if (AchievementUnlocker.SceneryInt == 3) //Mastery Progress in Maze1
-                {
-                    Debug.Log("Sent Mastery Request for: " + AchievementUnlocker.SceneryInt);
-                    AchievementUnlocker.Mastery(AchievementUnlocker.SceneryInt);
-                }
+                
 
             }
             else if (Distance * MazeCorrection / 2 < 20f)
@@ -186,6 +185,11 @@ public class EndUI : MonoBehaviour
             if (Distance < 10f)
             {
                 RatingText.text = "Perfect";
+                if (AchievementUnlocker.SceneryInt == 5) //Mastery Progress in Forest 3
+                {
+                    Debug.Log("Sent Mastery Request for: " + AchievementUnlocker.SceneryInt);
+                    AchievementUnlocker.Mastery(3);
+                }
             }
             else if (Distance < 20f)
             {

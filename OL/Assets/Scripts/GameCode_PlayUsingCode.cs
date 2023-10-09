@@ -64,7 +64,7 @@ public class GameCode_PlayUsingCode : MonoBehaviour
             bool OrienteeringZPartValid = int.TryParse(Code.Substring(18, 3), out OrienteeringZPart);
 
             if (IsMapPartValid && IsModePartValid && IsTimePartValid && IsFogPartValid
-                && MapPart >= 1 && MapPart <= 3
+                && MapPart >= 1 && MapPart <= 5
                 && ModePart >= 0 && ModePart <= 1 // Note: Changed <= 1 to >= 1 since mode can only be 1 or 2 according to the original code.
                 && TimePart >= 1 && TimePart <= 24
                 && FogPart >= 1 && FogPart <= 5)

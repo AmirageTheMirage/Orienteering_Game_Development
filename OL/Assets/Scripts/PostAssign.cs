@@ -20,6 +20,12 @@ public class PostAssign : MonoBehaviour
     string[] Forest2EasyPosts = new string[] { "151", "155", "156", "157", "159", "163" };
     string[] Forest2MidPosts = new string[] { "151", "155", "156", "157", "159", "163",                "153", "154", "166", "164" };
     string[] Forest2HardPosts = new string[] { "151", "155", "156", "157", "159", "163",            "153", "154", "166", "164",             "150", "152", "158", "161", "160", "165", "162" };
+    string[] Forest3EasyPosts = new string[] { "157", "159", "161", "162", "165" };
+    string[] Forest3MidPosts = new string[] { "157", "159", "161", "162", "165", "154", "155", "156", "163", "166" };
+    string[] Forest3HardPosts = new string[] { "157", "159", "161", "162", "165", "154", "155", "156", "163", "166", "150", "151", "152", "153", "158", "160", "164" };
+
+
+
     string[] EasySelection;
     string[] MidSelection;
     string[] HardSelection;
@@ -59,11 +65,16 @@ public class PostAssign : MonoBehaviour
                 MidSelection = Forest2MidPosts;
                 HardSelection = Forest2HardPosts;
             }
-            else
+            else if (MapSetting == 2)
             {
                 EasySelection = Forest2HardPosts;
                 MidSelection = Forest2HardPosts;
                 HardSelection = Forest2HardPosts; //Maze = No Difficulty Changing, so all posts
+            } else
+            {
+                EasySelection = Forest3EasyPosts;
+                MidSelection = Forest3MidPosts;
+                HardSelection = Forest3HardPosts;
             }
             if (Difficulty == 1)
             {
