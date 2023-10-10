@@ -1124,7 +1124,7 @@ Transform:
   m_GameObject: {fileID: 97755887}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 10, z: -100}
-  m_LocalScale: {x: 199.99998, y: 20, z: 1}
+  m_LocalScale: {x: 199.99998, y: 40.57, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 505231842}
@@ -5775,7 +5775,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 505231841}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -9.908817, y: 0, z: -9.871738}
+  m_LocalPosition: {x: -9.908817, y: 28.8, z: -9.871738}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -6590,7 +6590,7 @@ Transform:
   m_GameObject: {fileID: 572192491}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 10, z: 100}
-  m_LocalScale: {x: 199.99998, y: 20, z: 1}
+  m_LocalScale: {x: 199.99998, y: 40.57, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 505231842}
@@ -10012,7 +10012,7 @@ Transform:
   m_GameObject: {fileID: 1009414216}
   m_LocalRotation: {x: -0, y: 0.7071068, z: -0, w: 0.7071068}
   m_LocalPosition: {x: -100, y: 10, z: 0}
-  m_LocalScale: {x: 200, y: 20, z: 1}
+  m_LocalScale: {x: 200, y: 40.57, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 505231842}
@@ -14868,7 +14868,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Karte
+  m_text: Map
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
@@ -16285,7 +16285,7 @@ Transform:
   m_GameObject: {fileID: 1798920990}
   m_LocalRotation: {x: -0, y: 0.7071068, z: -0, w: 0.7071068}
   m_LocalPosition: {x: 100, y: 10, z: 0}
-  m_LocalScale: {x: 200, y: 20, z: 1}
+  m_LocalScale: {x: 200, y: 40.57, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 505231842}
