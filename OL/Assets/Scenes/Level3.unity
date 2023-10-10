@@ -7598,6 +7598,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 2802461036083975873, guid: d3d31841344dd374fa5d6a6e851aa7bf, type: 3}
+      propertyPath: Loop
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 2802461036083975884, guid: d3d31841344dd374fa5d6a6e851aa7bf, type: 3}
       propertyPath: m_Name
       value: FullAudioHandler
