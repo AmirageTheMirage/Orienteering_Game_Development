@@ -39,7 +39,8 @@ public class AchievementHandler : MonoBehaviour
 
     private IEnumerator ShowAchievement()
     {
-       // yield return new WaitForSeconds(1f);
+        // yield return new WaitForSeconds(1f);
+        
 
         float startTime = Time.time;
         
@@ -217,6 +218,11 @@ public class AchievementHandler : MonoBehaviour
             {
                 AlreadySliding = true;
                 AudioScript.PlaySound("Select3");
+                //STATISTICS
+                int StatisticAchievement = PlayerPrefs.GetInt("Statistics_AchievementsCompleted");
+                StatisticAchievement++;
+                PlayerPrefs.SetInt("Statistics_AchievementsCompleted", StatisticAchievement);
+                PlayerPrefs.Save();
                 StartCoroutine(ShowAchievement());
             }
            // UnlockCompassToo.SetActive(false);

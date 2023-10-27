@@ -26,6 +26,12 @@ public class MapHandler : MonoBehaviour
     private GameObject FlashLightObject;
     void Start()
     {
+        //STATISTICS:
+        int StatisticsStuff = PlayerPrefs.GetInt("Statistics_GamesStarted");
+        StatisticsStuff++;
+        PlayerPrefs.SetInt("Statistics_GamesStarted", StatisticsStuff);
+        PlayerPrefs.Save();
+
         FlashlightActive = false; 
         if (PlayerPrefs.GetInt("UseCode_Setting") == 1)
         {
@@ -42,6 +48,12 @@ public class MapHandler : MonoBehaviour
         FogWall.SetActive(false);
         if (PlayerPrefs.GetInt("UseCode_Setting") == 1) //Override with GameCode Input
         {
+            //STATISTICS
+            int StatisticGCPlayed = PlayerPrefs.GetInt("Statistics_GameCodesPlayed");
+            StatisticGCPlayed++;
+            PlayerPrefs.SetInt("Statistics_GameCodesPlayed", StatisticGCPlayed);
+            PlayerPrefs.Save();
+
             TimeOfDay = PlayerPrefs.GetInt("TimePart_Code");
         }
         else
@@ -182,4 +194,6 @@ public class MapHandler : MonoBehaviour
         Map.SetActive(false);
         Cursor.lockState = CursorLockMode.Locked;
     }
+
+
 }

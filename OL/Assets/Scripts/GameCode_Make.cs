@@ -22,10 +22,11 @@ public class GameCode_Make : MonoBehaviour
     [Space]
     public string Code;
     public TMP_Text CopyText;
+    public bool AlreadyMadeCodeForThisMap;
     void Start()
     {
         AudioScript = GameObject.Find("FullAudioHandler").GetComponent<AudioHandler>();
-        
+        AlreadyMadeCodeForThisMap = false;
         // So we'll need: (Shopping List hahhhaaaaaa)
         // 1x Coffee, 1x Milk, 1x Maturaarbeit done in under 2'000'000hours (impossible)
         // No but for real:
@@ -52,6 +53,16 @@ public class GameCode_Make : MonoBehaviour
         //PlayerPrefs.SetInt("FogPart_Code", 0);
         //PlayerPrefs.Save();
         // Get Map:
+        //STATISTICS
+        if (!AlreadyMadeCodeForThisMap)
+        {
+            int StatisticGCPMade = PlayerPrefs.GetInt("Statistics_GameCodesCreated");
+            StatisticGCPMade++;
+            PlayerPrefs.SetInt("Statistics_GameCodesCreated", StatisticGCPMade);
+            PlayerPrefs.Save();
+            AlreadyMadeCodeForThisMap = true;
+        }
+
         AudioScript.PlaySound("Select1");
         if (PlayerPrefs.GetInt("UseCode_Setting") == 1)
         {

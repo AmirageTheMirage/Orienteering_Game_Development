@@ -15,12 +15,13 @@ public class Menu_MainMenuScript : MonoBehaviour
     public GameObject PlayMenu;
     public GameObject ChooseMenu;
     public GameObject Achievements;
+    public GameObject Statistics;
     public TMP_Dropdown QualitySettingsDropDown;
     public TMP_Dropdown ShadowSettingDropDown;
     private bool Fade;
     private float FP = 0f;
     public int MapSettings = 0;
-    public int QualitySetting = 3; //0=V.Low, 1 = Low, 2 = Medium, 3 = High, so we'll start with High
+    public int QualitySetting = 3; //0=V.Low, 1 = Low, 2 = Medium, 3 = High, so we'll start with High obv
     public float AudioVolumeSetting = 1f;
     public AudioMixer MainAudioMixer;
     public Slider AudioSlider;
@@ -63,6 +64,7 @@ public class Menu_MainMenuScript : MonoBehaviour
         PlayMenu.SetActive(false);
         ChooseMenu.SetActive(false);
         Achievements.SetActive(false);
+        Statistics.SetActive(false);
         
         AssignAudioVolume();
         AssignShadowsOnOff();//IMPORTANT: Needs to be BEFORE AssignQualityDropDown
@@ -129,6 +131,7 @@ public class Menu_MainMenuScript : MonoBehaviour
         Fader.SetActive(true);
         PlayMenu.SetActive(false);
         Achievements.SetActive(false);
+        Statistics.SetActive(false);
         FP = 0f;
         AudioScript.PlaySound("Select2");
         //SceneManager.LoadScene(0);
@@ -247,7 +250,15 @@ public class Menu_MainMenuScript : MonoBehaviour
         Settings.SetActive(true);
         MainMenu.SetActive(false);
         PlayMenu.SetActive(false);
+        Statistics.SetActive(false);
         AudioScript.PlaySound("Select1");
+    }
+
+    public void ChangeToStatisticsMenu()
+
+    {
+        Settings.SetActive(false);
+        Statistics.SetActive(true);
     }
 
     public void GetMapSettings()

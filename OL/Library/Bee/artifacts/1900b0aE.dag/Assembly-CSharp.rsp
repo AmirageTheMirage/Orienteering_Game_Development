@@ -367,6 +367,7 @@
 "Assets/Scripts/MainMenu/Menu_GameModeDropdown.cs"
 "Assets/Scripts/MainMenu/Menu_MainMenuScript.cs"
 "Assets/Scripts/MainMenu/Menu_MapModeHandler.cs"
+"Assets/Scripts/MainMenu/StatisticsScript.cs"
 "Assets/Scripts/MainMenu/TimeSlider.cs"
 "Assets/Scripts/MainMenu/UpdateRemover.cs"
 "Assets/Scripts/MainMenu/VersionPopUp.cs"

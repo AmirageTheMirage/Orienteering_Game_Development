@@ -41,6 +41,8 @@ public class EndUI : MonoBehaviour
     //public AchievementHandler AchievementUnlocker;
     void Start()
     {
+        UsingCode = PlayerPrefs.GetInt("UseCode_Setting");
+        Debug.Log("Using Code: " + UsingCode);
         AudioScript = GameObject.Find("FullAudioHandler").GetComponent<AudioHandler>();
         IsMaze = IsMapMazeScript.IsMaze;
         TargetUI.SetActive(true);
@@ -91,7 +93,7 @@ public class EndUI : MonoBehaviour
                 }
                 else
                 {
-                    UsingCode = PlayerPrefs.GetInt("UseCode_Setting");
+                    
                     if (UsingCode == 1)
                     {
 
@@ -161,7 +163,14 @@ public class EndUI : MonoBehaviour
             if (Distance * MazeCorrection / 2 < 10f) //Meaning if MazeCorrection = 15, Perfect is around 2m
             {
                 RatingText.text = "Perfect";
-                
+                if (UsingCode == 0)
+                {
+                    //STATISTICS
+                    int StatisticPerfectResultsMade = PlayerPrefs.GetInt("Statistics_OrienteeringPerfect");
+                    StatisticPerfectResultsMade++;
+                    PlayerPrefs.SetInt("Statistics_OrienteeringPerfect", StatisticPerfectResultsMade);
+                    PlayerPrefs.Save();
+                }
 
             }
             else if (Distance * MazeCorrection / 2 < 20f)
@@ -185,10 +194,19 @@ public class EndUI : MonoBehaviour
             if (Distance < 10f)
             {
                 RatingText.text = "Perfect";
-                if (AchievementUnlocker.SceneryInt == 5) //Mastery Progress in Forest 3
+                if (UsingCode == 0)
                 {
-                    Debug.Log("Sent Mastery Request for: " + AchievementUnlocker.SceneryInt);
-                    AchievementUnlocker.Mastery(3);
+                    //STATISTICS
+                    int StatisticPerfectResultsMade = PlayerPrefs.GetInt("Statistics_OrienteeringPerfect");
+                    StatisticPerfectResultsMade++;
+                    PlayerPrefs.SetInt("Statistics_OrienteeringPerfect", StatisticPerfectResultsMade);
+                    PlayerPrefs.Save();
+
+                    if (AchievementUnlocker.SceneryInt == 5) //Mastery Progress in Forest 3
+                    {
+                        Debug.Log("Sent Mastery Request for: " + AchievementUnlocker.SceneryInt);
+                        AchievementUnlocker.Mastery(3);
+                    }
                 }
             }
             else if (Distance < 20f)
@@ -210,27 +228,30 @@ public class EndUI : MonoBehaviour
 
             if (Distance < 10f)
             {
-                if (PlayerPrefs.GetInt("Achievement_1") == 0)
+                if (UsingCode == 0)
                 {
-                    AchievementUnlocker.UnlockAchievement(1);
-                }
-                else
-                {
-                    if (FogSettings == 5)
+                    if (PlayerPrefs.GetInt("Achievement_1") == 0)
                     {
-                        if (Distance < 1.5f)
+                        AchievementUnlocker.UnlockAchievement(1);
+                    }
+                    else
+                    {
+                        if (FogSettings == 5)
                         {
-                            AchievementUnlocker.UnlockAchievement(7);
-                        }
-                        //else
-                        //{
-                        //    AchievementUnlocker.UnlockAchievement(6);
-                        //}
+                            if (Distance < 1.5f)
+                            {
+                                AchievementUnlocker.UnlockAchievement(7);
+                            }
+                            //else
+                            //{
+                            //    AchievementUnlocker.UnlockAchievement(6);
+                            //}
 
+                        }
                     }
                 }
             }
-            if (Distance > 300f)
+            if (Distance > 300f && UsingCode == 0)
             {
                 AchievementUnlocker.UnlockAchievement(5);
             }

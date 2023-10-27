@@ -11,19 +11,19 @@ public class AssignCompass : MonoBehaviour
     {
         // PlayerPrefs.SetInt("Compass_Setting", CompassChosen);
         // PlayerPrefs.Save();
-        CompassChosen = PlayerPrefs.GetInt("Compass_Setting");
+        CompassChosen = PlayerPrefs.GetInt("Compass_Setting"); //Get Compass chosen in MainMenu
         Debug.Log(CompassChosen);
-        string childName = CompassChosen.ToString();
-        Transform childTransform = MySelf.transform.Find(childName);
+        string childName = CompassChosen.ToString(); //Make int to string
+        Transform childTransform = MySelf.transform.Find(childName); //Find child named after this str.
 
-        if (childTransform != null)
+        if (childTransform != null) //If any object is found
         {
             GameObject child = childTransform.gameObject;
-            child.SetActive(true);
+            child.SetActive(true); //Then set this compass true, others stay hidden
         }
         else
         {
-            Debug.LogError("Child object with name " + childName + " not found!");
+            Debug.LogError("Child object with name " + childName + " not found!"); //If error in decision
         }
     }
 }
