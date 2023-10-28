@@ -54,7 +54,8 @@ public class GameCode_Make : MonoBehaviour
         //PlayerPrefs.Save();
         // Get Map:
         //STATISTICS
-        if (!AlreadyMadeCodeForThisMap)
+        if (!AlreadyMadeCodeForThisMap && PlayerPrefs.GetInt("Statistics_Record") == 1)
+       
         {
             int StatisticGCPMade = PlayerPrefs.GetInt("Statistics_GameCodesCreated");
             StatisticGCPMade++;

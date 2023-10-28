@@ -17906,8 +17906,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   character: {fileID: 663279223}
-  smoothing: 1.5
   Map: {fileID: 146274633}
+  smoothing: 1.5
   PauseScript: {fileID: 264544876}
 --- !u!114 &1284779524
 MonoBehaviour:
@@ -29962,8 +29962,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   character: {fileID: 897363570984171291}
-  smoothing: 1.5
   Map: {fileID: 146274633}
+  smoothing: 1.5
   PauseScript: {fileID: 264544876}
 --- !u!23 &1054611766973071324
 MeshRenderer:

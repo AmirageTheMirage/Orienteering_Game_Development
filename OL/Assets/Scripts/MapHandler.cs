@@ -27,10 +27,14 @@ public class MapHandler : MonoBehaviour
     void Start()
     {
         //STATISTICS:
-        int StatisticsStuff = PlayerPrefs.GetInt("Statistics_GamesStarted");
-        StatisticsStuff++;
-        PlayerPrefs.SetInt("Statistics_GamesStarted", StatisticsStuff);
-        PlayerPrefs.Save();
+        if (PlayerPrefs.GetInt("Statistics_Record") == 1)
+        {
+
+            int StatisticsStuff = PlayerPrefs.GetInt("Statistics_GamesStarted");
+            StatisticsStuff++;
+            PlayerPrefs.SetInt("Statistics_GamesStarted", StatisticsStuff);
+            PlayerPrefs.Save();
+        }
 
         FlashlightActive = false; 
         if (PlayerPrefs.GetInt("UseCode_Setting") == 1)
@@ -49,11 +53,13 @@ public class MapHandler : MonoBehaviour
         if (PlayerPrefs.GetInt("UseCode_Setting") == 1) //Override with GameCode Input
         {
             //STATISTICS
-            int StatisticGCPlayed = PlayerPrefs.GetInt("Statistics_GameCodesPlayed");
-            StatisticGCPlayed++;
-            PlayerPrefs.SetInt("Statistics_GameCodesPlayed", StatisticGCPlayed);
-            PlayerPrefs.Save();
-
+            if (PlayerPrefs.GetInt("Statistics_Record") == 1)
+            {
+                int StatisticGCPlayed = PlayerPrefs.GetInt("Statistics_GameCodesPlayed");
+                StatisticGCPlayed++;
+                PlayerPrefs.SetInt("Statistics_GameCodesPlayed", StatisticGCPlayed);
+                PlayerPrefs.Save();
+            }
             TimeOfDay = PlayerPrefs.GetInt("TimePart_Code");
         }
         else

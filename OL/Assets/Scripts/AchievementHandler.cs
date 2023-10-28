@@ -19,7 +19,7 @@ public class AchievementHandler : MonoBehaviour
     public TMP_Text AchievementUnlockedText;
     public int FramesInScene = 0;
     private AudioHandler AudioScript;
-
+    private int StatisticAchievement;
     private Vector3 originPosition;
     [Space]
     public float slideSpeed = 400f;
@@ -219,11 +219,14 @@ public class AchievementHandler : MonoBehaviour
                 AlreadySliding = true;
                 AudioScript.PlaySound("Select3");
                 //STATISTICS
-                int StatisticAchievement = PlayerPrefs.GetInt("Statistics_AchievementsCompleted");
-                StatisticAchievement++;
-                PlayerPrefs.SetInt("Statistics_AchievementsCompleted", StatisticAchievement);
-                PlayerPrefs.Save();
-                StartCoroutine(ShowAchievement());
+                if (PlayerPrefs.GetInt("Statistics_Record") == 1)
+                {
+                    StatisticAchievement = PlayerPrefs.GetInt("Statistics_AchievementsCompleted");
+                    StatisticAchievement++;
+                    PlayerPrefs.SetInt("Statistics_AchievementsCompleted", StatisticAchievement);
+                    PlayerPrefs.Save();
+                    StartCoroutine(ShowAchievement());
+                }
             }
            // UnlockCompassToo.SetActive(false);
            // Compass2.SetActive(false);

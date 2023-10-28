@@ -163,14 +163,7 @@ public class EndUI : MonoBehaviour
             if (Distance * MazeCorrection / 2 < 10f) //Meaning if MazeCorrection = 15, Perfect is around 2m
             {
                 RatingText.text = "Perfect";
-                if (UsingCode == 0)
-                {
-                    //STATISTICS
-                    int StatisticPerfectResultsMade = PlayerPrefs.GetInt("Statistics_OrienteeringPerfect");
-                    StatisticPerfectResultsMade++;
-                    PlayerPrefs.SetInt("Statistics_OrienteeringPerfect", StatisticPerfectResultsMade);
-                    PlayerPrefs.Save();
-                }
+                
 
             }
             else if (Distance * MazeCorrection / 2 < 20f)
@@ -196,12 +189,6 @@ public class EndUI : MonoBehaviour
                 RatingText.text = "Perfect";
                 if (UsingCode == 0)
                 {
-                    //STATISTICS
-                    int StatisticPerfectResultsMade = PlayerPrefs.GetInt("Statistics_OrienteeringPerfect");
-                    StatisticPerfectResultsMade++;
-                    PlayerPrefs.SetInt("Statistics_OrienteeringPerfect", StatisticPerfectResultsMade);
-                    PlayerPrefs.Save();
-
                     if (AchievementUnlocker.SceneryInt == 5) //Mastery Progress in Forest 3
                     {
                         Debug.Log("Sent Mastery Request for: " + AchievementUnlocker.SceneryInt);
@@ -225,11 +212,33 @@ public class EndUI : MonoBehaviour
             {
                 RatingText.text = "Terrible";
             }
-
-            if (Distance < 10f)
+            if (UsingCode == 0)
             {
-                if (UsingCode == 0)
+                //STATISTICS
+                if (PlayerPrefs.GetInt("Statistics_Record") == 1)
                 {
+                    int StatisticOrienteeringPlayed = PlayerPrefs.GetInt("Statistics_OrienteeringGamesPlayed");
+                    StatisticOrienteeringPlayed++;
+                    PlayerPrefs.SetInt("Statistics_OrienteeringGamesPlayed", StatisticOrienteeringPlayed);
+                    PlayerPrefs.Save();
+
+                    int StatisticOrienteeringAdded = PlayerPrefs.GetInt("Statistics_OrienteeringAddedTogether");
+                    StatisticOrienteeringAdded = StatisticOrienteeringAdded + Mathf.RoundToInt(Distance);
+                    PlayerPrefs.SetInt("Statistics_OrienteeringAddedTogether", StatisticOrienteeringAdded);
+                    PlayerPrefs.Save();
+                }
+                if (Distance < 10f)
+            {
+                    //STATISTICS
+                    if (PlayerPrefs.GetInt("Statistics_Record") == 1)
+                    {
+                        int StatisticPerfectResultsMade = PlayerPrefs.GetInt("Statistics_OrienteeringPerfect");
+                        StatisticPerfectResultsMade++;
+                        PlayerPrefs.SetInt("Statistics_OrienteeringPerfect", StatisticPerfectResultsMade);
+                        PlayerPrefs.Save();
+                    }
+
+                
                     if (PlayerPrefs.GetInt("Achievement_1") == 0)
                     {
                         AchievementUnlocker.UnlockAchievement(1);
@@ -249,11 +258,11 @@ public class EndUI : MonoBehaviour
 
                         }
                     }
-                }
-            }
-            if (Distance > 300f && UsingCode == 0)
+                
+            } else if (Distance > 300f)
             {
                 AchievementUnlocker.UnlockAchievement(5);
+            }
             }
         }
     }

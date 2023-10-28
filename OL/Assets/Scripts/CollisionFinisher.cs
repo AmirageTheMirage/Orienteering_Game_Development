@@ -79,28 +79,33 @@ public class CollisionFinisher : MonoBehaviour
             StartFade = true;
             FP = 0f;
             //STATISTICS:
-            if (IsMaze)
+            if (PlayerPrefs.GetInt("Statistics_Record") == 1)
             {
-                Difficulty = 3;
-            }
-            if (Difficulty == 1) //Easy
-            {
-                int StatisticVariable = PlayerPrefs.GetInt("Statistics_EasyPosts");
-                StatisticVariable ++;
-                PlayerPrefs.SetInt("Statistics_EasyPosts", StatisticVariable);
-                PlayerPrefs.Save();
-            } else if (Difficulty == 2)
-            {
-                int StatisticVariable = PlayerPrefs.GetInt("Statistics_MidPosts");
-                StatisticVariable ++;
-                PlayerPrefs.SetInt("Statistics_MidPosts", StatisticVariable);
-                PlayerPrefs.Save();
-            } else if (Difficulty == 3)
-            {
-                int StatisticVariable = PlayerPrefs.GetInt("Statistics_HardPosts");
-                StatisticVariable ++;
-                PlayerPrefs.SetInt("Statistics_HardPosts", StatisticVariable);
-                PlayerPrefs.Save();
+                if (IsMaze)
+                {
+                    Difficulty = 3;
+                }
+                if (Difficulty == 1) //Easy
+                {
+                    int StatisticVariable = PlayerPrefs.GetInt("Statistics_EasyPosts");
+                    StatisticVariable++;
+                    PlayerPrefs.SetInt("Statistics_EasyPosts", StatisticVariable);
+                    PlayerPrefs.Save();
+                }
+                else if (Difficulty == 2)
+                {
+                    int StatisticVariable = PlayerPrefs.GetInt("Statistics_MidPosts");
+                    StatisticVariable++;
+                    PlayerPrefs.SetInt("Statistics_MidPosts", StatisticVariable);
+                    PlayerPrefs.Save();
+                }
+                else if (Difficulty == 3)
+                {
+                    int StatisticVariable = PlayerPrefs.GetInt("Statistics_HardPosts");
+                    StatisticVariable++;
+                    PlayerPrefs.SetInt("Statistics_HardPosts", StatisticVariable);
+                    PlayerPrefs.Save();
+                }
             }
             
 
