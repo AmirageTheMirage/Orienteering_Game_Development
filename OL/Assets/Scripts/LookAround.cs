@@ -24,7 +24,7 @@ public class LookAround : MonoBehaviour
 
     }
 
-    void FixedUpdate()
+    void Update()
     {
         if (StartCoolDown > 0f)
         {
@@ -36,19 +36,17 @@ public class LookAround : MonoBehaviour
             {
                 Vector2 mouseDelta = new Vector2(Input.GetAxisRaw("Mouse X"), Input.GetAxisRaw("Mouse Y"));
                 //CurrentRotation += mouseDelta * sensitivity * Time.deltaTime;
-                CurrentRotation += mouseDelta * Sensitivity * Time.deltaTime;
+                CurrentRotation += mouseDelta * Sensitivity * 0.01f;
                 CurrentRotation.y = Mathf.Clamp(CurrentRotation.y, -80, 80);
+                transform.localRotation = Quaternion.Euler(-CurrentRotation.y, 0, 0);
+                character.localRotation = Quaternion.Euler(0, CurrentRotation.x, 0);
 
-                
+
             }
         }
     }
 
-    void Update()
-    {
-        transform.localRotation = Quaternion.Euler(-CurrentRotation.y, 0, 0);
-        character.localRotation = Quaternion.Euler(0, CurrentRotation.x, 0);
-    }
+    
 
     
 }

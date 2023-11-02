@@ -86,7 +86,8 @@ public class GameCode_Make : MonoBehaviour
             StartPostPart = PlayerPrefs.GetInt("StartPost_Code");
             EndPostPart = PlayerPrefs.GetInt("EndPost_Code");
             OrienteeringXPart = PlayerPrefs.GetInt("OrienteeringX_Code");
-            OrienteeringYPart = PlayerPrefs.GetInt("OrienteeringY_Code");
+            //OrienteeringYPart = PlayerPrefs.GetInt("OrienteeringY_Code");
+            OrienteeringYPart = 000;
             OrienteeringZPart = PlayerPrefs.GetInt("OrienteeringZ_Code");
             string TimePartString = TimePart.ToString();
             if (TimePartString.Length == 1) //Only 1 Digit
@@ -103,13 +104,13 @@ public class GameCode_Make : MonoBehaviour
                 OrienteeringYPartString = "0" + OrienteeringYPartString;
 
             }
-            if (StartPostPart < 100) //So that if not playing this mode the rest of the code is still working
+            if (StartPostPart > 100) 
             {
-                StartPostPart = 111;
+                StartPostPart = StartPostPart - 100;
             }
-            if (EndPostPart < 100)
+            if (EndPostPart > 100)
             {
-                EndPostPart = 111;
+                EndPostPart = EndPostPart - 100;
             }
             if (OrienteeringXPart < 100)
             {
@@ -123,11 +124,19 @@ public class GameCode_Make : MonoBehaviour
             }
 
 
-            
-            Code = MapPart.ToString() + ModePart.ToString() + TimePartString + FogPart.ToString() + DifficultyPart.ToString() + StartPostPart.ToString() + EndPostPart.ToString() + OrienteeringXPart.ToString() + OrienteeringYPartString + OrienteeringZPart.ToString();
-        }
+            if (ModePart == 0)
+            {
+            Code = MapPart.ToString() + ModePart.ToString() + TimePartString + FogPart.ToString() + DifficultyPart.ToString() + StartPostPart.ToString() + EndPostPart.ToString();
 
-        
+            }
+            else
+            {
+            Code = MapPart.ToString() + ModePart.ToString() + TimePartString + FogPart.ToString() + DifficultyPart.ToString() + OrienteeringXPart.ToString() + OrienteeringZPart.ToString();
+                // + OrienteeringYPartString
+            }
+        }
+        //201013153161162
+
         PlayerPrefs.SetString("ActualCode_Code", Code);
         PlayerPrefs.Save();
         GUIUtility.systemCopyBuffer = Code;

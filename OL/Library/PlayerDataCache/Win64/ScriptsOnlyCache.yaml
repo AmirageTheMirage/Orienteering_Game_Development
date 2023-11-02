@@ -37,6 +37,7 @@ ScriptsOnlyBuild:
     - Segelflieger
     - ShowPostsOnMap
     - StartTutorial
+    - StatisticsScript
     - TimeSlider
     - TouchingThorns
     - TutorialHandler
@@ -197,6 +198,12 @@ ScriptsOnlyBuild:
     methodName: StartGame
   - assembly: Assembly-CSharp
     fullTypeName: Menu_MainMenuScript
+    methodName: ChangeToStatisticsMenu
+  - assembly: Assembly-CSharp
+    fullTypeName: StatisticsScript
+    methodName: ToggleRecord
+  - assembly: Assembly-CSharp
+    fullTypeName: Menu_MainMenuScript
     methodName: BackToMainMenu
   - assembly: Assembly-CSharp
     fullTypeName: Menu_MainMenuScript
@@ -237,6 +244,9 @@ ScriptsOnlyBuild:
   - assembly: Assembly-CSharp
     fullTypeName: Menu_MainMenuScript
     methodName: ChangeToChooseMenu
+  - assembly: Assembly-CSharp
+    fullTypeName: Menu_MainMenuScript
+    methodName: BackToSettings
   - assembly: Assembly-CSharp
     fullTypeName: Menu_MainMenuScript
     methodName: ChangeToAchievements
@@ -449,19 +459,19 @@ ScriptsOnlyBuild:
     - Class: 114
       Script: {instanceID: 5226}
     - Class: 114
-      Script: {instanceID: 5546}
+      Script: {instanceID: 5548}
     - Class: 114
-      Script: {instanceID: 5672}
+      Script: {instanceID: 5674}
     - Class: 114
-      Script: {instanceID: 5780}
+      Script: {instanceID: 5782}
     - Class: 114
-      Script: {instanceID: 5984}
+      Script: {instanceID: 5986}
     - Class: 114
-      Script: {instanceID: 6220}
+      Script: {instanceID: 6222}
     - Class: 114
-      Script: {instanceID: 6274}
+      Script: {instanceID: 6276}
     - Class: 114
-      Script: {instanceID: 30628}
+      Script: {instanceID: 23794}
     - Class: 115
       Script: {instanceID: 0}
     - Class: 124
@@ -618,17 +628,17 @@ ScriptsOnlyBuild:
     - Class: 114
       Script: {instanceID: 5226}
     - Class: 114
-      Script: {instanceID: 5546}
+      Script: {instanceID: 5548}
     - Class: 114
-      Script: {instanceID: 5672}
+      Script: {instanceID: 5674}
     - Class: 114
-      Script: {instanceID: 5780}
+      Script: {instanceID: 5782}
     - Class: 114
-      Script: {instanceID: 5984}
+      Script: {instanceID: 5986}
     - Class: 114
-      Script: {instanceID: 6220}
+      Script: {instanceID: 6222}
     - Class: 114
-      Script: {instanceID: 6274}
+      Script: {instanceID: 6276}
     - Class: 115
       Script: {instanceID: 0}
     - Class: 124
@@ -781,19 +791,19 @@ ScriptsOnlyBuild:
     - Class: 114
       Script: {instanceID: 5226}
     - Class: 114
-      Script: {instanceID: 5546}
+      Script: {instanceID: 5548}
     - Class: 114
-      Script: {instanceID: 5672}
+      Script: {instanceID: 5674}
     - Class: 114
-      Script: {instanceID: 5780}
+      Script: {instanceID: 5782}
     - Class: 114
-      Script: {instanceID: 5984}
+      Script: {instanceID: 5986}
     - Class: 114
-      Script: {instanceID: 6220}
+      Script: {instanceID: 6222}
     - Class: 114
-      Script: {instanceID: 6274}
+      Script: {instanceID: 6276}
     - Class: 114
-      Script: {instanceID: 30628}
+      Script: {instanceID: 23794}
     - Class: 115
       Script: {instanceID: 0}
     - Class: 124
@@ -934,13 +944,15 @@ ScriptsOnlyBuild:
     - Class: 114
       Script: {instanceID: 5264}
     - Class: 114
-      Script: {instanceID: 5624}
+      Script: {instanceID: 5280}
     - Class: 114
-      Script: {instanceID: 5672}
+      Script: {instanceID: 5626}
     - Class: 114
-      Script: {instanceID: 5912}
+      Script: {instanceID: 5674}
     - Class: 114
-      Script: {instanceID: 6050}
+      Script: {instanceID: 5914}
+    - Class: 114
+      Script: {instanceID: 6052}
     - Class: 115
       Script: {instanceID: 0}
     - Class: 128
@@ -1089,17 +1101,17 @@ ScriptsOnlyBuild:
     - Class: 114
       Script: {instanceID: 5226}
     - Class: 114
-      Script: {instanceID: 5546}
+      Script: {instanceID: 5548}
     - Class: 114
-      Script: {instanceID: 5672}
+      Script: {instanceID: 5674}
     - Class: 114
-      Script: {instanceID: 5780}
+      Script: {instanceID: 5782}
     - Class: 114
-      Script: {instanceID: 5984}
+      Script: {instanceID: 5986}
     - Class: 114
-      Script: {instanceID: 6220}
+      Script: {instanceID: 6222}
     - Class: 114
-      Script: {instanceID: 6274}
+      Script: {instanceID: 6276}
     - Class: 115
       Script: {instanceID: 0}
     - Class: 124
@@ -1204,7 +1216,7 @@ ScriptsOnlyBuild:
     - Class: 114
       Script: {instanceID: 4608}
     - Class: 114
-      Script: {instanceID: 6044}
+      Script: {instanceID: 6046}
     - Class: 115
       Script: {instanceID: 0}
     - Class: 128
@@ -1580,7 +1592,7 @@ ScriptsOnlyBuild:
     className: PostProcessLayer
   - hash:
       serializedVersion: 2
-      Hash: 571bbf629c91af4d789afe1117229a7d
+      Hash: ed2dec9daa6db31e72c5ad6b251783ae
     assemblyName: Assembly-CSharp.dll
     namespaceName: 
     className: Menu_MainMenuScript
@@ -1682,7 +1694,7 @@ ScriptsOnlyBuild:
     className: TextMeshProUGUI
   - hash:
       serializedVersion: 2
-      Hash: 14921dff15a9a16c4e464b68c99c7237
+      Hash: ac5a062560b53ea72ea248b15c8d8e01
     assemblyName: Assembly-CSharp.dll
     namespaceName: 
     className: LookAround
@@ -1922,7 +1934,7 @@ ScriptsOnlyBuild:
     className: InputActionImporterEditor
   - hash:
       serializedVersion: 2
-      Hash: 9c7717080c869851d5f1e5d5c0ad84cd
+      Hash: f35d716ba9cb62f811b01b14cd47cef0
     assemblyName: Assembly-CSharp.dll
     namespaceName: 
     className: GameCode_PlayUsingCode
@@ -2270,7 +2282,7 @@ ScriptsOnlyBuild:
     className: RectMask2D
   - hash:
       serializedVersion: 2
-      Hash: 964236d8714684963d625267efdf8ebe
+      Hash: 9a4d0236c75e60ec73f74bc449cd415c
     assemblyName: Assembly-CSharp.dll
     namespaceName: 
     className: GameCode_Make
@@ -2298,6 +2310,12 @@ ScriptsOnlyBuild:
     assemblyName: Assembly-CSharp.dll
     namespaceName: 
     className: VersionPopUp
+  - hash:
+      serializedVersion: 2
+      Hash: bf5eb7d102df6b844905d4f8e65c046b
+    assemblyName: Assembly-CSharp.dll
+    namespaceName: 
+    className: StatisticsScript
   - hash:
       serializedVersion: 2
       Hash: dbfb4270852b0008a423a7418d9de4cf
@@ -2522,4 +2540,4 @@ ScriptsOnlyBuild:
   - Assets/Scenes/Level3.unity
   - Assets/Scenes/TutorialScene.unity
   - Assets/Scenes/Level4.unity
-  playerPath: D:/GitHub/Orienteering_Public_Builds/OL_Build_16/OL_Build.exe
+  playerPath: D:/GitHub/Orienteering_Public_Builds/OL_Build_17/OL_Build.exe

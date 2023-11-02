@@ -108,7 +108,7 @@ public class AchievementHandler : MonoBehaviour
                 else if (MasteryInt == 3)
                 {
                     Compass4.SetActive(true);
-                    TitleText.text = "Mastery of the Maze";
+                    TitleText.text = "Mastery of Forest 3";
                     UnlockCompassToo.SetActive(true);
                     PlayerPrefs.SetInt("Compass_4", 1); //Unlock
                     PlayerPrefs.Save();
