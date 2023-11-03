@@ -12,7 +12,7 @@ public class OutOfBounds : MonoBehaviour
     }
     void Update()
     {
-        Vector3 playerPosition = Player.transform.position;
+        Vector3 playerPosition = Player.transform.position; //Show Text if Out of Bounds
 
         if (playerPosition.z > 770 || playerPosition.z < 225 || playerPosition.x > 770 || playerPosition.x < 225 )
         {

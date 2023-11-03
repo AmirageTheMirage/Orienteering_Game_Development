@@ -41,7 +41,7 @@ public class Achievements : MonoBehaviour
     private AudioHandler AudioScript;
     void Start()
     {
-        AudioScript = GameObject.Find("FullAudioHandler").GetComponent<AudioHandler>();
+        AudioScript = GameObject.Find("FullAudioHandler").GetComponent<AudioHandler>(); //Get Audio Script so Sounds can be played via Script
         ReStart();
     }
     void ReStart()
@@ -52,7 +52,7 @@ public class Achievements : MonoBehaviour
 
         for (int i = 1; i <= NumberOfMasteries; i++)
         {
-            string MasteryProgressName = "MasteryUnlockProgress_" + i.ToString();
+            string MasteryProgressName = "MasteryUnlockProgress_" + i.ToString(); //For PlayerPrefs later
             string MasteryObjectName = "Mastery" + i.ToString();
             Transform MasteryObject = ContentObjectOfScrollBar.transform.Find(MasteryObjectName);
             
@@ -60,7 +60,7 @@ public class Achievements : MonoBehaviour
             
             if (MasteryObject != null)
             {
-                GameObject ActualMasteryObject = ContentObjectOfScrollBar.transform.Find(MasteryObjectName).gameObject;
+                GameObject ActualMasteryObject = ContentObjectOfScrollBar.transform.Find(MasteryObjectName).gameObject; //Find GameObject
                 Slider UnlockProgressSliderObject = ActualMasteryObject.transform.Find("UnlockProgressSlider")?.GetComponent<Slider>();
                 GameObject UnlockProgressSliderGameObject = MasteryObject.gameObject; //So that it doesnt refer to the SLIDER but to the GAMEOBJECT
                 GameObject CheckMarkObjectMastery = UnlockProgressSliderGameObject.transform.Find("CheckMarkShadow").gameObject;
@@ -91,7 +91,7 @@ public class Achievements : MonoBehaviour
             }
             else
             {
-                Debug.Log("The following Mastery is missing: Mastery " + i);
+                Debug.Log("The following Mastery is missing: Mastery " + i); //Yea that's bad
             }
 
 

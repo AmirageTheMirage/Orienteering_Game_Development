@@ -10,10 +10,10 @@ public class GamemodeHandler : MonoBehaviour
     private AudioHandler AudioScript;
     void Start()
     {
-        AudioScript = GameObject.Find("FullAudioHandler").GetComponent<AudioHandler>();
+        AudioScript = GameObject.Find("FullAudioHandler").GetComponent<AudioHandler>(); //Get Sound Script
         PostSearch.SetActive(false);
         Orienteering.SetActive(false);
-        if (PlayerPrefs.GetInt("UseCode_Setting") == 1)
+        if (PlayerPrefs.GetInt("UseCode_Setting") == 1) //No need to check if it exists, Player is in MainMenu first anyways
         {
             GameMode = PlayerPrefs.GetInt("ModePart_Code");
         }
@@ -22,7 +22,7 @@ public class GamemodeHandler : MonoBehaviour
             GameMode = PlayerPrefs.GetInt("ModeDropdown_Setting");
         }
        // Debug.Log(GameMode.ToString());
-        if (GameMode == 0)
+        if (GameMode == 0) //Handling the Activation of the two MainFolders
         {
             PostSearch.SetActive(true);
             Orienteering.SetActive(false);

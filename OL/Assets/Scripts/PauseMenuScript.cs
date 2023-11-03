@@ -30,7 +30,7 @@ public class PauseMenuScript : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.Escape) && Fader.activeSelf == false)
         {
             
-            if (EscapeMenu)
+            if (EscapeMenu) //Open or close (toggle)
             {
                 AudioScript.PlaySound("Tick1");
                 EscapeMenu = false;

@@ -59,7 +59,7 @@ public class LerpScript : MonoBehaviour
 
             }
             
-            if (DistanceToTarget < (OriginalDistanceToTarget / 1.5) && LerpInt == 9)
+            if (DistanceToTarget < (OriginalDistanceToTarget / 1.5) && LerpInt == 9) //Last Lerp, It should display logo too
                 
             {
                 TutorialHandlerScript.StartLogo();

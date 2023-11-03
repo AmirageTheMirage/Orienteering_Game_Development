@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class Segelflieger : MonoBehaviour
 {
-    private int MovingMode = 0;
+    private int MovingMode = 0; //Show "Segelflieger" Easteregg
     public float Speed;
     public GameObject Flieger;
     public int TimeMode;

@@ -26,7 +26,7 @@ public class MovementScript : MonoBehaviour
 
     void Awake()
     {
-        AudioScript = GameObject.Find("FullAudioHandler").GetComponent<AudioHandler>();
+        AudioScript = GameObject.Find("FullAudioHandler").GetComponent<AudioHandler>(); //Get Audio Script
         rigidbody = GetComponent<Rigidbody>();
         originalRotation = transform.rotation;
         if (PlayerPrefs.GetInt("Achievement_8") == 1)
@@ -98,7 +98,7 @@ public class MovementScript : MonoBehaviour
     
     }
 
-    private void OnTriggerEnter(Collider other)
+    private void OnTriggerEnter(Collider other) //BeachBall Achievement
     {
         if (other.CompareTag("BeachBall") && AlreadyUnlocked == false)
         {

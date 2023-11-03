@@ -6,7 +6,7 @@ public class TouchSensor : MonoBehaviour
 {
 
 
-    [SerializeField] PostAssign IHave;
+    [SerializeField] PostAssign IHave; //Old Unused Script
     public bool touching = false;
     public int numberofendposten = 0;
     public int MyNameAsInt = 0;

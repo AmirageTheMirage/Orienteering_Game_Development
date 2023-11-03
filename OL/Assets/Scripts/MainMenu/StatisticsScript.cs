@@ -52,7 +52,7 @@ public class StatisticsScript : MonoBehaviour
 
 
         //Join Version
-        if (PlayerPrefs.HasKey("Statistics_FirstVersionPlayed"))
+        if (PlayerPrefs.HasKey("Statistics_FirstVersionPlayed")) //CURRENTLY SCRAPPED / ON HOLD!
         {
             FirstVersionPlayed = PlayerPrefs.GetString("Statistics_FirstVersionPlayed");
         } else
@@ -61,6 +61,8 @@ public class StatisticsScript : MonoBehaviour
             PlayerPrefs.SetString("Statistics_FirstVersionPlayed", FirstVersionPlayed);
             PlayerPrefs.Save();
         }
+
+        //Check for all PlayerPrefs. Might lag? Have to test
 
         CheckPlayerPref("Statistics_EasyPosts");
         CheckPlayerPref("Statistics_MidPosts");
@@ -89,7 +91,10 @@ public class StatisticsScript : MonoBehaviour
         OrienteeringPerfect = PlayerPrefs.GetInt("Statistics_OrienteeringPerfect").ToString(); //In
         AchievementsCompleted = PlayerPrefs.GetInt("Statistics_AchievementsCompleted").ToString(); //In
         OrienteeringGamesPlayed = PlayerPrefs.GetInt("Statistics_OrienteeringGamesPlayed").ToString(); //In
-        OrienteeringAllScoresAdded = PlayerPrefs.GetInt("Statistics_OrienteeringAddedTogether");
+        OrienteeringAllScoresAdded = PlayerPrefs.GetInt("Statistics_OrienteeringAddedTogether"); //In
+
+
+        //Calculate Statistics depending on PlayerPrefs
         PostsFound = PlayerPrefs.GetInt("Statistics_EasyPosts") + PlayerPrefs.GetInt("Statistics_MidPosts") + PlayerPrefs.GetInt("Statistics_HardPosts"); //Implemented automatically
         if (PlayerPrefs.GetInt("Statistics_OrienteeringGamesPlayed") == 0)
         {
@@ -137,7 +142,7 @@ public class StatisticsScript : MonoBehaviour
     }
 
 
-    public void ToggleRecord(bool state)
+    public void ToggleRecord(bool state) //Simple Toggle
     {
         RecordStats = state;
         if (state == true)

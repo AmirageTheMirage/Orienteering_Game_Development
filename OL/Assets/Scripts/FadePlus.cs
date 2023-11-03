@@ -30,7 +30,7 @@ public class FadePlus : MonoBehaviour
     }
 
     // Update is called once per frame
-    void Update()
+    void Update() //Update is udes to fade
     {
         if (AfterFP < 1) {
 

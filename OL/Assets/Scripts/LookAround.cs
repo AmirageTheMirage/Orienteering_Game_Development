@@ -32,7 +32,7 @@ public class LookAround : MonoBehaviour
         }
         else
         {
-            if (Map.activeSelf == false && PauseScript.EscapeMenu == false)
+            if (Map.activeSelf == false && PauseScript.EscapeMenu == false) //If any UI is open, don't turn (except Compass UI)
             {
                 Vector2 mouseDelta = new Vector2(Input.GetAxisRaw("Mouse X"), Input.GetAxisRaw("Mouse Y"));
                 //CurrentRotation += mouseDelta * sensitivity * Time.deltaTime;

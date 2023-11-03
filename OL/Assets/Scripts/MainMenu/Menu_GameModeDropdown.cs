@@ -14,7 +14,7 @@ public class Menu_GameModeDropdown : MonoBehaviour
     {
         AudioScript = GameObject.Find("FullAudioHandler").GetComponent<AudioHandler>();
         DifficultySlider.SetActive(true);
-        if (PlayerPrefs.HasKey("ModeDropdown_Setting"))
+        if (PlayerPrefs.HasKey("ModeDropdown_Setting")) //Get Mode, see if it exists
         {
             DropDownValue = PlayerPrefs.GetInt("ModeDropdown_Setting");
             PlayerPrefs.Save();
@@ -46,7 +46,7 @@ public class Menu_GameModeDropdown : MonoBehaviour
         DropDownValue = value;
         PlayerPrefs.SetInt("ModeDropdown_Setting", DropDownValue);
         PlayerPrefs.Save();
-        if (value == 0)
+        if (value == 0) //Show Difficulty only when PostAssign Mode
         {
             DifficultySlider.SetActive(true);
         } else

@@ -18,14 +18,14 @@ public class VersionPopUp : MonoBehaviour
     
     public void ReStart()
     {
-        if (JustShowVersionPopUp)
+        if (JustShowVersionPopUp) //Override for Debugging Purposes
         {
             MainMenu.SetActive(false);
             VersionChangeObject.SetActive(true);
             AudioScript.PlaySound("Select1");
         } else
         {
-            if (PlayerPrefs.HasKey("ShowVersion"))
+            if (PlayerPrefs.HasKey("ShowVersion")) //If Version should be showed
             {
                 ShowVersion = PlayerPrefs.GetInt("ShowVersion");
             }
@@ -50,7 +50,7 @@ public class VersionPopUp : MonoBehaviour
         
     }
 
-    public void CloseVersionChange()
+    public void CloseVersionChange() //Self explaining
     {
         VersionChangeObject.SetActive(false);
         MainMenu.SetActive(true);
@@ -61,7 +61,7 @@ public class VersionPopUp : MonoBehaviour
     }
 
 
-    public void ShowVersions()
+    public void ShowVersions() //This too lol
     {
         MainMenu.SetActive(false);
         VersionChangeObject.SetActive(true);

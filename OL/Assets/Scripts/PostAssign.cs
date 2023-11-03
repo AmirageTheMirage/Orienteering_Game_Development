@@ -14,6 +14,8 @@ public class PostAssign : MonoBehaviour
     private float EndY = 0f;
     private float EndZ = 0f;
     //public bool IsMaze;
+
+    //DEFINE POSTS (Hard is obsolete, could just use all, however this way I can disable Posts I don't want
     string[] Forest1EasyPosts = new string[] { "151", "152", "154", "157", "160", "164"};
     string[] Forest1MidPosts = new string[] { "151", "152", "154", "157", "160", "164",    "150", "156", "158", "161" };
     string[] Forest1HardPosts = new string[] { "151", "152", "154", "157", "160", "164",     "150", "156", "158", "161",      "153", "155", "159", "162", "163", "165", "166" };
@@ -23,7 +25,7 @@ public class PostAssign : MonoBehaviour
     string[] Forest3EasyPosts = new string[] { "157", "159", "161", "162", "165" };
     string[] Forest3MidPosts = new string[] { "157", "159", "161", "162", "165", "154", "155", "156", "163", "166" };
     string[] Forest3HardPosts = new string[] { "157", "159", "161", "162", "165", "154", "155", "156", "163", "166", "150", "151", "152", "153", "158", "160", "164" };
-
+    
 
 
     string[] EasySelection;
@@ -69,14 +71,14 @@ public class PostAssign : MonoBehaviour
             {
                 EasySelection = Forest2HardPosts;
                 MidSelection = Forest2HardPosts;
-                HardSelection = Forest2HardPosts; //Maze = No Difficulty Changing, so all posts
+                HardSelection = Forest2HardPosts; //Maze = No Difficulty Changing, so all posts always
             } else
             {
                 EasySelection = Forest3EasyPosts;
                 MidSelection = Forest3MidPosts;
                 HardSelection = Forest3HardPosts;
             }
-            if (Difficulty == 1)
+            if (Difficulty == 1) //Depending on Difficulty
             {
 
                 startposten = int.Parse(EasySelection[Random.Range(0, EasySelection.Length)]);

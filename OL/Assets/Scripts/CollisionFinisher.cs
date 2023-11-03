@@ -48,7 +48,7 @@ public class CollisionFinisher : MonoBehaviour
         
     }
    
-    void OnCollisionEnter(Collision collision)
+    void OnCollisionEnter(Collision collision) //OnCollision (new Type)
 
     {
 
@@ -79,7 +79,7 @@ public class CollisionFinisher : MonoBehaviour
             StartFade = true;
             FP = 0f;
             //STATISTICS:
-            if (PlayerPrefs.GetInt("Statistics_Record") == 1)
+            if (PlayerPrefs.GetInt("Statistics_Record") == 1) //Do Statistics for Easy, Mid, and hard posts
             {
                 if (IsMaze)
                 {

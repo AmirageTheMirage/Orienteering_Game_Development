@@ -9,14 +9,14 @@ public class FogSetting : MonoBehaviour
     public Slider MySlider;
     public int HowMuchFog;
     public TextMeshProUGUI PreviewText;
-    string[] HowMuchFogText = new string[] { "No Fog", "Small", "Medium", "High", "Extreme"};
+    string[] HowMuchFogText = new string[] { "No Fog", "Small", "Medium", "High", "Extreme"}; //Texts to it
     private AudioHandler AudioScript;
     void Start()
     {
-        AudioScript = GameObject.Find("FullAudioHandler").GetComponent<AudioHandler>();
+        AudioScript = GameObject.Find("FullAudioHandler").GetComponent<AudioHandler>(); //Get Audio Script
         // HowMuchFog = 1;
         // PlayerPrefs.SetInt("HowMuchFog_Setting", HowMuchFog);
-        MySlider.onValueChanged.AddListener(OnceValueIsChanged);
+        MySlider.onValueChanged.AddListener(OnceValueIsChanged); //Non-Dynamic float
         HowMuchFog = 1;
         if (PlayerPrefs.HasKey("Fog_Setting"))
         {
@@ -26,7 +26,7 @@ public class FogSetting : MonoBehaviour
             //  Debug.Log("You're a veteran aren't you?");
 
         }
-        else
+        else //Non-existent
         {
             PlayerPrefs.SetInt("Fog_Setting", HowMuchFog);
             PlayerPrefs.Save();
@@ -38,7 +38,7 @@ public class FogSetting : MonoBehaviour
     }
 
 
-    private void OnceValueIsChanged(float value)
+    private void OnceValueIsChanged(float value) //Then change float and play sound
     {
         AudioScript.ExtraSound();
         HowMuchFog = Mathf.RoundToInt(value);

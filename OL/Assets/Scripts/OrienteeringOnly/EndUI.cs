@@ -116,7 +116,7 @@ public class EndUI : MonoBehaviour
                             SceneManager.LoadScene(3); //Maze 1
                         } else
                         {
-                            SceneManager.LoadScene(5);
+                            SceneManager.LoadScene(5); //Scene 4 is TutorialScene, this here is Forest 3
                         }
                     }
                 }

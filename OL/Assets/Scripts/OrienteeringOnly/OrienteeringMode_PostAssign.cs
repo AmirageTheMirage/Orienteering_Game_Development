@@ -41,7 +41,7 @@ public class OrienteeringMode_PostAssign : MonoBehaviour
         else
         {
             
-            if (IsMaze)
+            if (IsMaze) //Mazes are only 100x100 instead of 500x500
             {
                 Target.transform.position = new Vector3(Random.Range(460f, 540), 100f, Random.Range(460f, 540f));
             }
@@ -63,7 +63,7 @@ public class OrienteeringMode_PostAssign : MonoBehaviour
                 if (Physics.Raycast(Target.transform.position, Vector3.down, out hit23, raycastDistance))
                 {
                     DebugObject.transform.position = hit23.point;
-                    if (DebugObject.transform.position.y > 11f) // Means too high up for a Maze
+                    if (DebugObject.transform.position.y > 11f) // Means too high up for a Maze, means spawned in a wall
                     {
                         Debug.Log("TrySettingPlayerNew");
                         Ground();
@@ -78,7 +78,7 @@ public class OrienteeringMode_PostAssign : MonoBehaviour
             {
                     Ray ray = new Ray(Target.transform.position, Vector3.down);
                     RaycastHit hit;
-                    if (Physics.Raycast(ray, out hit, Mathf.Infinity, FieldLayer)) //If Hit Field
+                    if (Physics.Raycast(ray, out hit, Mathf.Infinity, FieldLayer)) //If Hit a field, try again.
                     {
                         Debug.Log("TrySettingPlayerNew");
                         Ground();
@@ -110,11 +110,5 @@ public class OrienteeringMode_PostAssign : MonoBehaviour
         PlayerPrefs.SetInt("OrienteeringZ_Code", Mathf.RoundToInt(Player.transform.position.z));
     }
 
-    void Update()
-    {
-        //if (Input.GetKey("g"))
-        //{
-        //    Ground();
-        //}
-    }
+    
 }

@@ -124,7 +124,7 @@ public class GameCode_Make : MonoBehaviour
             }
 
 
-            if (ModePart == 0)
+            if (ModePart == 0) //make Code depending on Orienteering or PostSearch Mode. Depending on this, Code has different length
             {
             Code = MapPart.ToString() + ModePart.ToString() + TimePartString + FogPart.ToString() + DifficultyPart.ToString() + StartPostPart.ToString() + EndPostPart.ToString();
 

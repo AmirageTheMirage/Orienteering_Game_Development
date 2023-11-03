@@ -11,9 +11,9 @@ public class EasterEgg1 : MonoBehaviour
     {
         Randomness = Random.Range(0, 1000);
         //Debug.Log("EasterEggNumber: " +Randomness);
-        if (Randomness == 1)
+        if (Randomness <= 1)
         {
-            Debug.Log("The 0.1% Text has spawned!");
+            Debug.Log("The 0.1% Text has spawned!"); //Really Rare
         } else
         {
             Destroy(EasterEggText);

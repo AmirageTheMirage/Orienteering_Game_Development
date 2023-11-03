@@ -98,7 +98,7 @@ public class AudioHandler : MonoBehaviour
         }
     }
 
-    public void PlaySound(string Name)
+    public void PlaySound(string Name) //Can be accessed by other scrupts using "public" function property
     {
         if (Name == "Footstep")
         {

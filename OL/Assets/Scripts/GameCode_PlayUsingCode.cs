@@ -49,7 +49,7 @@ public class GameCode_PlayUsingCode : MonoBehaviour
         PlayText.fontSize = 24;
     }
 
-    public void InputValueChanged(string Code)
+    public void InputValueChanged(string Code) //OnValueChange is obsolete
     {
         if (Code.Length == 0)
         {

@@ -12,7 +12,7 @@ public class UpdateRemover : MonoBehaviour
     void Start()
     {
         Updated = 0;
-        if (PlayerPrefs.HasKey("GameVersion")){
+        if (PlayerPrefs.HasKey("GameVersion")){ //Checking wether GameVersion exists
             VersionNameCheck = PlayerPrefs.GetString("GameVersion");
 
         } else
@@ -53,7 +53,7 @@ public class UpdateRemover : MonoBehaviour
             
         }
     }
-    public void DeleteKey(string Key)
+    public void DeleteKey(string Key) //Delete seperate PlayerPref using Function. To be called by other Scripts
     {
         if (PlayerPrefs.HasKey(Key))
         {

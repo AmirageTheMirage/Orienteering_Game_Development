@@ -35,7 +35,7 @@ public class Orienteering_MapObjectHandler : MonoBehaviour
     {
         if (MapUI.activeSelf)
         {
-            SideUI.SetActive(true);
+            SideUI.SetActive(true); //Map Side UI for Orienteering Mode
             if (AlreadySetTarget)
             {
                 UI_Player.SetActive(true);
@@ -93,7 +93,7 @@ public class Orienteering_MapObjectHandler : MonoBehaviour
         AlreadySetTarget = true;
         AudioScript.PlaySound("Select3");
 
-        RectTransform canvasRectTransform = UI_Player.GetComponentInParent<Canvas>().GetComponent<RectTransform>();
+        RectTransform canvasRectTransform = UI_Player.GetComponentInParent<Canvas>().GetComponent<RectTransform>(); //Get Rect Transform
 
         Vector2 localMousePosition;
         RectTransformUtility.ScreenPointToLocalPointInRectangle(canvasRectTransform, new Vector2(x, y), null, out localMousePosition);
@@ -101,7 +101,7 @@ public class Orienteering_MapObjectHandler : MonoBehaviour
         UI_Player.GetComponent<RectTransform>().anchoredPosition = localMousePosition;
     }
 
-    public void EndOfTheMode()
+    public void EndOfTheMode() //If Button is pressed, go to EndUI Mode
     {
         if (AlreadySetTarget)
         {
@@ -118,7 +118,7 @@ public class Orienteering_MapObjectHandler : MonoBehaviour
 
     
 
-    private bool IsMouseTouchingUI(GameObject uiElement)
+    private bool IsMouseTouchingUI(GameObject uiElement) //Only set a Guess on the Map, not beside the map.
     {
         RectTransform rectTransform = uiElement.GetComponent<RectTransform>();
         Vector2 mousePosition = Input.mousePosition;

@@ -14,17 +14,17 @@ public class TimeSlider : MonoBehaviour
     private Light SunLightComponent;
     public Color EveningColor;
     public bool ChangeInMainMenu = false;
-    string[] TimeSettingText = new string[] { "Night", "Morning",  "Midday", "Afternoon", "Evening", "Night" };
+    string[] TimeSettingText = new string[] { "Night", "Morning",  "Midday", "Afternoon", "Evening", "Night" }; //SettingTexts, removed! Now using Time
     void Start()
     {
         AudioScript = GameObject.Find("FullAudioHandler").GetComponent<AudioHandler>();
         DirectLight = GameObject.Find("DirectionalLight");
-        SunLightComponent = DirectLight.GetComponent<Light>();
+        SunLightComponent = DirectLight.GetComponent<Light>(); //Idea was to make it change time in MainMenu too, scrapped!
         // TimeSetting = 1;
         // PlayerPrefs.SetInt("TimeSetting_Setting", TimeSetting);
 
         TimeSetting = 12;
-        if (PlayerPrefs.HasKey("Time_Setting"))
+        if (PlayerPrefs.HasKey("Time_Setting")) //Check for TimeSetting existance
         {
             TimeSetting = PlayerPrefs.GetInt("Time_Setting");
             
@@ -41,14 +41,14 @@ public class TimeSlider : MonoBehaviour
             
         }
         Debug.Log("Time Setting: " + TimeSetting);
-        if (TimeSetting < 1)
+        if (TimeSetting < 1) //Error handling / prevention
         {
             TimeSetting = 1;
         } else if (TimeSetting > 24)
         {
             TimeSetting = 24;
         }
-        MySlider.value = (float)TimeSetting;
+        MySlider.value = (float)TimeSetting; //Set the Slider to respective position
         ChangeText(TimeSetting);
         MySlider.onValueChanged.AddListener(OnceValueIsChanged);
         AssignColor();

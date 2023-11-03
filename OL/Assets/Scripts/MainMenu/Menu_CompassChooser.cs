@@ -22,7 +22,7 @@ public class Menu_CompassChooser : MonoBehaviour
     public void Reset()
     {
         CompassChosen = 1;
-        PlayerPrefs.SetInt("Compass_Setting", CompassChosen);
+        PlayerPrefs.SetInt("Compass_Setting", CompassChosen); //When reset, set 1st Compass to chosen
         PlayerPrefs.SetInt("Compass_1", 1);
         PlayerPrefs.SetInt("Compass_2", 0);
         PlayerPrefs.SetInt("Compass_3", 0);

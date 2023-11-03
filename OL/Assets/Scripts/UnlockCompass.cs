@@ -5,7 +5,7 @@ using UnityEngine;
 public class UnlockCompass : MonoBehaviour
 {
 
-    public GameObject Player;
+    public GameObject Player; //Old Unused Compass Script
     public int UnlockNumber;
     public float Range;
 

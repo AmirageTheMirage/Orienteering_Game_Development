@@ -11,19 +11,19 @@ public class StartTutorial : MonoBehaviour
     private AudioHandler AudioScript;
     void Start()
     {
-        AudioScript = GameObject.Find("FullAudioHandler").GetComponent<AudioHandler>();
+        AudioScript = GameObject.Find("FullAudioHandler").GetComponent<AudioHandler>(); //For Button Sounds
         GetCanvasGroupFrom.SetActive(true);
     ObjectCanvasGroup = GetCanvasGroupFrom.GetComponent<CanvasGroup>();
     }
 
 
-    public void StartTheTutorial()
+    public void StartTheTutorial() //ButtonFunction
     {
         AudioScript.PlaySound("Select1");
         StartCoroutine(FadeOut());
     }
 
-    private IEnumerator FadeOut()
+    private IEnumerator FadeOut() //No fading, just plain disappearing
     {
         ObjectCanvasGroup.alpha = 1f;
         float DurationTime = 0f;

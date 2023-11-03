@@ -27,7 +27,7 @@ public class Compass : MonoBehaviour
 
     void Update()
     {
-        float playerRotationY;
+        float playerRotationY; //Get Player Rotation for Compass
         if (Mode == 0)
         {
             playerRotationY = PlayerPosts.transform.rotation.eulerAngles.y;

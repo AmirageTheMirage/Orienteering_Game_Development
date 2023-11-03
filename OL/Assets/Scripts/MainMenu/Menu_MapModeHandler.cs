@@ -20,7 +20,7 @@ public class Menu_MapModeHandler : MonoBehaviour
     {
         AudioScript = GameObject.Find("FullAudioHandler").GetComponent<AudioHandler>();
         SelectDifficultyHideParent.SetActive(true);
-        if (PlayerPrefs.HasKey("MapDropdown_Setting"))
+        if (PlayerPrefs.HasKey("MapDropdown_Setting")) //Check for PlayerPref
         {
             DropDownValue = PlayerPrefs.GetInt("MapDropdown_Setting");
             PlayerPrefs.Save();
@@ -39,8 +39,8 @@ public class Menu_MapModeHandler : MonoBehaviour
         ActualizeMap();
     }
 
-    // Update is called once per frame
-    private void OnDropdownValueChanged(int value)
+    
+    private void OnDropdownValueChanged(int value) //Sound
     {
         DropDownValue = value;
         PlayerPrefs.SetInt("MapDropdown_Setting", DropDownValue);
@@ -49,7 +49,7 @@ public class Menu_MapModeHandler : MonoBehaviour
         ActualizeMap();
     }
 
-    public void ActualizeMap()
+    public void ActualizeMap() //This is for Selected Map
     {
         if (DropDownValue == 0) // Map 1 (Forest 1)
         {

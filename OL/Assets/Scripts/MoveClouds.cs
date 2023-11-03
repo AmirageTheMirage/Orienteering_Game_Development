@@ -21,7 +21,7 @@ public class MoveClouds : MonoBehaviour
         }
     }
 
-    private void MoveObject()
+    private void MoveObject() //Move the Cloud
     {
         Vector3 currentPosition = transform.position;
         Vector3 newPosition = new Vector3(currentPosition.x, currentPosition.y, currentPosition.z + Speed * Time.deltaTime);

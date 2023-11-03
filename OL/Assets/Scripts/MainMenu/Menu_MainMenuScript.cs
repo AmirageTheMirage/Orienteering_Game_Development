@@ -7,7 +7,7 @@ using TMPro;
 using UnityEngine.Audio;
 
 
-public class Menu_MainMenuScript : MonoBehaviour
+public class Menu_MainMenuScript : MonoBehaviour //MainMenuScript is the Script that has the "Random Stuff" of MainMenu
 {
     public GameObject MainMenu;
     public GameObject Settings;
@@ -79,7 +79,7 @@ public class Menu_MainMenuScript : MonoBehaviour
         {
             StartCooldown = StartCooldown - 1f * Time.deltaTime;
         }
-        if (Fade) {
+        if (Fade) { //FADER stuff
             if (FP < 1f) {
                 FP = FP + 0.5f * Speed * Time.deltaTime;
                 Color col = Fader.GetComponent<Image>().color;
@@ -118,7 +118,7 @@ public class Menu_MainMenuScript : MonoBehaviour
     
 }
 
-    public void ReDoTutorial()
+    public void ReDoTutorial() //ButtonFunction
     {
         AudioScript.PlaySound("Select1");
         SceneManager.LoadScene("TutorialScene");
@@ -204,6 +204,8 @@ public class Menu_MainMenuScript : MonoBehaviour
         
         SetGameQuality(QualitySetting);
     }
+
+    //Following ones are ButtonFunctions
     public void QuitGame()
     {
         Application.Quit();

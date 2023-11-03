@@ -9,12 +9,12 @@ public class TouchingThorns : MonoBehaviour
 
     private void Update()
     {
-        Ray ray = new Ray(ThornRaycaster.transform.position, Vector3.down);
+        Ray ray = new Ray(ThornRaycaster.transform.position, Vector3.down); //Make Raycast to check for thorns
 
         IsTouchingThorns = Physics.Raycast(ray, RayDistance, LayerMask.GetMask("Thorn")); //I glaubes s isch Thorn odr Thorns, auso faus ds ned geit...
         if (IsTouchingThorns)
         {
-            AchievementScript.UnlockAchievement(12);
+            AchievementScript.UnlockAchievement(12); //The Script handles the rest
         }
 
         

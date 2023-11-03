@@ -34,7 +34,7 @@ public class AchievementHandler : MonoBehaviour
 
     private void Update()
     {
-        FramesInScene++;
+        FramesInScene++; //This is a bugfix
     }
 
     private IEnumerator ShowAchievement()
@@ -119,7 +119,7 @@ public class AchievementHandler : MonoBehaviour
             }
         }
     }
-    public void UnlockAchievement(int AchievementName)
+    public void UnlockAchievement(int AchievementName) //You can unlock an Achievement using this Function from another Script
     {
         Debug.Log("Called AchievementFunction");
         AchievementUnlockedText.text = "Achievement Unlocked";

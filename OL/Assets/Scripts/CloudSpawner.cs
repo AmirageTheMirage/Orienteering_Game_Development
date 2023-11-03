@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class CloudSpawner : MonoBehaviour
 {
-    public float CloudHeight;
+    public float CloudHeight; //FunFact: In this Script I decided to use "camelCase" instead of my used "CamelCase". Didn't work as I'd have liked as "gameObject" isn't the same as "GameObject"
    // public GameObject CloudSpawnerObject;
     public GameObject Cloud1;
     public GameObject Cloud2;
@@ -36,11 +36,7 @@ public class CloudSpawner : MonoBehaviour
         }
     }
 
-    // Update is called once per frame
-    void Update()
-    {
-
-    }
+   
 
     private void Reassign()
     {

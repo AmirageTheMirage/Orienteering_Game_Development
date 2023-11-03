@@ -172,7 +172,7 @@ public class MapHandler : MonoBehaviour
             cooldown = cooldown - 1 * Time.deltaTime;
         } else
         {
-            if (Input.GetKey("m") && PauseScript.EscapeMenu == false)
+            if (Input.GetKey("m") && PauseScript.EscapeMenu == false) //Toggle
                 {
                 cooldown = 0.5f;
                     if (MapActive) {
