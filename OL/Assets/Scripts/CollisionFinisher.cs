@@ -20,7 +20,7 @@ public class CollisionFinisher : MonoBehaviour
     public AchievementHandler AchievScript;
     public IsMapMaze IsMapMazeScript;
     private bool IsMaze;
-    
+    private AudioHandler AudioScript;
 
     public GameObject Fader;
     private float FP = 1f; //FP = FaderPercent
@@ -32,6 +32,8 @@ public class CollisionFinisher : MonoBehaviour
 
     void Start()
     {
+        AudioScript = GameObject.Find("FullAudioHandler").GetComponent<AudioHandler>(); //Get Audio Script
+        
         IsMaze = IsMapMazeScript.IsMaze;
         // Debug.Log(IsMaze);
         if (PlayerPrefs.GetInt("UseCode_Setting") == 1)
@@ -77,6 +79,7 @@ public class CollisionFinisher : MonoBehaviour
             touching = true;
             Fader.SetActive(true);
             StartFade = true;
+            AudioScript.PlaySound("Select2");
             FP = 0f;
             //STATISTICS:
             if (PlayerPrefs.GetInt("Statistics_Record") == 1) //Do Statistics for Easy, Mid, and hard posts

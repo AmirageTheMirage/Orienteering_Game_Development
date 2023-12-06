@@ -20,6 +20,11 @@ public class MovementScript : MonoBehaviour
     private float FootStepInterval = 0.4f;
     private float TimeSinceLastFootStep = 0f;
     private bool IsMoving;
+    public int PlayerSpeedSetting;
+    public bool Debug_OverrideSpeedSetting = false;
+    public bool IsOnTerrain = true;
+
+    private Vector3 ExtraVector;
  
 
     public List<System.Func<float>> speedOverrides = new List<System.Func<float>>(); // This took me AGES
@@ -37,12 +42,18 @@ public class MovementScript : MonoBehaviour
         {
             AlreadyUnlocked = true;
         }
+        PlayerSpeedSetting = PlayerPrefs.GetInt("Speed_Setting");
+        if (Debug_OverrideSpeedSetting == false)
+        {
+            speed = (float)PlayerSpeedSetting;
+        }
+        SnapToGround();
     }
 
     void FixedUpdate()
     {
-        
-       
+
+            OnTerrainCheck();
             if (Map.activeSelf == false && PauseScript.EscapeMenu == false)
             {
 
@@ -60,12 +71,20 @@ public class MovementScript : MonoBehaviour
                     PlayerMoveSpeed = speed;
                 }
                 Vector3 TargetVelocity = RotatedDirection * PlayerMoveSpeed;
+            //Debug.Log(rigidbody.velocity.y);
+            if (rigidbody.velocity.y >= 0f)
+            {
+                rigidbody.velocity = new Vector3(TargetVelocity.x, 0f, TargetVelocity.z);
 
+            } else
+            {
                 rigidbody.velocity = new Vector3(TargetVelocity.x, rigidbody.velocity.y, TargetVelocity.z);
+
+            }
                 IsMoving = TargetVelocity.magnitude > 0.2f; //This feels advanced to know
-                if (IsMoving)
+                if (IsMoving && IsOnTerrain)
                 {
-                    TimeSinceLastFootStep += Time.fixedDeltaTime;
+                TimeSinceLastFootStep += Time.fixedDeltaTime;
                     if (TimeSinceLastFootStep >= FootStepInterval)
                     {
                         AudioScript.PlaySound("Footstep");
@@ -94,7 +113,7 @@ public class MovementScript : MonoBehaviour
 
 
 
-
+        
     
     }
 
@@ -106,4 +125,27 @@ public class MovementScript : MonoBehaviour
             AlreadyUnlocked = true;
         }
     }
+
+    private void SnapToGround()
+    {
+        RaycastHit MyRay;
+        if (Physics.Raycast(transform.position, Vector3.down, out MyRay, 1000f))
+        {
+            transform.position = new Vector3(transform.position.x, MyRay.point.y, transform.position.z);
+        }
+    }
+
+    private void OnTerrainCheck()
+    {
+        RaycastHit MyRay2;
+        ExtraVector = new Vector3(transform.position.x, transform.position.y + 0.5f, transform.position.z);
+        if (Physics.Raycast(ExtraVector, Vector3.down, out MyRay2, 1f))
+        {
+            IsOnTerrain = true;
+        } else
+        {
+            IsOnTerrain = false;
+        }
+    }
+    
 }

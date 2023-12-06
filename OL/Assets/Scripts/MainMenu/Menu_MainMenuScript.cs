@@ -16,6 +16,7 @@ public class Menu_MainMenuScript : MonoBehaviour //MainMenuScript is the Script 
     public GameObject ChooseMenu;
     public GameObject Achievements;
     public GameObject Statistics;
+    public GameObject IngameSettings;
     public TMP_Dropdown QualitySettingsDropDown;
     public TMP_Dropdown ShadowSettingDropDown;
     private bool Fade;
@@ -65,7 +66,8 @@ public class Menu_MainMenuScript : MonoBehaviour //MainMenuScript is the Script 
         ChooseMenu.SetActive(false);
         Achievements.SetActive(false);
         Statistics.SetActive(false);
-        
+        IngameSettings.SetActive(false);
+
         AssignAudioVolume();
         AssignShadowsOnOff();//IMPORTANT: Needs to be BEFORE AssignQualityDropDown
         AssignQualityDropDown();
@@ -253,6 +255,7 @@ public class Menu_MainMenuScript : MonoBehaviour //MainMenuScript is the Script 
         MainMenu.SetActive(false);
         PlayMenu.SetActive(false);
         Statistics.SetActive(false);
+        IngameSettings.SetActive(false);
         AudioScript.PlaySound("Select1");
     }
 
@@ -352,6 +355,13 @@ public class Menu_MainMenuScript : MonoBehaviour //MainMenuScript is the Script 
             Debug.Log("ExtraSound got called!");
             AudioScript.PlaySound("Tick2");
         }
+    }
+
+    public void ChangeToIngameSettings()
+    {
+        Settings.SetActive(false);
+        IngameSettings.SetActive(true);
+        AudioScript.PlaySound("Select1");
     }
 
 
