@@ -10,15 +10,15 @@ public class Menu_CompassChooser : MonoBehaviour
     public GameObject Compass2;
     public GameObject Compass3;
     public GameObject Compass4;
+    public Vector3 LerpTo;
+    public Vector3 LerpToPast;
+    public bool HasToLerp = false;
     public List<int> Unlocked = new List<int>();
     private AudioHandler AudioScript;
 
 
 
-    void Update()
-    {
-
-    }
+    
     public void Reset()
     {
         CompassChosen = 1;
@@ -32,6 +32,8 @@ public class Menu_CompassChooser : MonoBehaviour
     }
     void Start()
     {
+        LerpToPast = new Vector3(0f, 0f, 0f);
+        LerpTo = new Vector3(0f, 0f, 0f);
         AudioScript = GameObject.Find("FullAudioHandler").GetComponent<AudioHandler>();
         
         //PlayerPrefs.SetInt("Compass_4", 1);
@@ -162,24 +164,48 @@ public class Menu_CompassChooser : MonoBehaviour
         }
     }
 
+    void Update()
+    {
+        if (HasToLerp)
+        {
+            Highlighter.transform.position = Vector3.Lerp(Highlighter.transform.position, LerpTo, 20f * Time.deltaTime);
+            if (Vector3.Distance(Highlighter.transform.position, LerpTo) <= 0.1f)
+            {
+                HasToLerp = false;
+            }
+            //Nothing
+        }
+    }
 
     public void AssignHighlighter(int Comp)
     {
         if (Comp == 1)
         {
-            Highlighter.transform.position = new Vector3(Compass1.transform.position.x, Compass1.transform.position.y, Compass1.transform.position.z);
+            LerpToPast = Highlighter.transform.position;
+            LerpTo = new Vector3(Compass1.transform.position.x, Compass1.transform.position.y, Compass1.transform.position.z);
+            HasToLerp = true;
+            //Highlighter.transform.position = new Vector3(Compass1.transform.position.x, Compass1.transform.position.y, Compass1.transform.position.z);
         }
         else if (Comp == 2)
         {
-            Highlighter.transform.position = new Vector3(Compass2.transform.position.x, Compass2.transform.position.y, Compass2.transform.position.z);
+            LerpToPast = Highlighter.transform.position;
+            LerpTo = new Vector3(Compass2.transform.position.x, Compass2.transform.position.y, Compass2.transform.position.z);
+            HasToLerp = true;
+            //Highlighter.transform.position = new Vector3(Compass2.transform.position.x, Compass2.transform.position.y, Compass2.transform.position.z);
         }
         else if (Comp == 3)
         {
-            Highlighter.transform.position = new Vector3(Compass3.transform.position.x, Compass3.transform.position.y, Compass3.transform.position.z);
+            LerpToPast = Highlighter.transform.position;
+            LerpTo = new Vector3(Compass3.transform.position.x, Compass3.transform.position.y, Compass3.transform.position.z);
+            HasToLerp = true;
+            //Highlighter.transform.position = new Vector3(Compass3.transform.position.x, Compass3.transform.position.y, Compass3.transform.position.z);
         } else if (Comp == 4)
         {
-            Highlighter.transform.position = new Vector3(Compass4.transform.position.x, Compass4.transform.position.y, Compass4.transform.position.z);
-            
+            LerpToPast = Highlighter.transform.position;
+            LerpTo = new Vector3(Compass4.transform.position.x, Compass4.transform.position.y, Compass4.transform.position.z);
+            HasToLerp = true;
+            //Highlighter.transform.position = new Vector3(Compass4.transform.position.x, Compass4.transform.position.y, Compass4.transform.position.z);
+
         }
     }
 }
