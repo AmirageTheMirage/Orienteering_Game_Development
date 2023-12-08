@@ -6,6 +6,7 @@ public class Menu_CompassChooser : MonoBehaviour
 {
     public int CompassChosen = 1;
     public GameObject Highlighter;
+    public GameObject Compass0;
     public GameObject Compass1;
     public GameObject Compass2;
     public GameObject Compass3;
@@ -21,6 +22,7 @@ public class Menu_CompassChooser : MonoBehaviour
     
     public void Reset()
     {
+        Debug.Log("Reset in MenuCompassChooser got called!");
         CompassChosen = 1;
         PlayerPrefs.SetInt("Compass_Setting", CompassChosen); //When reset, set 1st Compass to chosen
         PlayerPrefs.SetInt("Compass_1", 1);
@@ -43,7 +45,7 @@ public class Menu_CompassChooser : MonoBehaviour
     }
     void ReStart()
     {
-        Unlocked.Clear();
+        Unlocked.Clear(); //The Array/List "Unlocked" is also for Locked Compasses, its to determine which ones are actually unlocked and which ones are still locked.
         //Debug.Log(Unlocked[0]);
         PlayerPrefs.SetInt("Compass_1", 1);
         PlayerPrefs.Save();
@@ -126,33 +128,48 @@ public class Menu_CompassChooser : MonoBehaviour
        // Debug.Log(PlayerPrefs.GetInt("Compass_3")); // => 0, means its a Problem of the unlocked assignment.
 
 
-
+        
         if (PlayerPrefs.HasKey("Compass_Setting")) //So in case the player loads with a compass that isnt unlocked, then automatically go back to Compass Number 1
         {
 
             CompassChosen = PlayerPrefs.GetInt("Compass_Setting");
-            if (Unlocked[CompassChosen - 1] == 0) // If It's equipped but isn't unlocked
+            if (CompassChosen != 0)
             {
-                CompassChosen = 1;
-                PlayerPrefs.SetInt("Compass_Setting", CompassChosen);
-                PlayerPrefs.Save();
+                if (Unlocked[CompassChosen - 1] == 0) // If It's equipped but isn't unlocked
+                {
+                    CompassChosen = 1;
+                    PlayerPrefs.SetInt("Compass_Setting", CompassChosen);
+                    PlayerPrefs.Save();
 
+                }
             }
         }
         else
         {
-            PlayerPrefs.SetInt("Compass_Setting", CompassChosen); //By Default its gonna be 1
+            PlayerPrefs.SetInt("Compass_Setting", CompassChosen); //By Default it's gonna be 1
             PlayerPrefs.Save();
         }
 
-        
+        Debug.Log(PlayerPrefs.GetInt("Compass_Setting"));
         AssignHighlighter(CompassChosen);
     }
 
     public void ChooseComp(int Comp)
     {
-        
         int CompMinusOne = Comp - 1;
+        if (Comp == 0)
+        {
+            AudioScript.PlaySound("Select3");
+            Debug.Log("Compass " + Comp + " is unlocked!");
+            CompassChosen = Comp;
+            PlayerPrefs.SetInt("Compass_Setting", CompassChosen);
+            PlayerPrefs.Save();
+            Debug.Log(CompassChosen);
+            AssignHighlighter(Comp);
+
+
+        } else
+        {
         if (Unlocked[CompMinusOne] == 1) {
             AudioScript.PlaySound("Select3");
             Debug.Log("Compass " + Comp + " is unlocked!");
@@ -162,6 +179,9 @@ public class Menu_CompassChooser : MonoBehaviour
             Debug.Log(CompassChosen);
             AssignHighlighter(Comp);
         }
+
+        }
+        
     }
 
     void Update()
@@ -179,7 +199,12 @@ public class Menu_CompassChooser : MonoBehaviour
 
     public void AssignHighlighter(int Comp)
     {
-        if (Comp == 1)
+        if (Comp == 0)
+        {
+            LerpToPast = Highlighter.transform.position;
+            LerpTo = new Vector3(Compass0.transform.position.x, Compass0.transform.position.y, Compass0.transform.position.z);
+            HasToLerp = true;
+        } else  if (Comp == 1)
         {
             LerpToPast = Highlighter.transform.position;
             LerpTo = new Vector3(Compass1.transform.position.x, Compass1.transform.position.y, Compass1.transform.position.z);

@@ -29,9 +29,11 @@ public class CollisionFinisher : MonoBehaviour
 
     public float Speed = 2f;
     public bool ShowLoading = true;
+    public int CompassChosen;
 
     void Start()
     {
+        CompassChosen = PlayerPrefs.GetInt("Compass_Setting");
         AudioScript = GameObject.Find("FullAudioHandler").GetComponent<AudioHandler>(); //Get Audio Script
         
         IsMaze = IsMapMazeScript.IsMaze;
@@ -75,6 +77,15 @@ public class CollisionFinisher : MonoBehaviour
             //        AchievScript.UnlockAchievement(4); //Deleted ones
             //    }
             //}
+
+            if (IsMaze == false )
+            {
+                if (Difficulty == 3 && CompassChosen == 0)
+                {
+                    AchievScript.UnlockAchievement(13); //Why would you not use a Compass... ?
+                    
+                }
+            }
             alreadyfading = true;
             touching = true;
             Fader.SetActive(true);

@@ -213,6 +213,13 @@ public class AchievementHandler : MonoBehaviour
                 Description.text = "You got stuck in thorns.";
                 PlayerPrefs.SetInt("Achievement_12", 1);
             }
+            else if (AchievementName == 13)
+            {
+                UnlockCompassToo.SetActive(false);
+                TitleText.text = "Who needs a compass?";
+                Description.text = "Find a 'Hard'-Post with no compass equipped.";
+                PlayerPrefs.SetInt("Achievement_13", 1);
+            }
             PlayerPrefs.Save();
             if (AlreadySliding == false)
             {
