@@ -19,10 +19,14 @@ public class Orienteering_MapObjectHandler : MonoBehaviour
     public GameObject Compass;
     public bool IsMaze;
     private AudioHandler AudioScript;
+    public Vector2 GoToPos;
+    public bool FirstTimeMoving = true;
+    public float Dis = 0f;
     
 
     void Start()
     {
+        
         AudioScript = GameObject.Find("FullAudioHandler").GetComponent<AudioHandler>();
         UI_Player.SetActive(false);
         UI_Target.SetActive(false);
@@ -30,9 +34,21 @@ public class Orienteering_MapObjectHandler : MonoBehaviour
         EndUI.SetActive(false);
         Compass.SetActive(true);
     }
-
+    void FixedUpdate()
+    {
+        if (FirstTimeMoving == false)
+        {
+            Dis = Vector2.Distance(GoToPos, UI_Player.GetComponent<RectTransform>().anchoredPosition);
+            
+            if (Dis >= 0.1f)
+            {
+                UI_Player.GetComponent<RectTransform>().anchoredPosition = Vector2.Lerp(UI_Player.GetComponent<RectTransform>().anchoredPosition, GoToPos, 0.5f);
+            }
+        }
+    }
     void Update()
     {
+        
         if (MapUI.activeSelf)
         {
             SideUI.SetActive(true); //Map Side UI for Orienteering Mode
@@ -97,8 +113,15 @@ public class Orienteering_MapObjectHandler : MonoBehaviour
 
         Vector2 localMousePosition;
         RectTransformUtility.ScreenPointToLocalPointInRectangle(canvasRectTransform, new Vector2(x, y), null, out localMousePosition);
-
-        UI_Player.GetComponent<RectTransform>().anchoredPosition = localMousePosition;
+        if (FirstTimeMoving)
+        {
+            UI_Player.GetComponent<RectTransform>().anchoredPosition = localMousePosition;
+            GoToPos = localMousePosition;
+            FirstTimeMoving = false;
+        } else
+        {
+            GoToPos = localMousePosition;
+        }
     }
 
     public void EndOfTheMode() //If Button is pressed, go to EndUI Mode

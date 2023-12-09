@@ -1033,6 +1033,9 @@ MonoBehaviour:
   LoadingScreenStuff: {fileID: 5923594310473119388}
   AchievementUnlocker: {fileID: 0}
   IsMapMazeScript: {fileID: 0}
+  MazeCorrection: 15
+  LoadingBool: 0
+  TimeScript: {fileID: 0}
 --- !u!1 &5923594311804491772
 GameObject:
   m_ObjectHideFlags: 0

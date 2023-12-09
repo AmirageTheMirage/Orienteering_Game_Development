@@ -14,6 +14,7 @@ public class PauseMenuScript : MonoBehaviour
     public GameObject Compass;
     public GameObject Fader;
     public Orienteering_MapObjectHandler Orienteering_Handler;
+    public GameObject TimerObject;
     private AudioHandler AudioScript; //AudioScript.PlaySound("Select3");
     // Start is called before the first frame update
     void Start()
@@ -22,6 +23,7 @@ public class PauseMenuScript : MonoBehaviour
         EscapeMenu = false;
         TheMainMenu.SetActive(false);
         Compass.SetActive(true);
+        TimerObject.SetActive(true);
     }
 
     // Update is called once per frame
@@ -39,6 +41,7 @@ public class PauseMenuScript : MonoBehaviour
                 if (Orienteering_Handler.ended == false)
                 {
                     Compass.SetActive(true);
+                    TimerObject.SetActive(true);
                 }
                 
             }
@@ -53,6 +56,7 @@ public class PauseMenuScript : MonoBehaviour
                 TheMainMenu.SetActive(true);
                 Cursor.lockState = CursorLockMode.None;
                 Compass.SetActive(false);
+                TimerObject.SetActive(false);
                 
             }
             

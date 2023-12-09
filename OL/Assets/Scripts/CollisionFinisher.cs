@@ -30,7 +30,7 @@ public class CollisionFinisher : MonoBehaviour
     public float Speed = 2f;
     public bool ShowLoading = true;
     public int CompassChosen;
-
+    public TimerScript TimeScript;
     void Start()
     {
         CompassChosen = PlayerPrefs.GetInt("Compass_Setting");
@@ -61,6 +61,7 @@ public class CollisionFinisher : MonoBehaviour
 
         if (MyNameAsInt == numberofendposten && alreadyfading == false && AchievScript.FramesInScene > 19)
         {
+            TimeScript.TimerRunning = false;
             if (AchievScript.SceneryInt == 1 || AchievScript.SceneryInt == 2) //Mastery Progress
             {
                 AchievScript.Mastery(AchievScript.SceneryInt);
@@ -89,7 +90,7 @@ public class CollisionFinisher : MonoBehaviour
             alreadyfading = true;
             touching = true;
             Fader.SetActive(true);
-            StartFade = true;
+            
             AudioScript.PlaySound("Select2");
             FP = 0f;
             //STATISTICS:
@@ -121,13 +122,20 @@ public class CollisionFinisher : MonoBehaviour
                     PlayerPrefs.Save();
                 }
             }
+            StartCoroutine(DelayEnding());
             
 
         }
         
     }
 
+    public IEnumerator DelayEnding()
+    {
+        yield return new WaitForSeconds(2);
+        StartFade = true;
+        TimeScript.HideTextElement();
 
+    }
     void Update()
     {
         if (StartFade == true)

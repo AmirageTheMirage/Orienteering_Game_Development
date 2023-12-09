@@ -37,6 +37,7 @@ public class Menu_MainMenuScript : MonoBehaviour //MainMenuScript is the Script 
     public float Speed = 2f;
     private AudioHandler AudioScript;
     private float StartCooldown = 0.4f;
+    
 
 
 
@@ -49,7 +50,7 @@ public class Menu_MainMenuScript : MonoBehaviour //MainMenuScript is the Script 
     void Awake()
     {
         AudioScript = GameObject.Find("FullAudioHandler").GetComponent<AudioHandler>();
-        //AudioListener.volume = 0.5f;
+        AudioListener.volume = 0.5f;
         if (PlayerPrefs.GetInt("TutorialAbsolved") != 1)
         {
             SceneManager.LoadScene("TutorialScene");
@@ -57,6 +58,48 @@ public class Menu_MainMenuScript : MonoBehaviour //MainMenuScript is the Script 
         {
             OverrideObject.SetActive(false);
         }
+
+        ////Timer Statistics:
+        //if (PlayerPrefs.HasKey("Statistics_TimerPostNumber"))
+        //{
+        //    Debug.Log("Statistics_TimerPostNumber exists.");
+        //} else
+        //{
+        //    Debug.Log("Statistics_TimerPostNumber didn't exist.");
+        //    PlayerPref.SetInt("Statistics_TimerPostNumber", 0);
+        //}
+
+        //if (PlayerPrefs.HasKey("Statistics_TimerPostTimes"))
+        //{
+        //    Debug.Log("Statistics_TimerPostTimes exists.");
+        //}
+        //else
+        //{
+        //    Debug.Log("Statistics_TimerPostTimes didn't exist.");
+        //    PlayerPref.SetInt("Statistics_TimerPostTimes", 0);
+        //}
+
+
+        //if (PlayerPrefs.HasKey("Statistics_TimerOrientNumber"))
+        //{
+        //    Debug.Log("Statistics_TimerOrientNumber exists.");
+        //}
+        //else
+        //{
+        //    Debug.Log("Statistics_TimerOrientNumber didn't exist.");
+        //    PlayerPref.SetInt("Statistics_TimerOrientNumber", 0);
+        //}
+
+        //if (PlayerPrefs.HasKey("Statistics_TimerOrientTimes"))
+        //{
+        //    Debug.Log("Statistics_TimerOrientTimes exists.");
+        //}
+        //else
+        //{
+        //    Debug.Log("Statistics_TimerOrientTimes didn't exist.");
+        //    PlayerPref.SetInt("Statistics_TimerOrientTimes", 0);
+        //}
+        
         Cursor.lockState = CursorLockMode.None;
         MainMenu.SetActive(true);
         Settings.SetActive(false);

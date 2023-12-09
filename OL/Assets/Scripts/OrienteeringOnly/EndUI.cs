@@ -38,9 +38,11 @@ public class EndUI : MonoBehaviour
     private int FogSettings;
     private int UsingCode = 0;
     public bool LoadingBool = false;
+    public TimerScript TimeScript;
     //public AchievementHandler AchievementUnlocker;
     void Start()
     {
+        TimeScript.TimerRunning = false;
         UsingCode = PlayerPrefs.GetInt("UseCode_Setting");
         Debug.Log("Using Code: " + UsingCode);
         AudioScript = GameObject.Find("FullAudioHandler").GetComponent<AudioHandler>();
@@ -269,6 +271,7 @@ public class EndUI : MonoBehaviour
     public void RestartTheLevel()
     {
         AudioScript.PlaySound("Select1");
+        TimeScript.HideTextElement();
         Fade = true;
         Fader.SetActive(true);
         FP = 0f;

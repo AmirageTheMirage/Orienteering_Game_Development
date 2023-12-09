@@ -20,7 +20,8 @@ public class LookAround : MonoBehaviour
         Sensitivity = 120f; 
         //Application.targetFrameRate = 60;
         Cursor.lockState = CursorLockMode.Locked;
-        character.localRotation = Quaternion.Euler(0, 0, 0);
+        //character.eulerAngles = new Vector3(0f, 0f, 0f);
+        CurrentRotation = new Vector2(Random.Range(-180f, 180f), 0f);
 
     }
 
