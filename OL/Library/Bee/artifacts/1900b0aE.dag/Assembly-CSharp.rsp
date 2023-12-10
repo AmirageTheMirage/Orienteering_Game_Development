@@ -352,6 +352,7 @@
 "Assets/Scripts/CloudSpawner.cs"
 "Assets/Scripts/CollisionFinisher.cs"
 "Assets/Scripts/Compass.cs"
+"Assets/Scripts/CustomCamera.cs"
 "Assets/Scripts/EasterEgg1.cs"
 "Assets/Scripts/FadePlus.cs"
 "Assets/Scripts/GameCode_Make.cs"
