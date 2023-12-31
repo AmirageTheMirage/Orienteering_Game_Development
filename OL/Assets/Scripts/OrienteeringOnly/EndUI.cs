@@ -116,9 +116,13 @@ public class EndUI : MonoBehaviour
                         else if (MapSettings == 2)
                         {
                             SceneManager.LoadScene(3); //Maze 1
-                        } else
+                        } else if (MapSettings == 3)
                         {
                             SceneManager.LoadScene(5); //Scene 4 is TutorialScene, this here is Forest 3
+                        }
+                        else if (MapSettings == 4) //Martinsflue
+                        {
+                            SceneManager.LoadScene(6);
                         }
                     }
                 }

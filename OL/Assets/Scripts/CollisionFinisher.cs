@@ -180,9 +180,13 @@ public class CollisionFinisher : MonoBehaviour
                         else if (MapSettings == 2)
                         {
                             SceneManager.LoadScene(3); //Maze 1
-                        } else
+                        } else if (MapSettings == 3)
                         {
                             SceneManager.LoadScene(5);
+                        }
+                        else if (MapSettings == 4) //Martinsflue
+                        {
+                            SceneManager.LoadScene(6);
                         }
                     }
                 }

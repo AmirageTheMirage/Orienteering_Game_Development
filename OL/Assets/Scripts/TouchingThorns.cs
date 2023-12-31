@@ -3,7 +3,7 @@ using UnityEngine;
 public class TouchingThorns : MonoBehaviour
 {
     public bool IsTouchingThorns = false;
-    private float RayDistance = 10f;
+    private float RayDistance = 50f;
     public GameObject ThornRaycaster;
     public AchievementHandler AchievementScript;
 

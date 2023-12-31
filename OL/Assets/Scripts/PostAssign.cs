@@ -25,6 +25,12 @@ public class PostAssign : MonoBehaviour
     string[] Forest3EasyPosts = new string[] { "157", "159", "161", "162", "165" };
     string[] Forest3MidPosts = new string[] { "157", "159", "161", "162", "165", "154", "155", "156", "163", "166" };
     string[] Forest3HardPosts = new string[] { "157", "159", "161", "162", "165", "154", "155", "156", "163", "166", "150", "151", "152", "153", "158", "160", "164" };
+
+
+    string[] Forest4EasyPosts = new string[] { "153", "157", "163", "166" };
+    string[] Forest4MidPosts = new string[] { "153", "157", "163", "166", "151", "154", "156", "158", "164", "165"};
+
+    string[] Forest4HardPosts = new string[] { "157", "159", "161", "162", "165", "154", "155", "156", "163", "166", "150", "151", "152", "153", "158", "160", "164" };
     
 
 
@@ -35,6 +41,7 @@ public class PostAssign : MonoBehaviour
     
     int startposten = 0;
     public int MapSetting;
+    
     //string Forest1MidPosts = "";
     //string Forest1HardPosts = "";
     // Start is called before the first frame update
@@ -72,11 +79,16 @@ public class PostAssign : MonoBehaviour
                 EasySelection = Forest2HardPosts;
                 MidSelection = Forest2HardPosts;
                 HardSelection = Forest2HardPosts; //Maze = No Difficulty Changing, so all posts always
-            } else
+            } else if (MapSetting == 3)
             {
                 EasySelection = Forest3EasyPosts;
                 MidSelection = Forest3MidPosts;
                 HardSelection = Forest3HardPosts;
+            } else
+            {
+                EasySelection = Forest4EasyPosts;
+                MidSelection = Forest4MidPosts;
+                HardSelection = Forest4HardPosts;
             }
             if (Difficulty == 1) //Depending on Difficulty
             {

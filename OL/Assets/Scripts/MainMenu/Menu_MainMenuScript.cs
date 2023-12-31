@@ -153,9 +153,13 @@ public class Menu_MainMenuScript : MonoBehaviour //MainMenuScript is the Script 
                     else if (MapSettings == 2)
                     {
                         SceneManager.LoadScene(3); //Maze 1
-                    } else
+                    } else if (MapSettings == 3)
                     {
                         SceneManager.LoadScene(5); // (5 bc 4 is Tutorial)
+                    }
+                    else if (MapSettings == 4) //Martinsflue
+                    {
+                        SceneManager.LoadScene(6);
                     }
                 }
             }

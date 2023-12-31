@@ -376,6 +376,7 @@
 "Assets/Scripts/MapHandler.cs"
 "Assets/Scripts/MoveClouds.cs"
 "Assets/Scripts/MovementScript.cs"
+"Assets/Scripts/OldMovement.cs"
 "Assets/Scripts/OrienteeringOnly/EndUI.cs"
 "Assets/Scripts/OrienteeringOnly/OrienteeringMode_PostAssign.cs"
 "Assets/Scripts/OrienteeringOnly/Orienteering_MapObjectHandler.cs"
