@@ -29827,8 +29827,85 @@ PrefabInstance:
       propertyPath: PlayerOrienteering
       value: 
       objectReference: {fileID: 1284779519}
+    - target: {fileID: 2364749382143563052, guid: 5bde709376618894cbd0d81e04ab82d5, type: 3}
+      propertyPath: PlayerPosts
+      value: 
+      objectReference: {fileID: 899784184583859379}
+    - target: {fileID: 2364749382143563052, guid: 5bde709376618894cbd0d81e04ab82d5, type: 3}
+      propertyPath: NadelTransform
+      value: 
+      objectReference: {fileID: 431661881872086890}
+    - target: {fileID: 2364749382143563052, guid: 5bde709376618894cbd0d81e04ab82d5, type: 3}
+      propertyPath: PlayerOrienteering
+      value: 
+      objectReference: {fileID: 1284779519}
+    - target: {fileID: 2364749382194357385, guid: 5bde709376618894cbd0d81e04ab82d5, type: 3}
+      propertyPath: PlayerPosts
+      value: 
+      objectReference: {fileID: 899784184583859379}
+    - target: {fileID: 2364749382194357385, guid: 5bde709376618894cbd0d81e04ab82d5, type: 3}
+      propertyPath: NadelTransform
+      value: 
+      objectReference: {fileID: 431661881872086890}
+    - target: {fileID: 2364749382194357385, guid: 5bde709376618894cbd0d81e04ab82d5, type: 3}
+      propertyPath: PlayerOrienteering
+      value: 
+      objectReference: {fileID: 1284779519}
+    - target: {fileID: 2364749382900347302, guid: 5bde709376618894cbd0d81e04ab82d5, type: 3}
+      propertyPath: PlayerPosts
+      value: 
+      objectReference: {fileID: 899784184583859379}
+    - target: {fileID: 2364749382900347302, guid: 5bde709376618894cbd0d81e04ab82d5, type: 3}
+      propertyPath: NadelTransform
+      value: 
+      objectReference: {fileID: 431661881872086890}
+    - target: {fileID: 2364749382900347302, guid: 5bde709376618894cbd0d81e04ab82d5, type: 3}
+      propertyPath: PlayerOrienteering
+      value: 
+      objectReference: {fileID: 1284779519}
+    - target: {fileID: 5624805398806330124, guid: 5bde709376618894cbd0d81e04ab82d5, type: 3}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5624805398806330124, guid: 5bde709376618894cbd0d81e04ab82d5, type: 3}
+      propertyPath: PlayerPosts
+      value: 
+      objectReference: {fileID: 899784184583859379}
+    - target: {fileID: 5624805398806330124, guid: 5bde709376618894cbd0d81e04ab82d5, type: 3}
+      propertyPath: RotationSpeed
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 5624805398806330124, guid: 5bde709376618894cbd0d81e04ab82d5, type: 3}
+      propertyPath: NadelTransform
+      value: 
+      objectReference: {fileID: 431661881872086890}
+    - target: {fileID: 5624805398806330124, guid: 5bde709376618894cbd0d81e04ab82d5, type: 3}
+      propertyPath: PlayerOrienteering
+      value: 
+      objectReference: {fileID: 1284779519}
+    - target: {fileID: 8636009731804641984, guid: 5bde709376618894cbd0d81e04ab82d5, type: 3}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8636009731804641984, guid: 5bde709376618894cbd0d81e04ab82d5, type: 3}
+      propertyPath: PlayerPosts
+      value: 
+      objectReference: {fileID: 899784184583859379}
+    - target: {fileID: 8636009731804641984, guid: 5bde709376618894cbd0d81e04ab82d5, type: 3}
+      propertyPath: NadelTransform
+      value: 
+      objectReference: {fileID: 431661881872086890}
+    - target: {fileID: 8636009731804641984, guid: 5bde709376618894cbd0d81e04ab82d5, type: 3}
+      propertyPath: PlayerOrienteering
+      value: 
+      objectReference: {fileID: 1284779519}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 5bde709376618894cbd0d81e04ab82d5, type: 3}
+--- !u!224 &431661881872086890 stripped
+RectTransform:
+  m_CorrespondingSourceObject: {fileID: 431661881310679260, guid: 5bde709376618894cbd0d81e04ab82d5, type: 3}
+  m_PrefabInstance: {fileID: 431661881872086889}
+  m_PrefabAsset: {fileID: 0}
 --- !u!33 &869110475552071147
 MeshFilter:
   m_ObjectHideFlags: 0

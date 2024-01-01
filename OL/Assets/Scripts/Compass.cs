@@ -7,22 +7,29 @@ public class Compass : MonoBehaviour
     public RectTransform NadelTransform;
     public float RotationSpeed = 2f; //Stops Lag I think?????
     private int Mode;
+    public GameObject NeedleToTurn;
+    public int CompassChosen;
 
     private Quaternion targetRotation;
 
     void Start()
     {
-        
-        NadelTransform = GetComponent<RectTransform>();
-        if (PlayerPrefs.GetInt("UseCode_Setting") == 1)
+        CompassChosen = PlayerPrefs.GetInt("Compass_Setting");
+        Debug.Log("CompassSetting: " + CompassChosen.ToString());
+        if (CompassChosen != 0)
         {
-            Mode = PlayerPrefs.GetInt("ModePart_Code");
+            NeedleToTurn = transform.Find(CompassChosen.ToString()).gameObject;
+            NeedleToTurn = NeedleToTurn.transform.Find("Nadel".ToString()).gameObject;
+            NadelTransform = NeedleToTurn.GetComponent<RectTransform>();
+            if (PlayerPrefs.GetInt("UseCode_Setting") == 1)
+            {
+                Mode = PlayerPrefs.GetInt("ModePart_Code");
+            }
+            else
+            {
+                Mode = PlayerPrefs.GetInt("ModeDropdown_Setting");
+            }
         }
-        else
-        {
-            Mode = PlayerPrefs.GetInt("ModeDropdown_Setting");
-        }
-
     }
 
     void Update()

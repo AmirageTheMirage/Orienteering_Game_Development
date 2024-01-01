@@ -11,6 +11,7 @@ public class Menu_CompassChooser : MonoBehaviour
     public GameObject Compass2;
     public GameObject Compass3;
     public GameObject Compass4;
+    public GameObject Compass5;
     public Vector3 LerpTo;
     public Vector3 LerpToPast;
     public bool HasToLerp = false;
@@ -29,11 +30,14 @@ public class Menu_CompassChooser : MonoBehaviour
         PlayerPrefs.SetInt("Compass_2", 0);
         PlayerPrefs.SetInt("Compass_3", 0);
         PlayerPrefs.SetInt("Compass_4", 0);
+        PlayerPrefs.SetInt("Compass_5", 0);
         PlayerPrefs.Save();
         ReStart();
     }
     void Start()
     {
+
+       
         LerpToPast = new Vector3(0f, 0f, 0f);
         LerpTo = new Vector3(0f, 0f, 0f);
         AudioScript = GameObject.Find("FullAudioHandler").GetComponent<AudioHandler>();
@@ -65,7 +69,7 @@ public class Menu_CompassChooser : MonoBehaviour
         //First Compass = AlwaysUnlocked
 
 
-        for (int i = 1; i <= 4; i++) //Fetch from PlayerPrefs, Change the 4 if I add more compasses
+        for (int i = 1; i <= 5; i++) //Fetch from PlayerPrefs, Change the 5 if I add more compasses
         {
             string currentstringname = "Compass_" + i.ToString();
             if (PlayerPrefs.HasKey(currentstringname))
@@ -99,8 +103,13 @@ public class Menu_CompassChooser : MonoBehaviour
             } else if (i == 4)
             {
                 currentCompass = Compass4;
+
+            } else if (i == 5)
+            {
+                currentCompass = Compass5;
             } else
             {
+
                 Debug.Log("There is no instance of i = " + i);
             }
 
@@ -231,6 +240,11 @@ public class Menu_CompassChooser : MonoBehaviour
             HasToLerp = true;
             //Highlighter.transform.position = new Vector3(Compass4.transform.position.x, Compass4.transform.position.y, Compass4.transform.position.z);
 
+        } else if (Comp == 5)
+        {
+            LerpToPast = Highlighter.transform.position;
+            LerpTo = new Vector3(Compass5.transform.position.x, Compass5.transform.position.y, Compass5.transform.position.z);
+            HasToLerp = true;
         }
     }
 }
