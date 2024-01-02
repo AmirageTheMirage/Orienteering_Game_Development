@@ -10,10 +10,12 @@ public class Menu_GameModeDropdown : MonoBehaviour
     public TMP_Dropdown ModeDropDown;
     public GameObject DifficultySlider;
     private AudioHandler AudioScript;
+    public int MapChosen = 1;
     void Start()
     {
         AudioScript = GameObject.Find("FullAudioHandler").GetComponent<AudioHandler>();
         DifficultySlider.SetActive(true);
+        
         if (PlayerPrefs.HasKey("ModeDropdown_Setting")) //Get Mode, see if it exists
         {
             DropDownValue = PlayerPrefs.GetInt("ModeDropdown_Setting");
@@ -30,7 +32,8 @@ public class Menu_GameModeDropdown : MonoBehaviour
 
         }
         ModeDropDown.onValueChanged.AddListener(OnDropdownValueChanged);
-        if (DropDownValue == 0)
+        MapChosen = PlayerPrefs.GetInt("MapDropdown_Setting");
+        if (DropDownValue == 0 || MapChosen == 4) //(Or If Martinsflue is activated)
         {
             DifficultySlider.SetActive(true);
         }
@@ -46,10 +49,19 @@ public class Menu_GameModeDropdown : MonoBehaviour
         DropDownValue = value;
         PlayerPrefs.SetInt("ModeDropdown_Setting", DropDownValue);
         PlayerPrefs.Save();
-        if (value == 0) //Show Difficulty only when PostAssign Mode
+        
+        
+    }
+
+
+    void FixedUpdate()
+    {
+        MapChosen = PlayerPrefs.GetInt("MapDropdown_Setting");
+        if (DropDownValue == 0 || MapChosen == 4) //Show Difficulty only when PostAssign Mode (Or If Martinsflue is activated)
         {
             DifficultySlider.SetActive(true);
-        } else
+        }
+        else
         {
             DifficultySlider.SetActive(false);
         }

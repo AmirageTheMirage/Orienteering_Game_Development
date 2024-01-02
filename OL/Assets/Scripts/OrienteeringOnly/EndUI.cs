@@ -190,6 +190,18 @@ public class EndUI : MonoBehaviour
             }
 
         } else {
+            if (Distance < 1f)
+            {
+                int XSceneryInt = AchievementUnlocker.SceneryInt; //6
+                int MaxFog = PlayerPrefs.GetInt("Fog_Setting"); //5
+                int SpecialMapChosen = PlayerPrefs.GetInt("SpecialMap_Setting"); //3
+                int CompChosen = PlayerPrefs.GetInt("Compass_Setting"); //0
+                if (XSceneryInt == 6 && MaxFog == 5 && SpecialMapChosen == 3 && CompChosen == 0)
+                {
+                    Debug.Log("Sent Achievement Request for: " + AchievementUnlocker.SceneryInt);
+                    AchievementUnlocker.UnlockAchievement(14);
+                }
+            }
             if (Distance < 10f)
             {
                 RatingText.text = "Perfect";
@@ -199,6 +211,12 @@ public class EndUI : MonoBehaviour
                     {
                         Debug.Log("Sent Mastery Request for: " + AchievementUnlocker.SceneryInt);
                         AchievementUnlocker.Mastery(3);
+                    }
+                    if (AchievementUnlocker.SceneryInt == 6)//MasteryProgress in Martinsflue
+                    {
+                        Debug.Log("Sent Mastery Request for: " + AchievementUnlocker.SceneryInt);
+                        AchievementUnlocker.Mastery(4);
+
                     }
                 }
             }
@@ -249,10 +267,9 @@ public class EndUI : MonoBehaviour
                     {
                         AchievementUnlocker.UnlockAchievement(1);
                     }
-                    else
+                    
+                    if (FogSettings == 5)
                     {
-                        if (FogSettings == 5)
-                        {
                             if (Distance < 1.5f)
                             {
                                 AchievementUnlocker.UnlockAchievement(7);
@@ -262,8 +279,8 @@ public class EndUI : MonoBehaviour
                             //    AchievementUnlocker.UnlockAchievement(6);
                             //}
 
-                        }
                     }
+                    
                 
             } else if (Distance > 300f)
             {

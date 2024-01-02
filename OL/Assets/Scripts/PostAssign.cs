@@ -27,8 +27,8 @@ public class PostAssign : MonoBehaviour
     string[] Forest3HardPosts = new string[] { "157", "159", "161", "162", "165", "154", "155", "156", "163", "166", "150", "151", "152", "153", "158", "160", "164" };
 
 
-    string[] Forest4EasyPosts = new string[] { "153", "157", "163", "166" };
-    string[] Forest4MidPosts = new string[] { "153", "157", "163", "166", "151", "154", "156", "158", "164", "165"};
+   // string[] Forest4EasyPosts = new string[] { "153", "157", "163", "166" };
+    //string[] Forest4MidPosts = new string[] { "153", "157", "163", "166", "151", "154", "156", "158", "164", "165"};
 
     string[] Forest4HardPosts = new string[] { "157", "159", "161", "162", "165", "154", "155", "156", "163", "166", "150", "151", "152", "153", "158", "160", "164" };
     
@@ -86,8 +86,8 @@ public class PostAssign : MonoBehaviour
                 HardSelection = Forest3HardPosts;
             } else
             {
-                EasySelection = Forest4EasyPosts;
-                MidSelection = Forest4MidPosts;
+                EasySelection = Forest4HardPosts;
+                MidSelection = Forest4HardPosts;
                 HardSelection = Forest4HardPosts;
             }
             if (Difficulty == 1) //Depending on Difficulty

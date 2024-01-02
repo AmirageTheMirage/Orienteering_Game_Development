@@ -193,9 +193,11 @@ public class Achievements : MonoBehaviour
         PlayerPrefs.SetInt("Achievement_8", 0);
         PlayerPrefs.SetInt("Achievement_12", 0);
         PlayerPrefs.SetInt("Achievement_13", 0);
+        PlayerPrefs.SetInt("Achievement_14", 0);
         PlayerPrefs.SetInt("MasteryUnlockProgress_1", 0);
         PlayerPrefs.SetInt("MasteryUnlockProgress_2", 0);
         PlayerPrefs.SetInt("MasteryUnlockProgress_3", 0);
+        PlayerPrefs.SetInt("MasteryUnlockProgress_4", 0);
         PlayerPrefs.Save();
         ReStart();
         AudioScript.PlaySound("Select3");

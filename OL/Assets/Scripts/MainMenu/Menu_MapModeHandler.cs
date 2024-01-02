@@ -14,6 +14,8 @@ public class Menu_MapModeHandler : MonoBehaviour
     public GameObject Forest3;
     public GameObject Martinsflue;
     public GameObject SelectDifficultyHideParent;
+    public GameObject SDHP_Normal;
+    public GameObject SDHP_Martinsflue;
     private AudioHandler AudioScript;
 
     // Start is called before the first frame update
@@ -60,6 +62,8 @@ public class Menu_MapModeHandler : MonoBehaviour
             Forest3.SetActive(false);
             Martinsflue.SetActive(false);
             SelectDifficultyHideParent.SetActive(true);
+            SDHP_Normal.SetActive(true);
+            SDHP_Martinsflue.SetActive(false);
         } else if (DropDownValue == 1) // Forest 2
         {
             Forest1.SetActive(false);
@@ -68,6 +72,8 @@ public class Menu_MapModeHandler : MonoBehaviour
             Forest3.SetActive(false);
             Martinsflue.SetActive(false);
             SelectDifficultyHideParent.SetActive(true);
+            SDHP_Normal.SetActive(true);
+            SDHP_Martinsflue.SetActive(false);
         } else if (DropDownValue == 2) // Maze
         {
             Forest1.SetActive(false);
@@ -76,6 +82,8 @@ public class Menu_MapModeHandler : MonoBehaviour
             Forest3.SetActive(false);
             Martinsflue.SetActive(false);
             SelectDifficultyHideParent.SetActive(false);
+            SDHP_Normal.SetActive(true);
+            SDHP_Martinsflue.SetActive(false);
 
         } else if (DropDownValue == 3) //Forest 3
         {
@@ -85,6 +93,8 @@ public class Menu_MapModeHandler : MonoBehaviour
             Forest3.SetActive(true);
             Martinsflue.SetActive(false);
             SelectDifficultyHideParent.SetActive(true);
+            SDHP_Normal.SetActive(true);
+            SDHP_Martinsflue.SetActive(false);
         }
         else if (DropDownValue == 4) //Martinsflue
         {
@@ -94,6 +104,8 @@ public class Menu_MapModeHandler : MonoBehaviour
             Forest3.SetActive(false);
             Martinsflue.SetActive(true);
             SelectDifficultyHideParent.SetActive(true);
+            SDHP_Normal.SetActive(false);
+            SDHP_Martinsflue.SetActive(true);
         }
     }
 }

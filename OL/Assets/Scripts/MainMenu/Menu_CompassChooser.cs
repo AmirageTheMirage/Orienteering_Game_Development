@@ -37,7 +37,7 @@ public class Menu_CompassChooser : MonoBehaviour
     void Start()
     {
 
-       
+        
         LerpToPast = new Vector3(0f, 0f, 0f);
         LerpTo = new Vector3(0f, 0f, 0f);
         AudioScript = GameObject.Find("FullAudioHandler").GetComponent<AudioHandler>();

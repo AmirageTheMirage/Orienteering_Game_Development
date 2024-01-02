@@ -11,6 +11,7 @@ public class AchievementHandler : MonoBehaviour
     public GameObject Compass2;
     public GameObject Compass3;
     public GameObject Compass4;
+    public GameObject Compass5;
     public GameObject Achievement;
     public GameObject TargetObject;
     public GameObject UnlockCompassToo;
@@ -81,7 +82,7 @@ public class AchievementHandler : MonoBehaviour
             MasteryProgress++;
             PlayerPrefs.SetInt(CurrentMasteryPlayerPrefIntName, MasteryProgress);
             PlayerPrefs.Save();
-            if (MasteryProgress == 10)
+            if (MasteryProgress >= 10)
             {
                 Description.text = "";
                 Debug.Log("Mastery Complete!");
@@ -112,6 +113,14 @@ public class AchievementHandler : MonoBehaviour
                     UnlockCompassToo.SetActive(true);
                     PlayerPrefs.SetInt("Compass_4", 1); //Unlock
                     PlayerPrefs.Save();
+                } else if (MasteryInt == 4)
+                {
+                    Compass5.SetActive(true);
+                    TitleText.text = "Martinsflue-Mastery";
+                    UnlockCompassToo.SetActive(true);
+                    PlayerPrefs.SetInt("Compass_5", 1); //Unlock
+                    PlayerPrefs.Save();
+
                 }
                 AlreadySliding = true;
                 StartCoroutine(ShowAchievement());
@@ -219,6 +228,13 @@ public class AchievementHandler : MonoBehaviour
                 TitleText.text = "Who needs a compass?";
                 Description.text = "Find a 'Hard'-Post with no compass equipped.";
                 PlayerPrefs.SetInt("Achievement_13", 1);
+            }
+            else if (AchievementName == 14)
+            {
+                UnlockCompassToo.SetActive(false);
+                TitleText.text = "Ain't Happening";
+                Description.text = "Max. Fog, Martinsflue-\"Stones-Only\"-Map, <1m result, No Compass... Good Luck";
+                PlayerPrefs.SetInt("Achievement_14", 1);
             }
             PlayerPrefs.Save();
             if (AlreadySliding == false)
