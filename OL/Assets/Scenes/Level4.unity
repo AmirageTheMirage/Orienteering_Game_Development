@@ -3114,6 +3114,7 @@ MonoBehaviour:
   Fader: {fileID: 690012029}
   Orienteering_Handler: {fileID: 714345272}
   TimerObject: {fileID: 1207430813}
+  EndUI: {fileID: 4242986531491021326}
 --- !u!1 &266644096
 GameObject:
   m_ObjectHideFlags: 0

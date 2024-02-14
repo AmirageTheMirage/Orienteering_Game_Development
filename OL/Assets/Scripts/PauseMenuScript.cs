@@ -16,6 +16,7 @@ public class PauseMenuScript : MonoBehaviour
     public Orienteering_MapObjectHandler Orienteering_Handler;
     public GameObject TimerObject;
     private AudioHandler AudioScript; //AudioScript.PlaySound("Select3");
+    public GameObject EndUI;
     // Start is called before the first frame update
     void Start()
     {
@@ -29,7 +30,7 @@ public class PauseMenuScript : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (Input.GetKeyDown(KeyCode.Escape) && Fader.activeSelf == false)
+        if (Input.GetKeyDown(KeyCode.Escape) && Fader.activeSelf == false && EndUI.activeSelf == false)
         {
             
             if (EscapeMenu) //Open or close (toggle)
