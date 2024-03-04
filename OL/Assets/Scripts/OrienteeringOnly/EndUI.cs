@@ -20,6 +20,7 @@ public class EndUI : MonoBehaviour
     public AchievementHandler AchievementUnlocker;
     public IsMapMaze IsMapMazeScript;
     public float MazeCorrection = 15f;
+    public GameObject LegendEl;
     private AudioHandler AudioScript;
 
 
@@ -42,6 +43,11 @@ public class EndUI : MonoBehaviour
     //public AchievementHandler AchievementUnlocker;
     void Start()
     {
+        if (LegendEl != null)
+        {
+
+        LegendEl.SetActive(false);
+        }
         TimeScript.TimerRunning = false;
         UsingCode = PlayerPrefs.GetInt("UseCode_Setting");
         Debug.Log("Using Code: " + UsingCode);

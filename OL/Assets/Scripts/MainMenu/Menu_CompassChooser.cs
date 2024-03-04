@@ -197,7 +197,7 @@ public class Menu_CompassChooser : MonoBehaviour
     {
         if (HasToLerp)
         {
-            Highlighter.transform.position = Vector3.Lerp(Highlighter.transform.position, LerpTo, 20f * Time.deltaTime);
+            Highlighter.transform.position = Vector3.Lerp(Highlighter.transform.position, LerpTo, 15f * Time.deltaTime);
             if (Vector3.Distance(Highlighter.transform.position, LerpTo) <= 0.1f)
             {
                 HasToLerp = false;
